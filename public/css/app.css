@@ -1,0 +1,35 @@
+/* Nav-bar */
+.logo {
+    transform: scale(1.5);
+}
+
+.header-img {
+    margin: auto;
+    margin-top: 2%;
+}
+
+.header-img img {
+    transform: scale(1.5);
+}
+
+.sdg-icon img {
+    width: 12.5%;
+    height: 12.5%;
+    margin: 15px 15px;
+    transition: ease-in-out 0.2s;
+}
+
+.sdg-icon img:hover {
+    transform: scale(1.25);
+
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sdg-icon {
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.section.section-sdg-goals {
+    background-color: #007bff
+}
