@@ -138,7 +138,25 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input class="input" type="text" placeholder="type the subgoal">
+                        <div class="select is-fullwidth">
+                            <select>
+                                <option>None</option>
+                                <option>Subgoal 1</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Describe activity</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="describe briefly">
                     </div>
                     <p class="help">
                     </p>
@@ -148,20 +166,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Discribe activity briefly</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <textarea class="textarea" placeholder="Explain your contribution"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Discribe impact</label>
+                <label class="label">Describe impact</label>
             </div>
             <div class="field-body">
                 <div class="field">
