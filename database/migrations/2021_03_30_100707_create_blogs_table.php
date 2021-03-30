@@ -15,11 +15,11 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("course_id");
-            $table->foreignId("business_operation_id");
-            $table->foreignId("research_group_id");
-            $table->foreignId("sdg_id");
-            $table->foreignId("activity_id");
+            $table->foreignId("course_id")->nullable();
+            $table->foreignId("business_operation_id")->nullable();
+            $table->foreignId("research_group_id")->nullable();
+            $table->foreignId("sdg_id")->nullable();
+            $table->foreignId("activity_id")->nullable();
             $table->string("description");
             $table->text("impact");
             $table->string("link");
