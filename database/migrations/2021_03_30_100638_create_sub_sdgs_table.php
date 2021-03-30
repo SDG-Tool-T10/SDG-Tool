@@ -15,7 +15,12 @@ class CreateSubSdgsTable extends Migration
     {
         Schema::create('sub_sdgs', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->text("description");
+            $table->foreignId("sdg_id");
             $table->timestamps();
+
+            $table->foreign("sdg_id")->references("id")->on("sdgs")->cascadeOnDelete();
         });
     }
 

@@ -15,7 +15,24 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("course_id");
+            $table->foreignId("business_operation_id");
+            $table->foreignId("research_group_id");
+            $table->foreignId("sdg_id");
+            $table->foreignId("activity_id");
+            $table->string("description");
+            $table->text("impact");
+            $table->string("link");
+            $table->string("contact_name");
+            $table->string("contact_email");
+            $table->boolean("visibility");
             $table->timestamps();
+
+            $table->foreign("course_id")->references("id")->on("courses")->nullOnDelete();
+            $table->foreign("business_operation_id")->references("id")->on("business_operations")->nullOnDelete();
+            $table->foreign("research_group_id")->references("id")->on("research_groups")->nullOnDelete();
+            $table->foreign("sdg_id")->references("id")->on("sdgs")->nullOnDelete();
+            $table->foreign("activity_id")->references("id")->on("activities")->nullOnDelete();
         });
     }
 
