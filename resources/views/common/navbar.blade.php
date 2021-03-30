@@ -16,6 +16,10 @@
                    class="navbar-item {{ Request::path() === '/' ? "is-active" : "" }}">
                     Dashboard
                 </a>
+                <a href="/blog"
+                   class="navbar-item {{ Request::path() === 'blog' ? "is-active" : "" }}">
+                    Blog
+                </a>
                 <a href="/admin"
                    class="navbar-item {{ Request::path() === 'admin' ? "is-active" : "" }}">
                     Admin
