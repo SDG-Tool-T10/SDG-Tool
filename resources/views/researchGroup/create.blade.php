@@ -6,7 +6,7 @@
             <img src="/image/sdg-header-en.png"/>
         </div>
     </section>
-    <form method="POST" action="/research_group">
+    <form method="POST" action="{{route('research_groups.store')}}">
         @csrf
         <section class="section">
             <div class="field is-horizontal">

@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/blog', [BlogController::class, 'index']);
 
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 Route::get('/course/create', [CourseController::class, 'create']);
 Route::post('/course', [CourseController::class, 'store']);
