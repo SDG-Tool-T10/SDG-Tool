@@ -54,7 +54,7 @@
                             <header class="card-header-title columns">Courses
                                 <h1 style="padding-left: 50%">
                                     <button class="" style="">
-                                        <a href="/course/create">Add a Course</a>
+                                        <a href="{{ route('courses.create') }}">Add a Course</a>
                                     </button>
                                 </h1>
                             </header>
@@ -66,10 +66,15 @@
 
                                             <td>{{$course->name}}</td>
                                             <td>
-                                                <button class="has-text-right"><a href="\">Edit</a></button>
+                                                <button class="has-text-right"><a
+                                                        href="{{ route('courses.edit', $course) }}">Edit</a></button>
                                             </td>
                                             <td>
-                                                <button class="has-text-right"><a href="\">Delete</a></button>
+                                                <form method="POST" action="{{route('courses.destroy', $course)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="has-text-right">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

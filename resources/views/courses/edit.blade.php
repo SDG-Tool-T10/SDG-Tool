@@ -6,18 +6,19 @@
             <img src="/image/sdg-header-en.png"/>
         </div>
     </section>
-    <form method="POST" action="/course">
+    <form method="POST" action="{{ route('courses.update', $course) }}">
         @csrf
+        @method('PUT')
         <section class="section">
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">New course</label>
+                    <label class="label">Edit Course</label>
                 </div>
                 <div class="field-body">
                     <div class="field ">
                         <div class="control">
                             <input class="input {{$errors->has('name') ? 'is-danger' : ''}}" type="text" name="name"
-                                   id="name" value="{{old('name')}}">
+                                   id="name" value="{{ $course->name }}">
 
                             @error('name')
                             <p class="help is-danger">{{$errors->first('name')}}</p>
@@ -36,7 +37,7 @@
                     <div class="field">
                         <div class="control">
                             <button class="button is-info" type="submit">
-                                <p>Create!</p>
+                                <p>Edit!</p>
                             </button>
                         </div>
                     </div>
