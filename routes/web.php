@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ResearchGroupController;
+use App\Models\ResearchGroup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminController;
@@ -26,4 +28,7 @@ Route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('/course/create', [CourseController::class, 'create']);
 Route::post('/course', [CourseController::class, 'store']);
+
+Route::resource('/research_groups', ResearchGroupController::class);
+
 
