@@ -63,7 +63,6 @@
                                     <tbody>
                                     @foreach($courses as $course)
                                         <tr>
-
                                             <td>{{$course->name}}</td>
                                             <td>
                                                 <button class="has-text-right"><a
