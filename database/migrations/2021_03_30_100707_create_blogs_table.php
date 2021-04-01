@@ -25,7 +25,7 @@ class CreateBlogsTable extends Migration
             $table->string("link");
             $table->string("contact_name");
             $table->string("contact_email");
-            $table->boolean("visibility");
+            $table->boolean("visibility")->default(false);
             $table->timestamps();
 
             $table->foreign("course_id")->references("id")->on("courses")->nullOnDelete();

@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Sdg;
-use App\Models\Blog;
-use App\Models\Activity;
+
 use App\Models\Policy;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class PolicyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +14,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $sdg = Sdg::latest()->get();
-        $activity = Activity::latest()->get();
-        $policy = Policy::latest()->get();
-
-        return view('blog', ['sdg' => $sdg, 'activity' => $activity, 'policy' => $policy]);
+        //
     }
 
     /**
@@ -41,18 +35,16 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        Blog::create($this->validateBlog($request));
-
-        return redirect('/blog');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Policy  $policy
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Policy $policy)
     {
         //
     }
@@ -60,10 +52,10 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Policy  $policy
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit(Policy $policy)
     {
         //
     }
@@ -72,10 +64,10 @@ class BlogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Policy  $policy
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, Policy $policy)
     {
         //
     }
@@ -83,21 +75,11 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Policy  $policy
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(Policy $policy)
     {
         //
-    }
-
-    protected function validateBlog(){
-        return request()->validate([
-            'description' => 'required',
-            'impact' => 'required',
-            'link' => 'required',
-            'contact_name' => 'required',
-            'contact_email' => 'required'
-        ]);
     }
 }
