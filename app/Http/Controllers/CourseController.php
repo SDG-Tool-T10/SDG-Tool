@@ -24,7 +24,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('course.create');
+        return view('courses.create');
     }
 
     /**
@@ -35,9 +35,9 @@ class CourseController extends Controller
      */
     public function store(Course $course, Request $request)
     {
-        Course::create($this->validateCourse($request));
+        Course::create($this->getValidate($request));
 
-        return redirect("/admin");
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -59,7 +59,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return view('courses.edit', compact('course'));
     }
 
     /**
@@ -71,7 +71,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $course->update($this->getValidate($request));
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -82,12 +83,12 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        return redirect(route('admin.index'));
     }
 
-    public function validateCourse($request)
+    public function getValidate($request)
     {
-
         return $request->validate([
             'name' => 'required'
         ]);

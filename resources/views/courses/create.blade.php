@@ -6,7 +6,7 @@
             <img src="/image/sdg-header-en.png"/>
         </div>
     </section>
-    <form method="POST" action="/course">
+    <form method="POST" action="{{ route('courses.store') }}">
         @csrf
         <section class="section">
             <div class="field is-horizontal">
