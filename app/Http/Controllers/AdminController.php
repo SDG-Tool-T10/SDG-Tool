@@ -16,8 +16,6 @@ class AdminController extends Controller
     {
         $courses = Course::latest()->get();
         return view('admin', compact('courses'));
-
-
     }
 
     /**
