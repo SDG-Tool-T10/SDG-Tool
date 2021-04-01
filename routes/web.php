@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,10 @@ Route::get('/', function () {
 // Route::get('/blog', [BlogController::class, 'index']);
 
 Route::resource('/blog', BlogController::class);
+Route::get('/blog', [BlogController::class, 'index']);
+
+Route::get('/admin', [AdminController::class, 'index']);
+
+Route::get('/course/create', [CourseController::class, 'create']);
+Route::post('/course', [CourseController::class, 'store']);
+

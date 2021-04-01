@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
-class CourseController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::latest()->get();
+        return view('admin', compact('courses'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('course.create');
+        //
     }
 
     /**
@@ -33,20 +34,18 @@ class CourseController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Course $course, Request $request)
+    public function store(Request $request)
     {
-        Course::create($this->validateCourse($request));
-
-        return redirect("/admin");
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Course $course
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show($id)
     {
         //
     }
@@ -54,10 +53,10 @@ class CourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Course $course
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +65,10 @@ class CourseController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Course $course
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,19 +76,11 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Course $course
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy($id)
     {
         //
-    }
-
-    public function validateCourse($request)
-    {
-
-        return $request->validate([
-            'name' => 'required'
-        ]);
     }
 }
