@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ResearchGroup extends Model
 {
     use HasFactory;
-    protected $guarded = [];
 
     protected $fillable = ['name'];
 
