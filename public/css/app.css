@@ -37,14 +37,10 @@
 }
 
 /* Admin */
-.padding-10{
-    padding: 10%;
+.padding-card{
+    padding: 5%;
 }
 
 .padding-left-50{
     padding-left: 50%;
-}
-
-.w-500{
-    width: 500px;
 }

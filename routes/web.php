@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\ResearchGroupController;
-use App\Models\ResearchGroup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ResearchGroupController;
 
 /*
 |--------------------------------------------------------------------------

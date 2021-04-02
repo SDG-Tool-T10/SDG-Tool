@@ -17,8 +17,7 @@ class AdminController extends Controller
     {
         $courses = Course::latest()->get();
         $researchGroups = ResearchGroup::latest()->get();
-
-        return view('admin', ['courses' => $courses, 'researchGroups' => $researchGroups]);
+        return view('admin', compact('courses', 'researchGroups'));
     }
 
     /**

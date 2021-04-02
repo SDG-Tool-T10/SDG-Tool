@@ -24,7 +24,7 @@ class ResearchGroupController extends Controller
      */
     public function create()
     {
-        return view('researchGroup.create');
+        return view('researchGroups.create');
     }
 
     /**
@@ -36,8 +36,7 @@ class ResearchGroupController extends Controller
     public function store(Request $request)
     {
         ResearchGroup::create($this->getValidate($request));
-
-        return redirect("/admin");
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -59,7 +58,7 @@ class ResearchGroupController extends Controller
      */
     public function edit(ResearchGroup $researchGroup)
     {
-        //
+        return view('researchGroups.edit', compact('researchGroup'));
     }
 
     /**
@@ -71,7 +70,8 @@ class ResearchGroupController extends Controller
      */
     public function update(Request $request, ResearchGroup $researchGroup)
     {
-        //
+        $researchGroup->update($this->getValidate($request));
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -82,7 +82,8 @@ class ResearchGroupController extends Controller
      */
     public function destroy(ResearchGroup $researchGroup)
     {
-        //
+        $researchGroup->delete();
+        return redirect(route('admin.index'));
     }
 
     public function getValidate($request)
