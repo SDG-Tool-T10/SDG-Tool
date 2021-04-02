@@ -18,11 +18,9 @@
                         <div class="control">
                             <input class="input {{$errors->has('name') ? 'is-danger' : ''}}" type="text" name="name"
                                    id="name" value="{{old('name')}}">
-
                             @error('name')
                             <p class="help is-danger">{{$errors->first('name')}}</p>
                             @enderror
-
                         </div>
                     </div>
                 </div>
@@ -36,7 +34,7 @@
                     <div class="field">
                         <div class="control">
                             <button value="Submit" class="button is-info" type="submit">
-                                <p>Create!</p>
+                                <p>Create</p>
                             </button>
                         </div>
                     </div>

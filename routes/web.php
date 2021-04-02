@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/blog', [BlogController::class, 'index']);
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy']);
 
 Route::get('/course/create', [CourseController::class, 'create']);
 Route::post('/course', [CourseController::class, 'store']);

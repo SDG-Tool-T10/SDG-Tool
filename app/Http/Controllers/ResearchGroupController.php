@@ -20,7 +20,7 @@ class ResearchGroupController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     *
      */
     public function create()
     {
@@ -33,7 +33,7 @@ class ResearchGroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ResearchGroup $researchGroup, Request $request)
+    public function store(Request $request)
     {
         ResearchGroup::create($this->validateResearchGroup($request));
 
