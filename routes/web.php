@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ResearchGroup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminController;
@@ -28,4 +29,3 @@ Route::resource('/admin', AdminController::class)->except(['create', 'store', 'u
 Route::resource('/courses', CourseController::class);
 
 Route::resource('/research_groups', ResearchGroupController::class);
-

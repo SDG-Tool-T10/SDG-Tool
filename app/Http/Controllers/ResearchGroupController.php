@@ -20,7 +20,7 @@ class ResearchGroupController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function create(ResearchGroup $researchGroup)
     {
@@ -36,7 +36,6 @@ class ResearchGroupController extends Controller
     public function store(ResearchGroup $researchGroup, Request $request)
     {
         ResearchGroup::create($this->getValidate($request));
-
         return redirect(route('admin.index'));
     }
 
