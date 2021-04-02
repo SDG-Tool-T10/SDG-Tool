@@ -20,11 +20,11 @@ class ResearchGroupController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function create()
     {
-        //
+        return view('researchGroup.create');
     }
 
     /**
@@ -35,7 +35,9 @@ class ResearchGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ResearchGroup::create($this->getValidate($request));
+
+        return redirect("/admin");
     }
 
     /**
@@ -81,5 +83,12 @@ class ResearchGroupController extends Controller
     public function destroy(ResearchGroup $researchGroup)
     {
         //
+    }
+
+    public function getValidate($request)
+    {
+        return $request->validate([
+            'name' => 'required'
+        ]);
     }
 }
