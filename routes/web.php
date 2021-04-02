@@ -29,5 +29,3 @@ Route::resource('/admin', AdminController::class)->except(['create', 'store', 'u
 Route::resource('/courses', CourseController::class);
 
 Route::resource('/research_groups', ResearchGroupController::class);
-
-

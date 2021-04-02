@@ -35,7 +35,7 @@ class ResearchGroupController extends Controller
      */
     public function store(Request $request)
     {
-        ResearchGroup::create($this->validateResearchGroup($request));
+        ResearchGroup::create($this->getValidate($request));
 
         return redirect("/admin");
     }
@@ -85,9 +85,8 @@ class ResearchGroupController extends Controller
         //
     }
 
-    public function validateResearchGroup($request)
+    public function getValidate($request)
     {
-
         return $request->validate([
             'name' => 'required'
         ]);

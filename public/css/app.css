@@ -3,6 +3,7 @@
     transform: scale(1.5);
 }
 
+/* Header */
 .header-img {
     margin: auto;
     margin-top: 2%;
@@ -12,6 +13,7 @@
     transform: scale(1.5);
 }
 
+/* Dashboard */
 .sdg-icon img {
     width: 12.5%;
     height: 12.5%;
@@ -32,4 +34,17 @@
 
 .section.section-sdg-goals {
     background-color: #007bff
+}
+
+/* Admin */
+.padding-10{
+    padding: 10%;
+}
+
+.padding-left-50{
+    padding-left: 50%;
+}
+
+.w-500{
+    width: 500px;
 }

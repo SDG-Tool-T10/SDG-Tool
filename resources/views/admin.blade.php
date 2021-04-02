@@ -1,15 +1,15 @@
 @extends('common.master')
 
 @section('content')
-    <div class="" style="padding: 10%">
+    <div class="padding-10">
         <div class="columns">
             <div class="column is-6 is-narrow">
-                <div class="card" style="width: 500px">
+                <div class="card w-500">
                     <div class="card-content">
                         <div class="content">
                             <header class="card-header-title columns">Blogs
-                                <h1 style="padding-left: 50%">
-                                    <button class="" style="">
+                                <h1 class="padding-left-50">
+                                    <button>
                                         <p>Add a Blog</p>
                                     </button>
                                 </h1>
@@ -23,12 +23,12 @@
             </div>
 
             <div class="column is-6 is-narrow">
-                <div class="card" style="width: 500px">
+                <div class="card w-500">
                     <div class="card-content">
                         <div class="content">
                             <header class="card-header-title columns">Blogs
-                                <h1 style="padding-left: 50%">
-                                    <button class="" style="">
+                                <h1 class="padding-left-50">
+                                    <button>
                                         <p>Add a Blog</p>
                                     </button>
                                 </h1>
@@ -42,15 +42,15 @@
             </div>
         </div>
 
-        <div class="" style="padding-top: 10%">
+        <div>
             <div class="columns">
                 <div class="column is-6 is-narrow">
-                    <div class="card" style="width: 500px">
+                    <div class="card w-500">
                         <div class="card-content">
                             <div class="content">
                                 <header class="card-header-title columns">Courses
-                                    <h1 style="padding-left: 50%">
-                                        <button class="" style="">
+                                    <h1 class="padding-left-50">
+                                        <button>
                                             <a href="{{ route('courses.create') }}">Add a Course</a>
                                         </button>
                                     </h1>

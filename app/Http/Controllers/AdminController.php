@@ -16,7 +16,6 @@ class AdminController extends Controller
     public function index()
     {
         $courses = Course::latest()->get();
-
         $researchGroups = ResearchGroup::latest()->get();
 
         return view('admin', ['courses' => $courses, 'researchGroups' => $researchGroups]);
