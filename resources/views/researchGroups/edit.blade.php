@@ -34,9 +34,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <button class="button is-info" type="submit">
-                                <p>Edit</p>
-                            </button>
+                            <button class="button is-info" type="submit">Edit</button>
                         </div>
                     </div>
                 </div>

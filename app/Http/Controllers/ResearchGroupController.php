@@ -22,7 +22,7 @@ class ResearchGroupController extends Controller
      *
      *
      */
-    public function create(ResearchGroup $researchGroup)
+    public function create()
     {
         return view('researchGroups.create');
     }
@@ -33,7 +33,7 @@ class ResearchGroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ResearchGroup $researchGroup, Request $request)
+    public function store(Request $request)
     {
         ResearchGroup::create($this->getValidate($request));
         return redirect(route('admin.index'));
