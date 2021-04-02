@@ -22,9 +22,9 @@ class ResearchGroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(ResearchGroup $researchGroup)
     {
-        //
+        return view('researchGroups.create');
     }
 
     /**
@@ -33,9 +33,11 @@ class ResearchGroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ResearchGroup $researchGroup, Request $request)
     {
-        //
+        ResearchGroup::create($this->getValidate($request));
+
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -57,7 +59,7 @@ class ResearchGroupController extends Controller
      */
     public function edit(ResearchGroup $researchGroup)
     {
-        //
+        return view('researchGroups.edit', compact('researchGroup'));
     }
 
     /**
@@ -69,7 +71,8 @@ class ResearchGroupController extends Controller
      */
     public function update(Request $request, ResearchGroup $researchGroup)
     {
-        //
+        $researchGroup->update($this->getValidate($request));
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -80,6 +83,14 @@ class ResearchGroupController extends Controller
      */
     public function destroy(ResearchGroup $researchGroup)
     {
-        //
+        $researchGroup->delete();
+        return redirect(route('admin.index'));
+    }
+
+    public function getValidate($request)
+    {
+        return $request->validate([
+            'name' => 'required'
+        ]);
     }
 }
