@@ -9,21 +9,20 @@
 
     <form method="POST" class='blog-form' action="/blog">
         @csrf
-        <section class="section">
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">Education</label>
+                    <label class="label">Course</label>
                 </div>
                 <div class="field-body">
                     <div class="field ">
                         <div class="control">
                             <div class="select is-fullwidth">
-                                <select class="select-education @error('education') is-danger @enderror" type="text"
-                                    id="education" name="education">
+                                <select class="select-education @error('course') is-danger @enderror" type="text"
+                                    id="course" name="course">
                                     <option value="{{ old('none') }}">None</option>
-                                    <option value="{{ old('ict') }}">ICT</option>
-                                    <option value="{{ old('civil_engineering') }}">Civil Engineering</option>
-                                    <option value="{{ old('social_work') }}">Social Work</option>
+                                    @foreach ($course as $course)
+                                    <option value={{ $course->name }}>{{ $course->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -96,17 +95,17 @@
 
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">Policy</label>
+                    <label class="label">Business Operations</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
                             <div class="select is-fullwidth">
-                                <select class="select-policy @error('policy') is-danger @enderror" type="text" id="policy"
-                                    name="policy" value="{{ old('policy') }}">
+                                <select class="select-policy @error('business_operation') is-danger @enderror" type="text" id="business_operation"
+                                    name="business_operation" value="{{ old('business_operation') }}">
                                     <option value="{{ old('none') }}">None</option>
-                                    @foreach ($policy as $policy)
-                                        <option value={{ $policy->name }}>{{ $policy->name }}</option>
+                                    @foreach ($business_operation as $business_operation)
+                                        <option value={{ $business_operation -> name }}>{{ $business_operation -> name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -231,6 +230,5 @@
                     </div>
                 </div>
             </div>
-        </section>
     </form>
 @endsection

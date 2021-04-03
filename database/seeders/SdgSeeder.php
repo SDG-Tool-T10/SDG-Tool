@@ -85,5 +85,4 @@ class SdgSeeder extends Seeder
             'img_link' => 'public/image/SDG-Icons-EN/sdg-en-17.png'
         ]);
     }
-    
 }

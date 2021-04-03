@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\DB;
+use App\Models\Course;
+
 class CourseSeeder extends Seeder
 {
     /**
@@ -13,6 +16,14 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('courses')->insert([
+            'name' => 'ICT',
+        ]); 
+        DB::table('courses')->insert([
+            'name' => 'Civil Engineering',
+        ]); 
+        DB::table('courses')->insert([
+            'name' => 'Social Work',
+        ]); 
     }
 }

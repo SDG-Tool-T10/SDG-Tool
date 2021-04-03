@@ -20,10 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/blog', [BlogController::class, 'index']);
 
 Route::resource('/blog', BlogController::class);
-Route::get('/blog', [BlogController::class, 'index']);
 
 Route::get('/admin', [AdminController::class, 'index']);
 
