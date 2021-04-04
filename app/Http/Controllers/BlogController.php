@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Sdg;
 use App\Models\Blog;
+use App\Models\Activity;
+use App\Models\BusinessOperation;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,7 +17,15 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog');
+        $sdg = Sdg::latest()->get();
+        $activity = Activity::latest()->get();
+        $business_operation = BusinessOperation::latest()->get();
+        $course = Course::latest()->get();
+
+        return view('blog', ['sdg' => $sdg, 
+                            'activity' => $activity, 
+                            'business_operation' => $business_operation, 
+                            'course' => $course]);
     }
 
     /**
@@ -35,7 +46,9 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Blog::create($this->validateBlog($request));
+
+        return redirect('/blog');
     }
 
     /**
@@ -81,5 +94,15 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         //
+    }
+
+    protected function validateBlog(){
+        return request()->validate([
+            'description' => 'required',
+            'impact' => 'required',
+            'link' => 'required',
+            'contact_name' => 'required',
+            'contact_email' => 'required'
+        ]);
     }
 }

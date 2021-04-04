@@ -7,216 +7,228 @@
         </div>
     </section>
 
-    <section class="section">
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Education</label>
-            </div>
-            <div class="field-body">
-                <div class="field ">
-                    <div class="control">
-                        <div class="select is-fullwidth">
-                            <select>
-                                <option>None</option>
-                                <option>ICT</option>
-                                <option>Civil Engineering</option>
-                                <option>Social Work</option>
-                            </select>
+    <form method="POST" class='blog-form' action="/blog">
+        @csrf
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Course</label>
+                </div>
+                <div class="field-body">
+                    <div class="field ">
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select class="select-education @error('course') is-danger @enderror" type="text"
+                                    id="course" name="course">
+                                    <option value="{{ old('none') }}">None</option>
+                                    @foreach ($course as $course)
+                                    <option value={{ $course->name }}>{{ $course->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Type of Activity</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-fullwidth">
-                            <select>
-                                <option>None</option>
-                                <option>Class</option>
-                                <option>Minor</option>
-                                <option>Graduation Research</option>
-                                <option>Research Project</option>
-                                <option>Event</option>
-                                <option>Policy</option>
-                                <option>Business Operations</option>
-                                <option>Other</option>
-                            </select>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Type of Activity</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select class="select-activity @error('activity') is-danger @enderror" type="text"
+                                    id="activity" name="activity">
+                                    <option value="{{ old('none') }}">None</option>
+                                    @foreach ($activity as $activity)
+                                        <option value={{ $activity->name }}>{{ $activity->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Research</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-fullwidth">
-                            <select>
-                                <option>None</option>
-                                <option>Business development</option>
-                                <option>Marketing</option>
-                                <option>Sales</option>
-                            </select>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Research</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select class="select-research @error('research') is-danger @enderror" type="text"
+                                    id="research" name="research">
+                                    <option value="{{ old('none') }}">None</option>
+                                    <option value="{{ old('business_development') }}">Business development</option>
+                                    <option value="{{ old('marketing') }}">Marketing</option>
+                                    <option value="{{ old('sales') }}">Sales</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Sustainable Development Goal</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-fullwidth">
-                            <select>
-                                <option>None</option>
-                                <option>No poverty</option>
-                                <option>Zero hunger</option>
-                                <option>Good health and well-being</option>
-                                <option>Quality education</option>
-                                <option>Gender equality</option>
-                                <option>Clean water and sanitation</option>
-                                <option>Affordable and clean energy</option>
-                                <option>Decent work and economic growth</option>
-                                <option>Industry, Innovation and Infrastructure</option>
-                                <option>Reduced inequalities</option>
-                                <option>Sustainable cities and communities</option>
-                                <option>Responsible consumption and production</option>
-                                <option>Climate action</option>
-                                <option>Life below water</option>
-                                <option>Life on land</option>
-                                <option>Peace, Justice and strong institutions</option>
-                                <option>Partnerships for the goals</option>
-                            </select>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Sustainable Development Goal</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select class="select-sdg @error('sdg') is-danger @enderror" type="text" id="sdg"
+                                    name="sdg">
+                                    <option value="{{ old('none') }}">None</option>
+                                    @foreach ($sdg as $sdg)
+                                        <option value={{ $sdg->name }}>{{ $sdg->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Policy</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-fullwidth">
-                            <select>
-                                <option>None</option>
-                                <option>Campus Services</option>
-                                <option>Finance</option>
-                                <option>ICT</option>
-                                <option>Marketing, Communication and Internationalisation</option>
-                                <option>Education, Research and Quality</option>
-                                <option>PO&O</option>
-                                <option>Student Services</option>
-                            </select>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Business Operations</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select class="select-policy @error('business_operation') is-danger @enderror" type="text" id="business_operation"
+                                    name="business_operation" value="{{ old('business_operation') }}">
+                                    <option value="{{ old('none') }}">None</option>
+                                    @foreach ($business_operation as $business_operation)
+                                        <option value={{ $business_operation -> name }}>{{ $business_operation -> name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Subgoal</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-fullwidth">
-                            <select>
-                                <option>None</option>
-                                <option>Subgoal 1</option>
-                            </select>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Subgoal</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select class="select-subgoal @error('subgoal') is-danger @enderror" type="text"
+                                    id="subgoal" name="subgoal" value="{{ old('subgoal') }}">
+                                    <option value="{{ old('none') }}">None</option>
+                                    <option value="{{ old('subgoal1') }}">Subgoal 1</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Describe activity</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="text" placeholder="describe briefly">
-                    </div>
-                    <p class="help">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Describe activity</label>
                 </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Describe impact</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <textarea class="textarea" placeholder="Explain you impact"></textarea>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input @error('description') is-danger @enderror" name="description" type="text" placeholder="describe briefly">
+                        </div>
+                        @error('description')
+                        <p class="help is-danger">{{ $errors->first('description') }}</p>
+                        @enderror
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Contact</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control is-expanded has-icons-left">
-                        <input class="input" type="text" placeholder="Name">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
-                        </span>
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Link</label>
                 </div>
-                <div class="field">
-                    <p class="control is-expanded has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Email">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
-                        </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label">
-                <!-- Left empty for spacing -->
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <button class="button is-info">
-                            Send message
-                        </button>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input @error('link') is-danger @enderror" name="link" type="text" placeholder="type the link here">
+                        </div>
+                        @error('link')
+                        <p class="help is-danger">{{ $errors->first('link') }}</p>
+                        @enderror
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Describe impact</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <textarea class="textarea @error('impact') is-danger @enderror" name="impact" placeholder="Explain you impact"></textarea>
+                        </div>
+                        @error('impact')
+                        <p class="help is-danger">{{ $errors->first('impact') }}</p>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Contact</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <input class="input @error('name') is-danger @enderror" type="text" placeholder="Name" id="name"
+                                name="contact_name">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        @error('contact_name')
+                            <p class="help is-danger">{{ $errors->first('contact_name') }}</p>
+                        @enderror
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left has-icons-right">
+                            <input class="input @error('email') is-danger @enderror" type="text" placeholder="Email"
+                                id="email" name="contact_email">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                            </span>
+                        </p>
+                        @error('contact_email')
+                            <p class="help is-danger">{{ $errors->first('contact_email') }}</p>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <!-- Left empty for spacing -->
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-info" type="submit" value="Submit">
+                                Send message
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </form>
 @endsection
