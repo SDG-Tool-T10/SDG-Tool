@@ -22,9 +22,9 @@ class BlogController extends Controller
         $business_operation = BusinessOperation::latest()->get();
         $course = Course::latest()->get();
 
-        return view('blog', ['sdg' => $sdg, 
-                            'activity' => $activity, 
-                            'business_operation' => $business_operation, 
+        return view('blogs.create', ['sdg' => $sdg,
+                            'activity' => $activity,
+                            'business_operation' => $business_operation,
                             'course' => $course]);
     }
 
@@ -35,7 +35,15 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        $sdg = Sdg::latest()->get();
+        $activity = Activity::latest()->get();
+        $business_operation = BusinessOperation::latest()->get();
+        $course = Course::latest()->get();
+
+        return view('blogs.create', ['sdg' => $sdg,
+            'activity' => $activity,
+            'business_operation' => $business_operation,
+            'course' => $course]);
     }
 
     /**
@@ -44,11 +52,10 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Blog $blog,Request $request)
     {
-        Blog::create($this->validateBlog($request));
-
-        return redirect('/blog');
+        Blog::create($this->getValidate($request));
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -70,7 +77,12 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $sdg = Sdg::latest()->get();
+        $activity = Activity::latest()->get();
+        $business_operation = BusinessOperation::latest()->get();
+        $course = Course::latest()->get();
+
+        return view('blogs.edit', compact('blog', 'course', 'sdg', 'activity', 'business_operation'));
     }
 
     /**
@@ -82,7 +94,8 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $blog->update($this->getValidate($request));
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -96,7 +109,7 @@ class BlogController extends Controller
         //
     }
 
-    protected function validateBlog(){
+    protected function getValidate(){
         return request()->validate([
             'description' => 'required',
             'impact' => 'required',

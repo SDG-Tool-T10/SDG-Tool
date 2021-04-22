@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 
-Route::resource('/blog', BlogController::class);
+Route::resource('/blogs', BlogController::class);
 
 Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy']);
 

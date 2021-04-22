@@ -7,7 +7,7 @@
         </div>
     </section>
 
-    <form method="POST" class='blog-form' action="/blog">
+    <form method="POST" class='blog-form' action="{{ route('blogs.store') }}">
         @csrf
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
@@ -20,7 +20,7 @@
                                 <select class="select-education @error('course') is-danger @enderror" type="text"
                                     id="course" name="course">
                                     <option value="{{ old('none') }}">None</option>
-                                    @foreach ($course as $course)
+                                    @foreach ($courses as $course)
                                     <option value={{ $course->name }}>{{ $course->name }}</option>
                                     @endforeach
                                 </select>
