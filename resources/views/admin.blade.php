@@ -101,7 +101,7 @@
                 <div class="column is-6 is-narrow">
                     <div class="card">
                         <div class="card-content">
-                            <diwv class="content">
+                            <div class="content">
                                 <header class="card-header-title columns">Research Groups
                                     <h1 class="padding-left-50">
                                         <button>
