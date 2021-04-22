@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
+use App\Models\Program;
 use Illuminate\Http\Request;
 
-class CourseController extends Controller
+class ProgramController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        return view('programs.create');
     }
 
     /**
@@ -24,18 +24,18 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('courses.create');
+        return view('programs.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Course $course, Request $request)
+    public function store(Request $request)
     {
-        Course::create($this->getValidate($request));
+        Program::create($this->getValidate($request));
 
         return redirect(route('admin.index'));
     }
@@ -43,10 +43,10 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Course $course
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show(Program $program)
     {
         //
     }
@@ -54,36 +54,36 @@ class CourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Course $course
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit(Program $program)
     {
-        return view('courses.edit', compact('course'));
+        return view('programs.edit', compact('course'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Course $course
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, Program $program)
     {
-        $course->update($this->getValidate($request));
+        $program->update($this->getValidate($request));
         return redirect(route('admin.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Course $course
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy(Program $program)
     {
-        $course->delete();
+        $program->delete();
         return redirect(route('admin.index'));
     }
 

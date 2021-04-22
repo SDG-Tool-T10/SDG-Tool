@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
+use App\Models\Program;
 use App\Models\ResearchGroup;
 use Illuminate\Http\Request;
 
@@ -15,9 +15,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $courses = Course::latest()->get();
+        $programs = Program::latest()->get();
         $researchGroups = ResearchGroup::latest()->get();
-        return view('admin', compact('courses', 'researchGroups'));
+        return view('admin', compact('programs', 'researchGroups'));
     }
 
     /**
