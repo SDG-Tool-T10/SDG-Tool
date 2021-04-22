@@ -20,7 +20,7 @@
                                 <select class="select-education @error('course') is-danger @enderror" type="text"
                                     id="course" name="course">
                                     <option value="{{ old('none') }}">None</option>
-                                    @foreach ($courses as $course)
+                                    @foreach ($course as $course)
                                     <option value={{ $course->name }}>{{ $course->name }}</option>
                                     @endforeach
                                 </select>
