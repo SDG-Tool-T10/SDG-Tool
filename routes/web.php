@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ResearchGroupController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::resource('/blog', BlogController::class);
 
 Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy']);
@@ -29,3 +28,9 @@ Route::resource('/admin', AdminController::class)->except(['create', 'store', 'u
 Route::resource('/courses', CourseController::class);
 
 Route::resource('/research_groups', ResearchGroupController::class);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

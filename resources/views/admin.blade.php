@@ -98,7 +98,7 @@
                                                 <td>{{$researchGroup->name}}</td>
                                                 <td>
                                                     <button class="has-text-right">
-                                                        <a href="{{ route('research_groups.edit', $researchGroup) }}">Edit</a>
+                                                         <a href="{{ route('research_groups.edit', $researchGroup) }}">Edit</a>
                                                     </button>
                                                 </td>
                                                 <td>

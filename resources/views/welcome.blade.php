@@ -11,6 +11,12 @@
         <div class="container">
             <div class="columns">
                 <div class="card">
+                    @auth()
+                        hey {{ Auth::user()->name }}
+                    @else
+                        laravel
+                    @endauth
+
                     <div class="card-content">
                         <div class="content is-italic">
                             Here are some nice icons and maybe there should be a filter box somewhere..
