@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ResearchGroupController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,5 @@ Route::resource('/admin', AdminController::class)->except(['create', 'store', 'u
 Route::resource('/courses', CourseController::class);
 
 Route::resource('/research_groups', ResearchGroupController::class);
+
+Route::resource('/contact', ContactController::class);
