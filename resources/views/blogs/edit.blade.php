@@ -3,7 +3,7 @@
 @section('content')
     <section class="hero  is-medium  is-bold">
         <div class="header-img">
-            <img src="./image/sdg-header-en.png" />
+            <img src="/image/sdg-header-en.png"/>
         </div>
     </section>
 
@@ -101,11 +101,13 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-policy @error('business_operation') is-danger @enderror" type="text" id="business_operation"
+                            <select class="select-policy @error('business_operation') is-danger @enderror" type="text"
+                                    id="business_operation"
                                     name="business_operation" value="{{ old('business_operation') }}">
                                 <option value="{{ old('none') }}">None</option>
                                 @foreach ($business_operation as $business_operation)
-                                    <option value={{ $business_operation -> name }}>{{ $business_operation -> name }}</option>
+                                    <option
+                                        value={{ $business_operation -> name }}>{{ $business_operation -> name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -140,7 +142,8 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input class="input @error('description') is-danger @enderror" name="description" type="text" placeholder="describe briefly" value="{{$blog->description}}">
+                        <input class="input @error('description') is-danger @enderror" name="description" type="text"
+                               placeholder="describe briefly" value="{{$blog->description}}">
                     </div>
                     @error('description')
                     <p class="help is-danger">{{ $errors->first('description') }}</p>
@@ -156,7 +159,8 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input class="input @error('link') is-danger @enderror" name="link" type="text" placeholder="type the link here" value="{{$blog->link}}">
+                        <input class="input @error('link') is-danger @enderror" name="link" type="text"
+                               placeholder="type the link here" value="{{$blog->link}}">
                     </div>
                     @error('link')
                     <p class="help is-danger">{{ $errors->first('link') }}</p>
@@ -172,7 +176,8 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea @error('impact') is-danger @enderror" name="impact" placeholder="Explain you impact">{{ $blog->impact }}</textarea>
+                        <textarea class="textarea @error('impact') is-danger @enderror" name="impact"
+                                  placeholder="Explain you impact">{{ $blog->impact }}</textarea>
                     </div>
                     @error('impact')
                     <p class="help is-danger">{{ $errors->first('impact') }}</p>

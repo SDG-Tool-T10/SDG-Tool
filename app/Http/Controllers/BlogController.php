@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Sdg;
 use App\Models\Blog;
 use App\Models\Activity;
@@ -23,9 +24,9 @@ class BlogController extends Controller
         $course = Course::latest()->get();
 
         return view('blogs.create', ['sdg' => $sdg,
-                            'activity' => $activity,
-                            'business_operation' => $business_operation,
-                            'course' => $course]);
+            'activity' => $activity,
+            'business_operation' => $business_operation,
+            'course' => $course]);
     }
 
     /**
@@ -49,10 +50,10 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Blog $blog,Request $request)
+    public function store(Blog $blog, Request $request)
     {
         Blog::create($this->getValidate($request));
         return redirect(route('admin.index'));
@@ -61,7 +62,7 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function show(Blog $blog)
@@ -72,7 +73,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function edit(Blog $blog)
@@ -88,8 +89,8 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Blog $blog)
@@ -101,7 +102,7 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function destroy(Blog $blog)
@@ -109,7 +110,8 @@ class BlogController extends Controller
         //
     }
 
-    protected function getValidate(){
+    protected function getValidate()
+    {
         return request()->validate([
             'description' => 'required',
             'impact' => 'required',
