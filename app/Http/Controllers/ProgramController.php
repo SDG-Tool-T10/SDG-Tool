@@ -43,7 +43,7 @@ class ProgramController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param \App\Models\Program $program
      * @return \Illuminate\Http\Response
      */
     public function show(Program $program)
@@ -54,7 +54,7 @@ class ProgramController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param \App\Models\Program $program
      * @return \Illuminate\Http\Response
      */
     public function edit(Program $program)
@@ -78,7 +78,7 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Program  $program
+     * @param \App\Models\Program $program
      * @return \Illuminate\Http\Response
      */
     public function destroy(Program $program)
