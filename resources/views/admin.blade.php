@@ -133,7 +133,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </diwv>
+                            </div>
                         </div>
                     </div>
 @endsection
