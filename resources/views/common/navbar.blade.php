@@ -20,14 +20,42 @@
                    class="navbar-item {{ Request::path() === 'blog' ? "is-active" : "" }}">
                     Blog
                 </a>
-                <a href="/admin"
-                   class="navbar-item {{ Request::path() === 'admin' ? "is-active" : "" }}">
-                    Admin
-                </a>
                 <a href="/contact"
                    class="navbar-item {{ Request::path() === 'contact' ? "is-active" : "" }}">
                     Contact
                 </a>
+                @auth()
+                    <a href="/admin"
+                       class="navbar-item {{ Request::path() === 'admin' ? "is-active" : "" }}">
+                        Admin
+                    </a>
+                @endauth
+
+            </div>
+            <div class="navbar-end">
+                @auth()
+                    <div class="mt-3 space-y-1">
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-responsive-nav-link :href="route('logout')"
+                                                   onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                {{ __('Log out') }}
+                            </x-responsive-nav-link>
+                        </form>
+                    </div>
+                @else
+                    <a href="/login"
+                       class="navbar-item {{ Request::path() === 'login' ? "is-active" : "" }}">
+                        Login
+                    </a>
+                    <a href="/register"
+                       class="navbar-item {{ Request::path() === 'register' ? "is-active" : "" }}">
+                        Register
+                    </a>
+                @endauth
             </div>
         </div>
     </div>
