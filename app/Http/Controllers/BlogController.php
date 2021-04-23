@@ -23,7 +23,7 @@ class BlogController extends Controller
         $business_operation = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
 
-        return view('blog', ['sdg' => $sdg,
+        return view('blogs.create', ['sdg' => $sdg,
                             'activity' => $activity,
                             'business_operation' => $business_operation,
                             'programs' => $programs]);
@@ -39,12 +39,12 @@ class BlogController extends Controller
         $sdg = Sdg::latest()->get();
         $activity = Activity::latest()->get();
         $business_operation = BusinessOperation::latest()->get();
-        $course = Course::latest()->get();
+        $programs = Program::latest()->get();
 
         return view('blogs.create', ['sdg' => $sdg,
             'activity' => $activity,
             'business_operation' => $business_operation,
-            'course' => $course]);
+            'programs' => $programs]);
     }
 
     /**
