@@ -24,6 +24,10 @@
                    class="navbar-item {{ Request::path() === 'admin' ? "is-active" : "" }}">
                     Admin
                 </a>
+                <a href="/contact"
+                   class="navbar-item {{ Request::path() === 'contact' ? "is-active" : "" }}">
+                    Contact
+                </a>
             </div>
         </div>
     </div>
