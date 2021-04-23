@@ -16,7 +16,6 @@
                     @else
                         laravel
                     @endauth
-
                     <div class="card-content">
                         <div class="content is-italic">
                             Here are some nice icons and maybe there should be a filter box somewhere..
