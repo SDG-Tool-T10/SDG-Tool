@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Program;
 use App\Models\ResearchGroup;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class AdminController extends Controller
     {
         $programs = Program::latest()->get();
         $researchGroups = ResearchGroup::latest()->get();
-        return view('admin', compact('programs', 'researchGroups'));
+        $blogs = Blog::latest()->get();
+        return view('admin', compact('programs', 'researchGroups', 'blogs'));
     }
 
     /**

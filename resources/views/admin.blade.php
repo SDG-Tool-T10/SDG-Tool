@@ -9,12 +9,31 @@
                         <div class="content">
                             <header class="card-header-title columns">Blogs
                                 <h1 class="padding-left-50">
-                                    <button>Add a Blog</button>
+                                    <button>
+                                        <a href="{{ route('blogs.create') }}">Add a Blog</a>
+                                    </button>
                                 </h1>
                             </header>
-                            Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi
-                            porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes,
-                            nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                            <div class="container">
+                                <table>
+                                    <tbody>
+                                    @foreach($blogs as $blog)
+                                        <tr>
+                                            <td>{{$blog->id}}</td>
+                                            <td>
+                                                <button class="has-text-right">
+                                                    <a href="{{ route('blogs.edit', $blog) }}">Edit</a>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <form>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -24,7 +43,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="content">
-                            <header class="card-header-title columns">Blogs
+                            <header class="card-header-title columns">Pending Blogs
                                 <h1 class="padding-left-50">
                                     <button>Add a Blog</button>
                                 </h1>

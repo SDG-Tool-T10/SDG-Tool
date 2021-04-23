@@ -16,7 +16,7 @@
                    class="navbar-item {{ Request::path() === '/' ? "is-active" : "" }}">
                     Dashboard
                 </a>
-                <a href="/blog"
+                <a href="/blogs"
                    class="navbar-item {{ Request::path() === 'blog' ? "is-active" : "" }}">
                     Blog
                 </a>
