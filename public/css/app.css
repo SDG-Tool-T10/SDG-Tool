@@ -37,10 +37,33 @@
 }
 
 /* Admin */
-.padding-card{
+.padding-card {
     padding: 5%;
 }
 
-.padding-left-50{
+.padding-left-50 {
     padding-left: 50%;
+}
+
+/* Contact */
+.contact-picture {
+    margin: 10px 50px 50px 180px;
+    width: 360px;
+    height: 360px;
+}
+
+.contact-columns {
+    margin: 50px !important;
+}
+
+.contact-section {
+    padding: 24px !important;
+}
+
+.contact-card {
+    margin-left: 250px !important;
+}
+
+.contact-content {
+    margin: 50px !important;
 }
