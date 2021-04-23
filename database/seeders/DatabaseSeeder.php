@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Activity;
 use App\Models\BusinessOperation;
 use App\Models\Sdg;
-use App\Models\Course;
+use App\Models\Program;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             ActivitySeeder::class,
             BusinessOperationSeeder::class,
             SdgSeeder::class,
-            CourseSeeder::class
+            ProgramSeeder::class
         ]);
     }
 }
