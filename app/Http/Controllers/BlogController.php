@@ -20,12 +20,12 @@ class BlogController extends Controller
         $sdg = Sdg::latest()->get();
         $activity = Activity::latest()->get();
         $business_operation = BusinessOperation::latest()->get();
-        $program = Program::latest()->get();
+        $programs = Program::latest()->get();
 
         return view('blog', ['sdg' => $sdg, 
                             'activity' => $activity, 
                             'business_operation' => $business_operation, 
-                            'program' => $program]);
+                            'programs' => $programs]);
     }
 
     /**
