@@ -16,9 +16,13 @@
                    class="navbar-item {{ Request::path() === '/' ? "is-active" : "" }}">
                     Dashboard
                 </a>
-                <a href="/blog"
+                <a href="/blogs"
                    class="navbar-item {{ Request::path() === 'blog' ? "is-active" : "" }}">
                     Blog
+                </a>
+                <a href="/contact"
+                   class="navbar-item {{ Request::path() === 'contact' ? "is-active" : "" }}">
+                    Contact
                 </a>
                 @auth()
                     <a href="/admin"
@@ -43,14 +47,14 @@
                         </form>
                     </div>
                 @else
-                <a href="/login"
-                   class="navbar-item {{ Request::path() === 'login' ? "is-active" : "" }}">
-                    Login
-                </a>
-                <a href="/register"
-                   class="navbar-item {{ Request::path() === 'register' ? "is-active" : "" }}">
-                    Register
-                </a>
+                    <a href="/login"
+                       class="navbar-item {{ Request::path() === 'login' ? "is-active" : "" }}">
+                        Login
+                    </a>
+                    <a href="/register"
+                       class="navbar-item {{ Request::path() === 'register' ? "is-active" : "" }}">
+                        Register
+                    </a>
                 @endauth
             </div>
         </div>

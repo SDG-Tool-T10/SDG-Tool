@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchGroupController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,13 +22,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/blog', BlogController::class);
+Route::resource('/blogs', BlogController::class);
 
 Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy']);
 
-Route::resource('/courses', CourseController::class);
+Route::resource('/programs', ProgramController::class);
 
 Route::resource('/research_groups', ResearchGroupController::class);
+
+Route::resource('/contact', ContactController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
