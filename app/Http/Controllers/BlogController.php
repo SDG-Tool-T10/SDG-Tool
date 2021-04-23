@@ -5,7 +5,7 @@ use App\Models\Sdg;
 use App\Models\Blog;
 use App\Models\Activity;
 use App\Models\BusinessOperation;
-use App\Models\Course;
+use App\Models\Program;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -20,12 +20,12 @@ class BlogController extends Controller
         $sdg = Sdg::latest()->get();
         $activity = Activity::latest()->get();
         $business_operation = BusinessOperation::latest()->get();
-        $course = Course::latest()->get();
+        $program = Program::latest()->get();
 
         return view('blog', ['sdg' => $sdg, 
                             'activity' => $activity, 
                             'business_operation' => $business_operation, 
-                            'course' => $course]);
+                            'program' => $program]);
     }
 
     /**
