@@ -11,17 +11,17 @@
         @csrf
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Course</label>
+                <label class="label">Program</label>
             </div>
             <div class="field-body">
                 <div class="field ">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-education @error('course') is-danger @enderror" type="text"
-                                    id="course" name="course">
+                            <select class="select-education @error('program') is-danger @enderror" type="text"
+                                    id="program" name="program">
                                 <option value="{{ old('none') }}">None</option>
-                                @foreach ($course as $course)
-                                    <option value={{ $course->name }}>{{ $course->name }}</option>
+                                @foreach ($programs as $program)
+                                    <option value={{ $program->name }}>{{ $program->name }}</option>
                                 @endforeach
                             </select>
                         </div>

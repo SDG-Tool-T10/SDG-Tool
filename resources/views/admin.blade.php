@@ -19,7 +19,7 @@
                                     <tbody>
                                     @foreach($blogs as $blog)
                                         <tr>
-                                            <td>{{$blog->id}}</td>
+                                            <td>{{$blog->description}}</td>
                                             <td>
                                                 <button class="has-text-right">
                                                     <a href="{{ route('blogs.edit', $blog) }}">Edit</a>
