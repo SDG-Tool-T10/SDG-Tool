@@ -14,10 +14,10 @@
                                     </button>
                                 </h1>
                             </header>
-                            <div class="container">
+                            <div class="container fixed-height">
                                 <table>
                                     <tbody>
-                                    @foreach($blogs as $blog)
+                                    @forelse($blogs as $blog)
                                         <tr>
                                             <td>{{$blog->id}}</td>
                                             <td>
@@ -30,7 +30,9 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <p>This block is currently empty</p>
+                                    @endforelse
                                     </tbody>
                                 </table>
                             </div>
@@ -48,9 +50,12 @@
                                     <button>Add a Blog</button>
                                 </h1>
                             </header>
-                            Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi
-                            porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes,
-                            nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                            <div class="fixed-height">
+                                Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi
+                                porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient
+                                montes,
+                                nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,10 +75,10 @@
                                         </button>
                                     </h1>
                                 </header>
-                                <div class="container">
+                                <div class="container fixed-height">
                                     <table>
                                         <tbody>
-                                        @foreach($programs as $program)
+                                        @forelse($programs as $program)
                                             <tr>
                                                 <td>{{$program->name}}</td>
                                                 <td>
@@ -82,14 +87,17 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <form method="POST" action="{{route('programs.destroy', $program)}}">
+                                                    <form method="POST"
+                                                          action="{{route('programs.destroy', $program)}}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="has-text-right">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @empty
+                                            <p>This block is currently empty</p>
+                                        @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -109,10 +117,10 @@
                                         </button>
                                     </h1>
                                 </header>
-                                <div class="container">
+                                <div class="container fixed-height">
                                     <table>
                                         <tbody>
-                                        @foreach($researchGroups as $researchGroup)
+                                        @forelse($researchGroups as $researchGroup)
                                             <tr>
                                                 <td>{{$researchGroup->name}}</td>
                                                 <td>
@@ -129,11 +137,17 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @empty
+                                            <p>This block is currently empty</p>
+                                        @endforelse
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
