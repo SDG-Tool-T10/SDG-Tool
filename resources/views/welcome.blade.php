@@ -7,10 +7,10 @@
         </div>
     </section>
 
-    {{-- <section class="hero  is-medium  is-bold">
+    <section class="hero  is-medium  is-bold">
         <div class="header-img">
             <img src="./image/sdg-photo.png" />
-        </div> --}}
+        </div>
 
     <section class="section">
         <div class="container">
