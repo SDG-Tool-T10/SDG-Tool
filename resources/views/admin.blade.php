@@ -26,7 +26,6 @@
                                                 </button>
                                             </td>
                                             <td>
-                                            <td>
                                                 <form method="POST"
                                                       action="{{route('blogs.destroy', $blog)}}">
                                                     @csrf
@@ -34,12 +33,10 @@
                                                     <button class="has-text-right">Delete</button>
                                                 </form>
                                             </td>
-                                            </td>
                                         </tr>
                                     @empty
                                         <p>This block is currently empty</p>
                                     @endforelse
-
                                     </tbody>
                                 </table>
                             </div>
