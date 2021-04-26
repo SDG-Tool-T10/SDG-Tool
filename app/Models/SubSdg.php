@@ -13,4 +13,9 @@ class SubSdg extends Model
     {
         return $this->belongsTo(Sdg::class);
     }
+
+    public function blogs()
+    {
+        return $this->belongsToMany(Blog::class);
+    }
 }

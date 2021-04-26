@@ -11,9 +11,9 @@ class Blog extends Model
 
     protected $guarded = [];
 
-    public function course()
+    public function program()
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(Program::class);
     }
 
     public function researchGroup()
@@ -26,9 +26,14 @@ class Blog extends Model
         return $this->belongsTo(BusinessOperation::class);
     }
 
-    public function sdg()
+    public function sdgs()
     {
-        return $this->belongsTo(Sdg::class);
+        return $this->belongsToMany(Sdg::class);
+    }
+
+    public function subSdgs()
+    {
+        return $this->belongsToMany(SubSdg::class);
     }
 
     public function activity()
