@@ -26,13 +26,20 @@
                                                 </button>
                                             </td>
                                             <td>
-                                                <form>
+                                            <td>
+                                                <form method="POST"
+                                                      action="{{route('blogs.destroy', $blog)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="has-text-right">Delete</button>
                                                 </form>
+                                            </td>
                                             </td>
                                         </tr>
                                     @empty
                                         <p>This block is currently empty</p>
                                     @endforelse
+
                                     </tbody>
                                 </table>
                             </div>
