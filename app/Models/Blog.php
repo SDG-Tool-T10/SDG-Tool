@@ -31,7 +31,7 @@ class Blog extends Model
         return $this->belongsToMany(Sdg::class);
     }
 
-    public function sub_sdgs()
+    public function subSdgs()
     {
         return $this->belongsToMany(SubSdg::class);
     }

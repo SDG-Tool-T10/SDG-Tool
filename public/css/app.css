@@ -45,6 +45,12 @@
     padding-left: 50%;
 }
 
+.fixed-height {
+    max-height: 15em;
+    min-height: 15em;
+    overflow-x: hidden;
+}
+
 /* Contact */
 .contact-picture {
     margin: 10px 50px 50px 180px;
