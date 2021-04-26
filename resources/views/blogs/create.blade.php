@@ -19,9 +19,10 @@
                         <div class="select is-fullwidth">
                             <select class="select-education @error('program') is-danger @enderror" type="text"
                                     id="program" name="program">
-                                <option value="{{ old('none') }}">None</option>
+                                <option selected value> None</option>
                                 @foreach ($programs as $program)
-                                    <option value={{ $program->name }}>{{ $program->name }}</option>
+                                    <option
+                                        value="{{$program->id}}" {{ (old('program') == $program->id ? "selected":"") }}>{{ $program->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -40,9 +41,11 @@
                         <div class="select is-fullwidth">
                             <select class="select-activity @error('activity') is-danger @enderror" type="text"
                                     id="activity" name="activity">
-                                <option value="{{ old('none') }}">None</option>
+                                <option selected value> None</option>
+                                //TODO plural -> singular
                                 @foreach ($activity as $activity)
-                                    <option value={{ $activity->name }}>{{ $activity->name }}</option>
+                                    <option
+                                        value="{{$activity->id}}" {{ (old('activity') == $activity->id ? "selected":"") }}>{{ $activity->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -61,10 +64,11 @@
                         <div class="select is-fullwidth">
                             <select class="select-research @error('research') is-danger @enderror" type="text"
                                     id="research" name="research">
-                                <option value="{{ old('none') }}">None</option>
-                                <option value="{{ old('business_development') }}">Business development</option>
-                                <option value="{{ old('marketing') }}">Marketing</option>
-                                <option value="{{ old('sales') }}">Sales</option>
+                                <option selected value> None</option>
+                                <option value="1" {{ (old('research') == "1" ? "selected":"") }}>Business development
+                                </option>
+                                <option value="2" {{ (old('research') == "2" ? "selected":"") }}>Marketing</option>
+                                <option value="3" {{ (old('research') == "3" ? "selected":"") }}>Sales</option>
                             </select>
                         </div>
                     </div>
@@ -82,9 +86,11 @@
                         <div class="select is-fullwidth">
                             <select class="select-sdg @error('sdg') is-danger @enderror" type="text" id="sdg"
                                     name="sdg">
-                                <option value="{{ old('none') }}">None</option>
+                                <option selected value> None</option>
+                                //TODO plural -> singular
                                 @foreach ($sdg as $sdg)
-                                    <option value={{ $sdg->name }}>{{ $sdg->name }}</option>
+                                    <option
+                                        value="{{$sdg->id}}" {{ (old('sdg') == $sdg->id ? "selected":"") }}>{{ $sdg->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -103,11 +109,12 @@
                         <div class="select is-fullwidth">
                             <select class="select-policy @error('business_operation') is-danger @enderror" type="text"
                                     id="business_operation"
-                                    name="business_operation" value="{{ old('business_operation') }}">
-                                <option value="{{ old('none') }}">None</option>
+                                    name="business_operation">
+                                <option selected value> None</option>
+                                //TODO plural -> singular
                                 @foreach ($business_operation as $business_operation)
                                     <option
-                                        value={{ $business_operation -> name }}>{{ $business_operation -> name }}</option>
+                                        value="{{$business_operation->id}}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>{{ $business_operation   ->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -126,7 +133,8 @@
                         <div class="select is-fullwidth">
                             <select class="select-subgoal @error('subgoal') is-danger @enderror" type="text"
                                     id="subgoal" name="subgoal" value="{{ old('subgoal') }}">
-                                <option value="{{ old('none') }}">None</option>
+                                //TODO Shouldn't this be assigned dynamically from DB?
+                                <option disabled selected value> -- select an option --</option>
                                 <option value="{{ old('subgoal1') }}">Subgoal 1</option>
                             </select>
                         </div>
@@ -143,7 +151,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('description') is-danger @enderror" name="description" type="text"
-                               placeholder="describe briefly">
+                               placeholder="Describe briefly" value="{{old('description')}}">
                     </div>
                     @error('description')
                     <p class="help is-danger">{{ $errors->first('description') }}</p>
@@ -160,10 +168,10 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('link') is-danger @enderror" name="link" type="text"
-                               placeholder="type the link here">
+                               placeholder="Type the link here" value="{{old('link')}}">
                     </div>
                     @error('link')
-                    <p class="help is-danger">{{ $errors->first('link') }}</p>
+                    <p class=" help is-danger">{{ $errors->first('link') }}</p>
                     @enderror
                 </div>
             </div>
@@ -176,8 +184,8 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea @error('impact') is-danger @enderror" name="impact"
-                                  placeholder="Explain you impact"></textarea>
+                        <textarea class="textarea @error('impact') is-danger @enderror" name="impact" id="impact"
+                                  placeholder="Explain your impact">{{old('impact')}}</textarea>
                     </div>
                     @error('impact')
                     <p class="help is-danger">{{ $errors->first('impact') }}</p>
@@ -193,11 +201,12 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control is-expanded has-icons-left">
-                        <input class="input @error('name') is-danger @enderror" type="text" placeholder="Name" id="name"
-                               name="contact_name">
+                        <input class="input @error('contact_name') is-danger @enderror" type="text" placeholder="Name"
+                               id="contact_name"
+                               name="contact_name" value="{{old('contact_name')}}">
                         <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
-                            </span>
+                        </span>
                     </p>
                     @error('contact_name')
                     <p class="help is-danger">{{ $errors->first('contact_name') }}</p>
@@ -206,7 +215,7 @@
                 <div class="field">
                     <p class="control is-expanded has-icons-left has-icons-right">
                         <input class="input @error('email') is-danger @enderror" type="text" placeholder="Email"
-                               id="email" name="contact_email">
+                               id="contact_email" name="contact_email" value="{{old('contact_email')}}">
                         <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
