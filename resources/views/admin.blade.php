@@ -26,7 +26,11 @@
                                                 </button>
                                             </td>
                                             <td>
-                                                <form>
+                                                <form method="POST"
+                                                      action="{{route('blogs.destroy', $blog)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="has-text-right">Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

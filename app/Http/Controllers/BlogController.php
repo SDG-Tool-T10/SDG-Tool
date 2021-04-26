@@ -101,7 +101,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        return redirect(route('admin.index'));
     }
 
     protected function getValidate()
