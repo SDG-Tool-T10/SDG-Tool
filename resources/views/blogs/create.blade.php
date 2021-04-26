@@ -171,7 +171,7 @@
                                placeholder="Type the link here" value="{{old('link')}}">
                     </div>
                     @error('link')
-                    <p class=" help is-danger">{{ $errors->first('link') }}</p>
+                    <p class="help is-danger">{{ $errors->first('link') }}</p>
                     @enderror
                 </div>
             </div>
