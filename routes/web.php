@@ -22,6 +22,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/verified-email', function () {
+    return view('verified-email');
+});
+
+Route::get('/email', function () {
+    return view('email');
+});
+
 Route::resource('/blogs', BlogController::class);
 
 Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy']);
