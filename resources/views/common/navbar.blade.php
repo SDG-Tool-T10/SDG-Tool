@@ -16,14 +16,14 @@
                     Dashboard
                 </a>
                 @auth()
-                    @if (Auth::user())
+                    @if (Auth::user()->email_verified_at)
                         <a href="/blogs" class="navbar-item {{ Request::path() === 'blogs' ? 'is-active' : '' }}">
                             Blog
                         </a>
                     @endif
                 @endauth
                 @auth()
-                    @if (Auth::user()->admin)
+                    @if (Auth::user()->email_verified_at)
                         <a href="/admin" class="navbar-item {{ Request::path() === 'admin' ? 'is-active' : '' }}">
                             Admin
                         </a>
@@ -39,7 +39,7 @@
                             @csrf
 
                             <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                                    this.closest('form').submit();">
                                 {{ __('Log out') }}
                             </x-responsive-nav-link>
                         </form>

@@ -7,15 +7,20 @@
         </div>
     </section>
 
+    {{-- <section class="hero  is-medium  is-bold">
+        <div class="header-img">
+            <img src="./image/sdg-photo.png" />
+        </div> --}}
+
     <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="card">
                     @auth()
-                        @if((Auth::user()->admin))
-                        Hey admin
-                        @else 
-                        Hey User
+                        @if (Auth::user()->admin)
+                            Hey admin
+                        @else
+                            Hey User
                         @endif
                     @else
                         Hello Guest
