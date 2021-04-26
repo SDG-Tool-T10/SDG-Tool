@@ -8,7 +8,7 @@
 </section>
 <article class="message is-info verify-message">
     <div class="message-body is-size-3">
-    Welcome... you have verified your email.
-    You are now able to use your account.
+        Welcome... you have verified your email.
+        You are now able to use your account.
   </article>
 @endsection
