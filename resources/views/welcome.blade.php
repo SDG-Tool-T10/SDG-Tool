@@ -11,7 +11,7 @@
         <div class="header-img">
             <img src="./image/sdg-photo.png" />
         </div>
-
+    </section>
     <section class="section">
         <div class="container">
             <div class="columns">
