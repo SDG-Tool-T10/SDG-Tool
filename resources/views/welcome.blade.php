@@ -7,14 +7,23 @@
         </div>
     </section>
 
+    <section class="hero  is-medium  is-bold">
+        <div class="header-img">
+            <img src="./image/sdg-photo.png" />
+        </div>
+    </section>
     <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="card">
                     @auth()
-                        hey {{ Auth::user()->name }}
+                        @if (Auth::user()->admin)
+                            Hey admin
+                        @else
+                            Hey User
+                        @endif
                     @else
-                        laravel
+                        Hello Guest
                     @endauth
                     <div class="card-content">
                         <div class="content is-italic">

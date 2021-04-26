@@ -8,6 +8,7 @@ use App\Models\Activity;
 use App\Models\BusinessOperation;
 use App\Models\Sdg;
 use App\Models\Program;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +23,8 @@ class DatabaseSeeder extends Seeder
             ActivitySeeder::class,
             BusinessOperationSeeder::class,
             SdgSeeder::class,
-            ProgramSeeder::class
+            ProgramSeeder::class,
+            UserSeeder::class
         ]);
     }
 }
