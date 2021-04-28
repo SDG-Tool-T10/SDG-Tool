@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SdgController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchGroupController;
@@ -23,6 +24,8 @@ Route::get('/', function () {
 });
 
 Route::resource('/blogs', BlogController::class);
+
+Route::resource('/sdg', SdgController::class);
 
 Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy']);
 
