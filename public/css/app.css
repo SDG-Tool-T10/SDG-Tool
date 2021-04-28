@@ -1,3 +1,12 @@
+/* verify email page*/
+.verify-message{
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 25%;
+    top: 150px;
+}
+
 /* Nav-bar */
 .logo {
     transform: scale(1.5);

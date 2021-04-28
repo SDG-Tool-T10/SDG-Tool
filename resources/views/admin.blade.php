@@ -19,14 +19,18 @@
                                     <tbody>
                                     @forelse($blogs as $blog)
                                         <tr>
-                                            <td>{{$blog->id}}</td>
+                                            <td>{{$blog->description}}</td>
                                             <td>
                                                 <button class="has-text-right">
                                                     <a href="{{ route('blogs.edit', $blog) }}">Edit</a>
                                                 </button>
                                             </td>
                                             <td>
-                                                <form>
+                                                <form method="POST"
+                                                      action="{{route('blogs.destroy', $blog)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="has-text-right">Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

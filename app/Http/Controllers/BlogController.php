@@ -75,9 +75,9 @@ class BlogController extends Controller
         $sdg = Sdg::latest()->get();
         $activity = Activity::latest()->get();
         $business_operation = BusinessOperation::latest()->get();
-        $course = Course::latest()->get();
+        $programs = Program::latest()->get();
 
-        return view('blogs.edit', compact('blog', 'course', 'sdg', 'activity', 'business_operation'));
+        return view('blogs.edit', compact('blog', 'programs', 'sdg', 'activity', 'business_operation'));
     }
 
     /**
@@ -101,7 +101,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        return redirect(route('admin.index'));
     }
 
     protected function getValidate()
