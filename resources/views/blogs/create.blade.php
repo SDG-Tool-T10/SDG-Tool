@@ -19,10 +19,10 @@
                         <div class="select is-fullwidth">
                             <select class="select-education @error('program') is-danger @enderror" type="text"
                                     id="program" name="program">
-                                <option selected value> None</option>
+                                <option selected> None</option>
                                 @foreach ($programs as $program)
                                     <option
-                                        value="{{$program->id}}" {{ (old('program') == $program->id ? "selected":"") }}>{{ $program->name }}</option>
+                                        value="{{$program->id}}" {{(old('program')==$program->id ? "selected":"")}}>{{$program->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -41,11 +41,11 @@
                         <div class="select is-fullwidth">
                             <select class="select-activity @error('activity') is-danger @enderror" type="text"
                                     id="activity" name="activity">
-                                <option selected value> None</option>
+                                <option selected> None</option>
                                 //TODO plural -> singular
                                 @foreach ($activity as $activity)
                                     <option
-                                        value="{{$activity->id}}" {{ (old('activity') == $activity->id ? "selected":"") }}>{{ $activity->name }}</option>
+                                        value="{{$activity->id}}" {{(old('activity')==$activity->id ? "selected":"")}}>{{$activity->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -64,7 +64,7 @@
                         <div class="select is-fullwidth">
                             <select class="select-research @error('research') is-danger @enderror" type="text"
                                     id="research" name="research">
-                                <option selected value> None</option>
+                                <option selected> None</option>
                                 <option value="1" {{ (old('research') == "1" ? "selected":"") }}>Business development
                                 </option>
                                 <option value="2" {{ (old('research') == "2" ? "selected":"") }}>Marketing</option>
@@ -86,7 +86,7 @@
                         <div class="select is-fullwidth">
                             <select class="select-sdg @error('sdg') is-danger @enderror" type="text" id="sdg"
                                     name="sdg">
-                                <option selected value> None</option>
+                                <option selected> None</option>
                                 //TODO plural -> singular
                                 @foreach ($sdg as $sdg)
                                     <option
@@ -110,11 +110,11 @@
                             <select class="select-policy @error('business_operation') is-danger @enderror" type="text"
                                     id="business_operation"
                                     name="business_operation">
-                                <option selected value> None</option>
+                                <option selected> None</option>
                                 //TODO plural -> singular
                                 @foreach ($business_operation as $business_operation)
                                     <option
-                                        value="{{$business_operation->id}}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>{{ $business_operation   ->name }}</option>
+                                        value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>{{ $business_operation   ->name }}</option>
                                 @endforeach
                             </select>
                         </div>
