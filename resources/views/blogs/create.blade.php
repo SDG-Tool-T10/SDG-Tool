@@ -22,7 +22,8 @@
                                 <option selected> None</option>
                                 @foreach ($programs as $program)
                                     <option
-                                        value="{{$program->id}}" {{(old('program')==$program->id ? "selected":"")}}>{{$program->name}}</option>
+                                        value="{{$program->id}}" {{(old('program')==$program->id ? "selected":"")}}>{{$program->name}}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -45,7 +46,8 @@
                                 //TODO plural -> singular
                                 @foreach ($activity as $activity)
                                     <option
-                                        value="{{$activity->id}}" {{(old('activity')==$activity->id ? "selected":"")}}>{{$activity->name}}</option>
+                                        value="{{$activity->id}}" {{(old('activity')==$activity->id ? "selected":"")}}>{{$activity->name}}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -90,7 +92,8 @@
                                 //TODO plural -> singular
                                 @foreach ($sdg as $sdg)
                                     <option
-                                        value="{{$sdg->id}}" {{ (old('sdg') == $sdg->id ? "selected":"") }}>{{ $sdg->name }}</option>
+                                        value="{{$sdg->id}}" {{ (old('sdg') == $sdg->id ? "selected":"") }}>{{ $sdg->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -114,7 +117,8 @@
                                 //TODO plural -> singular
                                 @foreach ($business_operation as $business_operation)
                                     <option
-                                        value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>{{ $business_operation   ->name }}</option>
+                                        value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>{{ $business_operation   ->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
