@@ -116,7 +116,7 @@ class BlogController extends Controller
             'impact' => 'required',
             'link' => 'required',
             'contact_name' => 'required',
-            'contact_email' => 'required'
+            'contact_email' => 'required|email:rfc,dns'
         ]);
     }
 }
