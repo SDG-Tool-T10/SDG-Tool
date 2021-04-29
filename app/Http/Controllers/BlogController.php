@@ -108,6 +108,10 @@ class BlogController extends Controller
     protected function getValidate()
     {
         return request()->validate([
+            'program_id' => 'nullable',
+            'business_operation_id' => 'nullable',
+            'research_group_id' => 'nullable',
+            'activity_id' => 'nullable',
             'description' => 'required',
             'impact' => 'required',
             'link' => 'required',
