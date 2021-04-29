@@ -82,3 +82,26 @@
 .contact-content {
     margin: 50px !important;
 }
+
+/*SDGs*/
+.columns-container {
+    margin: 50px 250px 50px 250px !important;
+}
+
+.is-horizontal {
+    display: flex;
+}
+
+.sdg-card-image {
+    width: 30%;
+    height: 30%; !important;
+}
+
+.project-card-image {
+    width: 30%;
+    height: 30%; !important;
+}
+
+.sdg-content {
+    margin-top: 15px;
+}
