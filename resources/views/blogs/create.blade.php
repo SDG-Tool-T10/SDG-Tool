@@ -1,13 +1,76 @@
 @extends('common.master')
-
 @section('content')
-    <section class="hero  is-medium  is-bold">
-        <div class="header-img">
-            <img src="/image/sdg-header-en.png"/>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-    </section>
+    </div>
+    <!-- ***** Preloader End ***** -->
 
-    <form method="POST" class='blog-form' action="{{ route('blogs.store') }}">
+    <!-- ***** Search Area ***** -->
+    <div id="search">
+        <button type="button" class="close">×</button>
+        <form id="contact" action="#" method="get">
+            <fieldset>
+                <input type="search" name="q" placeholder="SEARCH KEYWORD(s)" aria-label="Search through site content">
+            </fieldset>
+            <fieldset>
+                <button type="submit" class="main-button">Search</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="image/slide-01.jpg" alt="">
+                    <div class="text-content">
+                        <h3>Welcome To SDG-Tool</h3>
+                        <h5>Sustainable Development Goals</h5>
+                        <a href="#" class="main-stroked-button">Learn More</a>
+                        <a href="#" class="main-filled-button">Get It Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="image/slide-02.jpg" alt="">
+                    <div class="text-content">
+                        <h3>HZ-University Of Applied Sciences Contibution</h3>
+                        <h5>Sustainable Development Goals</h5>
+                        <a href="#" class="main-stroked-button">Read More</a>
+                        <a href="#" class="main-filled-button">Take Action</a>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="image/slide-03.jpg" alt="">
+                    <div class="text-content">
+                        <h3>For A Cleaner Future</h3>
+                        <h5>Projects, Research and More</h5>
+                        <a href="#" class="main-stroked-button">Learn More</a>
+                        <a href="#" class="main-filled-button">Get It Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+        </div>
+    </div>
+    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+    <!-- ***** Main Banner Area End ***** -->
+
+    <form method="POST" id="about" class='blog-form' action="{{ route('blogs.store') }}">
         @csrf
         <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -17,8 +80,8 @@
                 <div class="field ">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-education @error('program') is-danger @enderror" type="text"
-                                    id="program" name="program">
+                            <select class="select-education @error('program') is-danger @enderror" type="text" id="program"
+                                name="program">
                                 <option value="{{ old('none') }}">None</option>
                                 @foreach ($programs as $program)
                                     <option value={{ $program->name }}>{{ $program->name }}</option>
@@ -38,8 +101,8 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-activity @error('activity') is-danger @enderror" type="text"
-                                    id="activity" name="activity">
+                            <select class="select-activity @error('activity') is-danger @enderror" type="text" id="activity"
+                                name="activity">
                                 <option value="{{ old('none') }}">None</option>
                                 @foreach ($activity as $activity)
                                     <option value={{ $activity->name }}>{{ $activity->name }}</option>
@@ -59,8 +122,8 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-research @error('research') is-danger @enderror" type="text"
-                                    id="research" name="research">
+                            <select class="select-research @error('research') is-danger @enderror" type="text" id="research"
+                                name="research">
                                 <option value="{{ old('none') }}">None</option>
                                 <option value="{{ old('business_development') }}">Business development</option>
                                 <option value="{{ old('marketing') }}">Marketing</option>
@@ -80,8 +143,7 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-sdg @error('sdg') is-danger @enderror" type="text" id="sdg"
-                                    name="sdg">
+                            <select class="select-sdg @error('sdg') is-danger @enderror" type="text" id="sdg" name="sdg">
                                 <option value="{{ old('none') }}">None</option>
                                 @foreach ($sdg as $sdg)
                                     <option value={{ $sdg->name }}>{{ $sdg->name }}</option>
@@ -102,12 +164,12 @@
                     <div class="control">
                         <div class="select is-fullwidth">
                             <select class="select-policy @error('business_operation') is-danger @enderror" type="text"
-                                    id="business_operation"
-                                    name="business_operation" value="{{ old('business_operation') }}">
+                                id="business_operation" name="business_operation"
+                                value="{{ old('business_operation') }}">
                                 <option value="{{ old('none') }}">None</option>
                                 @foreach ($business_operation as $business_operation)
-                                    <option
-                                        value={{ $business_operation -> name }}>{{ $business_operation -> name }}</option>
+                                    <option value={{ $business_operation->name }}>{{ $business_operation->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -124,8 +186,8 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-subgoal @error('subgoal') is-danger @enderror" type="text"
-                                    id="subgoal" name="subgoal" value="{{ old('subgoal') }}">
+                            <select class="select-subgoal @error('subgoal') is-danger @enderror" type="text" id="subgoal"
+                                name="subgoal" value="{{ old('subgoal') }}">
                                 <option value="{{ old('none') }}">None</option>
                                 <option value="{{ old('subgoal1') }}">Subgoal 1</option>
                             </select>
@@ -143,10 +205,10 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('description') is-danger @enderror" name="description" type="text"
-                               placeholder="describe briefly">
+                            placeholder="describe briefly">
                     </div>
                     @error('description')
-                    <p class="help is-danger">{{ $errors->first('description') }}</p>
+                        <p class="help is-danger">{{ $errors->first('description') }}</p>
                     @enderror
                 </div>
             </div>
@@ -160,10 +222,10 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('link') is-danger @enderror" name="link" type="text"
-                               placeholder="type the link here">
+                            placeholder="type the link here">
                     </div>
                     @error('link')
-                    <p class="help is-danger">{{ $errors->first('link') }}</p>
+                        <p class="help is-danger">{{ $errors->first('link') }}</p>
                     @enderror
                 </div>
             </div>
@@ -177,10 +239,10 @@
                 <div class="field">
                     <div class="control">
                         <textarea class="textarea @error('impact') is-danger @enderror" name="impact"
-                                  placeholder="Explain you impact"></textarea>
+                            placeholder="Explain you impact"></textarea>
                     </div>
                     @error('impact')
-                    <p class="help is-danger">{{ $errors->first('impact') }}</p>
+                        <p class="help is-danger">{{ $errors->first('impact') }}</p>
                     @enderror
                 </div>
             </div>
@@ -194,28 +256,28 @@
                 <div class="field">
                     <p class="control is-expanded has-icons-left">
                         <input class="input @error('name') is-danger @enderror" type="text" placeholder="Name" id="name"
-                               name="contact_name">
+                            name="contact_name">
                         <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
+                            <i class="fas fa-user"></i>
+                        </span>
                     </p>
                     @error('contact_name')
-                    <p class="help is-danger">{{ $errors->first('contact_name') }}</p>
+                        <p class="help is-danger">{{ $errors->first('contact_name') }}</p>
                     @enderror
                 </div>
                 <div class="field">
                     <p class="control is-expanded has-icons-left has-icons-right">
-                        <input class="input @error('email') is-danger @enderror" type="text" placeholder="Email"
-                               id="email" name="contact_email">
+                        <input class="input @error('email') is-danger @enderror" type="text" placeholder="Email" id="email"
+                            name="contact_email">
                         <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
+                            <i class="fas fa-envelope"></i>
+                        </span>
                         <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
+                            <i class="fas fa-check"></i>
+                        </span>
                     </p>
                     @error('contact_email')
-                    <p class="help is-danger">{{ $errors->first('contact_email') }}</p>
+                        <p class="help is-danger">{{ $errors->first('contact_email') }}</p>
                     @enderror
                 </div>
             </div>
