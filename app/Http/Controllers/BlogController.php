@@ -18,12 +18,12 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $sdg = Sdg::latest()->get();
-        $activity = Activity::latest()->get();
-        $business_operation = BusinessOperation::latest()->get();
+        $sdgs = Sdg::latest()->get();
+        $activities = Activity::latest()->get();
+        $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
 
-        return view('blogs.create', compact(['sdg', 'activity', 'business_operation', 'programs']));
+        return view('blogs.create', compact('programs', 'sdgs', 'activities', 'business_operations'));
     }
 
     /**
@@ -33,12 +33,12 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $sdg = Sdg::latest()->get();
-        $activity = Activity::latest()->get();
-        $business_operation = BusinessOperation::latest()->get();
+        $sdgs = Sdg::latest()->get();
+        $activities = Activity::latest()->get();
+        $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
 
-        return view('blogs.create', compact(['sdg', 'activity', 'business_operation', 'programs']));
+        return view('blogs.create', compact('programs', 'sdgs', 'activities', 'business_operations'));
     }
 
     /**
@@ -49,7 +49,8 @@ class BlogController extends Controller
      */
     public function store(Blog $blog, Request $request)
     {
-        Blog::create($this->getValidate($request));
+        $blog = Blog::create($this->getValidate($request));
+        $blog->sdgs()->attach(request('sdg_id'));
         return redirect(route('admin.index'));
     }
 
@@ -72,12 +73,12 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        $sdg = Sdg::latest()->get();
-        $activity = Activity::latest()->get();
-        $business_operation = BusinessOperation::latest()->get();
+        $sdgs = Sdg::latest()->get();
+        $activities = Activity::latest()->get();
+        $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
 
-        return view('blogs.edit', compact('blog', 'programs', 'sdg', 'activity', 'business_operation'));
+        return view('blogs.edit', compact('blog', 'programs', 'sdgs', 'activities', 'business_operations'));
     }
 
     /**

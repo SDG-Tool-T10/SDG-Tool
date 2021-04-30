@@ -11,7 +11,7 @@ class Sdg extends Model
 
     public function subSdgs()
     {
-        return $this->hasMany(SubSdg::class);
+        return $this->belongsToMany(SubSdg::class);
     }
 
     public function blogs()
