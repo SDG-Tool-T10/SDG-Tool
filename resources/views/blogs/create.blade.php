@@ -89,7 +89,6 @@
                             <select class="select-sdg @error('sdg_id[]') is-danger @enderror" type="text" id="sdg_id[]"
                                     name="sdg_id[]">
                                 <option selected> None</option>
-                                //TODO plural -> singular
                                 @foreach ($sdgs as $sdg)
                                     <option
                                         value="{{$sdg->id}}" {{ (old('sdg') == $sdg->id ? "selected":"") }}>{{ $sdg->name }}
@@ -114,7 +113,6 @@
                                     id="business_operation_id"
                                     name="business_operation_id">
                                 <option selected> None</option>
-                                //TODO plural -> singular
                                 @foreach ($business_operations as $business_operation)
                                     <option
                                         value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>{{ $business_operation   ->name }}
