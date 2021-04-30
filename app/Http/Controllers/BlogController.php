@@ -38,7 +38,7 @@ class BlogController extends Controller
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
 
-        return view('blogs.create', compact('programs', 'sdgs', 'activities', 'business_operations'));
+        return view('blogs.create', compact('sdgs', 'activities', 'business_operations', 'programs'));
     }
 
     /**
@@ -78,7 +78,7 @@ class BlogController extends Controller
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
 
-        return view('blogs.edit', compact('blog', 'programs', 'sdgs', 'activities', 'business_operations'));
+        return view('blogs.edit', compact('programs', 'sdgs', 'activities', 'business_operations'));
     }
 
     /**
