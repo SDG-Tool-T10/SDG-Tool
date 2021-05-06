@@ -41,7 +41,7 @@
                             <select class="select-activity @error('activity') is-danger @enderror" type="text"
                                     id="activity" name="activity">
                                 <option value="{{ old('none') }}">None</option>
-                                @foreach ($activity as $activity)
+                                @foreach ($activities as $activity)
                                     <option value={{ $activity->name }}>{{ $activity->name }}</option>
                                 @endforeach
                             </select>
@@ -83,7 +83,7 @@
                             <select class="select-sdg @error('sdg') is-danger @enderror" type="text" id="sdg"
                                     name="sdg">
                                 <option value="{{ old('none') }}">None</option>
-                                @foreach ($sdg as $sdg)
+                                @foreach ($sdgs as $sdg)
                                     <option value={{ $sdg->name }}>{{ $sdg->name }}</option>
                                 @endforeach
                             </select>
@@ -105,7 +105,7 @@
                                     id="business_operation"
                                     name="business_operation" value="{{ old('business_operation') }}">
                                 <option value="{{ old('none') }}">None</option>
-                                @foreach ($business_operation as $business_operation)
+                                @foreach ($business_operations as $business_operation)
                                     <option
                                         value={{ $business_operation -> name }}>{{ $business_operation -> name }}</option>
                                 @endforeach

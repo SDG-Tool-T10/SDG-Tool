@@ -17,8 +17,8 @@
                 <div class="field ">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-education @error('program') is-danger @enderror" type="text"
-                                    id="program" name="program">
+                            <select class="select-education @error('program_id') is-danger @enderror" type="text"
+                                    id="program_id" name="program_id">
                                 <option selected> None</option>
                                 @foreach ($programs as $program)
                                     <option
@@ -40,11 +40,11 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-activity @error('activity') is-danger @enderror" type="text"
-                                    id="activity" name="activity">
+                            <select class="select-activity @error('activity_id') is-danger @enderror" type="text"
+                                    id="activity_id" name="activity_id">
                                 <option selected> None</option>
                                 //TODO plural -> singular
-                                @foreach ($activity as $activity)
+                                @foreach ($activities as $activity)
                                     <option
                                         value="{{$activity->id}}" {{(old('activity')==$activity->id ? "selected":"")}}>{{$activity->name}}
                                     </option>
@@ -64,13 +64,13 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-research @error('research') is-danger @enderror" type="text"
-                                    id="research" name="research">
+                            <select class="select-research @error('research_id') is-danger @enderror" type="text"
+                                    id="research_id" name="research_id">
                                 <option selected> None</option>
-                                <option value="1" {{ (old('research') == "1" ? "selected":"") }}>Business development
+                                <option value="1" {{ (old('research_id') == "1" ? "selected":"") }}>Business development
                                 </option>
-                                <option value="2" {{ (old('research') == "2" ? "selected":"") }}>Marketing</option>
-                                <option value="3" {{ (old('research') == "3" ? "selected":"") }}>Sales</option>
+                                <option value="2" {{ (old('research_id') == "2" ? "selected":"") }}>Marketing</option>
+                                <option value="3" {{ (old('research_id') == "3" ? "selected":"") }}>Sales</option>
                             </select>
                         </div>
                     </div>
@@ -86,11 +86,10 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-sdg @error('sdg') is-danger @enderror" type="text" id="sdg"
-                                    name="sdg">
+                            <select class="select-sdg @error('sdg_id[]') is-danger @enderror" type="text" id="sdg_id[]"
+                                    name="sdg_id[]">
                                 <option selected> None</option>
-                                //TODO plural -> singular
-                                @foreach ($sdg as $sdg)
+                                @foreach ($sdgs as $sdg)
                                     <option
                                         value="{{$sdg->id}}" {{ (old('sdg') == $sdg->id ? "selected":"") }}>{{ $sdg->name }}
                                     </option>
@@ -110,12 +109,11 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-policy @error('business_operation') is-danger @enderror" type="text"
-                                    id="business_operation"
-                                    name="business_operation">
+                            <select class="select-policy @error('business_operation_id') is-danger @enderror" type="text"
+                                    id="business_operation_id"
+                                    name="business_operation_id">
                                 <option selected> None</option>
-                                //TODO plural -> singular
-                                @foreach ($business_operation as $business_operation)
+                                @foreach ($business_operations as $business_operation)
                                     <option
                                         value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>{{ $business_operation   ->name }}
                                     </option>
@@ -135,11 +133,11 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-subgoal @error('subgoal') is-danger @enderror" type="text"
-                                    id="subgoal" name="subgoal" value="{{ old('subgoal') }}">
+                            <select class="select-subgoal @error('sub_sdg_id') is-danger @enderror" type="text"
+                                    id="sub_sdg_id" name="sub_sdg_id" value="{{ old('sub_sdg_id') }}">
                                 //TODO Shouldn't this be assigned dynamically from DB?
                                 <option disabled selected value> -- select an option --</option>
-                                <option value="{{ old('subgoal1') }}">Subgoal 1</option>
+                                <option value="{{ old('sub_sdg_id') }}">Subgoal 1</option>
                             </select>
                         </div>
                     </div>
