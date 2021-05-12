@@ -1,3 +1,6 @@
+@extends('common.master')
+<link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
+@section('content')
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -34,3 +37,4 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+@endsection
