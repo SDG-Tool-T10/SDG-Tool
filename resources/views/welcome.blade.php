@@ -1,6 +1,6 @@
 @extends('common.master')
 
-@section('content')    
+@section('content')
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -8,9 +8,9 @@
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
-    
+
     <!-- ***** Search Area ***** -->
     <div id="search">
         <button type="button" class="close">×</button>
@@ -75,7 +75,7 @@
     <section class="section" id="about">
         <div class="container">
             <div class="row">
-                <div class="section-sdg-goals is-align-content-space-evenly" style="padding-left: 90px">
+                <div class="section-sdg-goals is-align-content-space-evenly" style="padding-left: 60px">
                     <div class="is-flex-wrap-wrap sdg-icon">
                         <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-01.png" /></a>
                         <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-02.png" /></a>
@@ -345,7 +345,7 @@
                             <h4>.05 Shao Lynn</h4>
                             <span>Chief Marketing</span>
                         </div>
-                        
+
                         <div class="item author-item">
                             <div class="member-thumb">
                                 <img src="image/member-item-04.jpg" alt="">
@@ -363,7 +363,7 @@
                             <h4>.06 Emma Honey</h4>
                             <span>Digital Influencer</span>
                         </div>
-                        
+
                         <div class="item author-item">
                             <div class="member-thumb">
                                 <img src="image/member-item-06.jpg" alt="">
@@ -381,12 +381,12 @@
                             <h4>.07 Oliva Sofie</h4>
                             <span>Website Analyst</span>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ***** Testimonials Ends ***** -->
-    
+
 @endsection
