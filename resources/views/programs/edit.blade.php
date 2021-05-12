@@ -18,7 +18,7 @@
                     <div class="field ">
                         <div class="control">
                             <input class="input {{$errors->has('name') ? 'is-danger' : ''}}" type="text" name="name"
-                                   id="name" value="{{ $course->name }}">
+                                   id="name" value="{{ $program->name }}">
                             @error('name')
                             <p class="help is-danger">{{$errors->first('name')}}</p>
                             @enderror

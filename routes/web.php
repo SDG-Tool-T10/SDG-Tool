@@ -31,6 +31,8 @@ Route::get('/email', function () {
     return view('email');
 });
 
+Route::put('/blogs/changevisibility/{blog}', [BlogController::class, 'changeVisibility']);
+
 Route::resource('/blogs', BlogController::class);
 
 Route::resource('/sdg', SdgController::class);
