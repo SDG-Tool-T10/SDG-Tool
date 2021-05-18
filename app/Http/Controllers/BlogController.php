@@ -78,7 +78,7 @@ class BlogController extends Controller
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
 
-        return view('blogs.edit', compact('programs', 'sdgs', 'activities', 'business_operations'));
+        return view('blogs.edit', compact('programs', 'sdgs', 'activities', 'business_operations', 'blog'));
     }
 
     /**
@@ -102,6 +102,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        $blog->sdgs()->detach();
         $blog->delete();
         return redirect(route('admin.index'));
     }
@@ -119,5 +120,13 @@ class BlogController extends Controller
             'contact_name' => 'required',
             'contact_email' => 'required|email:rfc,dns'
         ]);
+    }
+
+    protected function changeVisibility(Blog $blog)
+    {
+        $blog->update(['visibility' => true]);
+        $blog->save();
+
+        return redirect(route('admin.index'));
     }
 }
