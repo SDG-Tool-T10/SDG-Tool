@@ -72,8 +72,8 @@
                                     @forelse($blogs as $blog)
                                         @if($blog->visibility === 0)
                                         <tr>
-                                            <td>{{$blog->description}}</td>
-                                            <td>{{$blog->contact_email}}</td>
+                                            <td>{{ $blog->description }}</td>
+                                            <td>{{ $blog->contact_email }}</td>
                                             <td>
                                                 <button class="has-text-right">
                                                     <a href="{{ route('blogs.edit', $blog) }}">Edit</a>
@@ -81,7 +81,7 @@
                                             </td>
                                             <td>
                                                 <form method="POST"
-                                                      action="{{route('blogs.destroy', $blog)}}">
+                                                      action="{{ route('blogs.destroy', $blog) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="has-text-right">Delete</button>
