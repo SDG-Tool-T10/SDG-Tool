@@ -1,7 +1,6 @@
 @extends('common.master')
 
 @section('content')
-
     <div class="padding-card">
         <div class="columns">
             <div class="column is-6 is-narrow">
@@ -101,7 +100,6 @@
                                     @empty
                                         <p>This block is currently empty</p>
                                     @endforelse
-
                                     </tbody>
                                 </table>
                             </div>
