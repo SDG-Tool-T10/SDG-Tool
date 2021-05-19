@@ -30,6 +30,8 @@ Route::get('/email', function () {
 
 Route::resource('/', WelcomeController::class);
 
+Route::put('/blogs/changevisibility/{blog}', [BlogController::class, 'changeVisibility']);
+
 Route::resource('/blogs', BlogController::class);
 
 Route::resource('/sdg', SdgController::class);

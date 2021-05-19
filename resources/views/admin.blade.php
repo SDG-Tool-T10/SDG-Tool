@@ -17,9 +17,15 @@
                             <div class="container fixed-height">
                                 <table>
                                     <tbody>
+                                    <th>Description</th>
+                                    <th>Publisher</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                     @forelse($blogs as $blog)
+                                        @if($blog->visibility === 1)
                                         <tr>
-                                            <td>{{$blog->description}}</td>
+                                            <td>{{ $blog->description }}</td>
+                                            <td>{{ $blog->contact_name }}</td>
                                             <td>
                                                 <button class="has-text-right">
                                                     <a href="{{ route('blogs.edit', $blog) }}">Edit</a>
@@ -34,6 +40,7 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                        @endif
                                     @empty
                                         <p>This block is currently empty</p>
                                     @endforelse
@@ -54,11 +61,47 @@
                                     <button>Add a Blog</button>
                                 </h1>
                             </header>
-                            <div class="fixed-height">
-                                Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi
-                                porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient
-                                montes,
-                                nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                            <div class="container fixed-height">
+                                <table>
+                                    <tbody>
+                                    <th>Description</th>
+                                    <th>E-mail</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                    <th>Approve</th>
+                                    @forelse($blogs as $blog)
+                                        @if($blog->visibility === 0)
+                                        <tr>
+                                            <td>{{ $blog->description }}</td>
+                                            <td>{{ $blog->contact_email }}</td>
+                                            <td>
+                                                <button class="has-text-right">
+                                                    <a href="{{ route('blogs.edit', $blog) }}">Edit</a>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <form method="POST"
+                                                      action="{{ route('blogs.destroy', $blog) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="has-text-right">Delete</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form method="POST"
+                                                      action="blogs/changevisibility/{{$blog->id}}">
+                                                    @csrf
+                                                    @method('PUT')
+                                                <button class="has-text-right">Approve</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @endif
+                                    @empty
+                                        <p>This block is currently empty</p>
+                                    @endforelse
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
