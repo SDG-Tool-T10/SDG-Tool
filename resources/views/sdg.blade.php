@@ -6,13 +6,13 @@
             <div class="card is-horizontal">
                 <div class="sdg-card-image">
                     <figure class="image is-square">
-                        <img src="./image/SDG-Icons-ALT/no-poverty.png" alt="No Poverty">
+                        <img class="alt-image" src="./../{{ $sdg->alt_img }}" alt="{{ $sdg->name }}">
                     </figure>
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
                         <div class="media-content">
-                            <p class="title is-3">End poverty in all its forms everywhere</p>
+                            <p class="title is-3">{{ $sdg->alt_title }}</p>
                         </div>
                         <div class="subtitle is-5 sdg-content">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -36,7 +36,7 @@
                 <div class="card-stacked">
                     <div class="card-content">
                         <div class="media-content">
-                            <p class="title is-4">Project 1</p>
+                            <p class="title is-4">Project 1/Blog</p>
                         </div>
                         <div class="subtitle is-6 sdg-content">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -57,7 +57,7 @@
                 <div class="card-stacked">
                     <div class="card-content">
                         <div class="media-content">
-                            <p class="title is-4">Project 2</p>
+                            <p class="title is-4">Project 2/Blog</p>
                         </div>
                         <div class="subtitle is-6 sdg-content">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -78,7 +78,7 @@
                 <div class="card-stacked">
                     <div class="card-content">
                         <div class="media-content">
-                            <p class="title is-4">Project 3</p>
+                            <p class="title is-4">Project 3/Blog</p>
                         </div>
                         <div class="subtitle is-6 sdg-content">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.

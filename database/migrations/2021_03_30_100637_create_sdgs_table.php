@@ -16,7 +16,9 @@ class CreateSdgsTable extends Migration
         Schema::create('sdgs', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("alt_title")->default('1');
             $table->string("img_link");
+            $table->string("alt_img")->default('1');
             $table->timestamps();
         });
     }

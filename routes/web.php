@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchGroupController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/verified-email', function () {
     return view('verified-email');
 });
@@ -30,6 +27,8 @@ Route::get('/verified-email', function () {
 Route::get('/email', function () {
     return view('email');
 });
+
+Route::resource('/', WelcomeController::class);
 
 Route::resource('/blogs', BlogController::class);
 

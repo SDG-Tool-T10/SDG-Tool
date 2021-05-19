@@ -36,24 +36,28 @@
             </div>
             <div class="section-sdg-goals is-align-content-space-evenly" style="padding-left: 90px">
                 <div class="is-flex-wrap-wrap sdg-icon">
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-01.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-02.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-03.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-04.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-05.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-06.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-07.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-08.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-09.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-10.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-11.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-12.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-13.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-14.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-15.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-16.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-17.png" /></a>
-                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-18.png" /></a>
+                        @foreach($sdgs as $sdg)
+                            <a href="/sdg/{{ $sdg->id }}"><img src="{{ $sdg->img_link }}" /></a>
+                        @endforeach
+
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-01.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-02.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-03.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-04.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-05.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-06.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-07.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-08.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-09.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-10.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-11.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-12.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-13.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-14.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-15.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-16.png" /></a>--}}
+{{--                    <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-17.png" /></a>--}}
+                    <a href="#"><img src="./image/SDG-Icons-EN/sdg-en-18.png" /></a>
                 </div>
             </div>
         </div>
