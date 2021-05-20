@@ -16,6 +16,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin-access');
         $programs = Program::latest()->get();
         $researchGroups = ResearchGroup::latest()->get();
         $blogs = Blog::latest()->get();

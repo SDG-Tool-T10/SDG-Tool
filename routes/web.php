@@ -33,11 +33,11 @@ Route::get('/email', function () {
 
 Route::put('/blogs/changevisibility/{blog}', [BlogController::class, 'changeVisibility']);
 
-Route::resource('/blogs', BlogController::class);
+Route::resource('/blogs', BlogController::class)->middleware(['auth']);
 
 Route::resource('/sdg', SdgController::class);
 
-Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy']);
+Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy'])->middleware(['auth']);
 
 Route::resource('/programs', ProgramController::class);
 
@@ -45,8 +45,12 @@ Route::resource('/research_groups', ResearchGroupController::class);
 
 Route::resource('/contact', ContactController::class);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//Route::get('/blogs', function () {
+//    return view('blogs.create');
+//})->middleware(['auth'])->name('blogs');
+//
+//Route::get('/admin', function () {
+//    return view('admin');
+//})->middleware(['auth'])->name('admin');
 
 require __DIR__.'/auth.php';
