@@ -1,32 +1,20 @@
 @extends('common.master')
 
 @section('content')
-    <div class="columns columns-container">
-        <div class="column is-full">
-            <div class="card is-horizontal">
-                <div class="sdg-card-image">
-                    <figure class="image is-square">
-                        <img class="alt-image" src="./../{{ $sdg->alt_img }}" alt="{{ $sdg->name }}">
-                    </figure>
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <div class="media-content">
-                            <p class="title is-3">{{ $sdg->alt_title }}</p>
-                        </div>
-                        <div class="subtitle is-5 sdg-content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris.
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="hero is-info">
+        <div class="hero-body container">
+            <p class="title">
+                All blogs on one page
+            </p>
+            <p class="subtitle">
+                Use the filters to search for what you want
+            </p>
         </div>
-    </div>
+    </section>
 
     <div class="columns columns-container is-multiline">
 
-        @foreach($sdg->blogs as $blog)
+        @foreach($blogs as $blog)
             @continue($blog->visibility == 1)
             <div class="column is-half">
                 <div class="card">
@@ -54,6 +42,5 @@
                 </div>
             </div>
         @endforeach
-
     </div>
 @endsection

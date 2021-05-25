@@ -18,12 +18,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $sdgs = Sdg::latest()->get();
-        $activities = Activity::latest()->get();
-        $business_operations = BusinessOperation::latest()->get();
-        $programs = Program::latest()->get();
+        $blogs = Blog::latest()->get();
 
-        return view('blogs.create', compact('programs', 'sdgs', 'activities', 'business_operations'));
+        return view('blogs.index', compact('blogs'));
     }
 
     /**
