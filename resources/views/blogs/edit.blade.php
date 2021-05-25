@@ -7,8 +7,9 @@
         </div>
     </section>
 
-    <form method="POST" class='blog-form' action="{{ route('blogs.store') }}">
+    <form method="POST" class='blog-form' action="{{ route('blogs.update', $blog) }}">
         @csrf
+        @method('PUT')
         <div class="field is-horizontal">
             <div class="field-label is-normal">
                 <label class="label">Program</label>
@@ -206,7 +207,7 @@
                 <div class="field">
                     <p class="control is-expanded has-icons-left has-icons-right">
                         <input class="input @error('email') is-danger @enderror" type="text" placeholder="Email"
-                               id="email" name="contact_email" value="{{ $blog->contact_name }}">
+                               id="email" name="contact_email" value="{{ $blog->contact_email }}">
                         <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>

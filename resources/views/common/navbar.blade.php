@@ -29,7 +29,6 @@
                         </a>
                     @endif
                 @endauth
-
             </div>
             <div class="navbar-end">
                 @auth()
