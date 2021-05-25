@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sdg;
+use App\Models\Welcome;
 use Illuminate\Http\Request;
 
-class SdgController extends Controller
+class WelcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class SdgController extends Controller
      */
     public function index()
     {
-        return view('sdg');
+        $sdgs = Sdg::latest()->get();
+        return view('welcome', compact('sdgs'));
     }
 
     /**
@@ -41,21 +43,21 @@ class SdgController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sdg  $sdg
+     * @param  \App\Models\Welcome  $welcome
      * @return \Illuminate\Http\Response
      */
-    public function show(Sdg $sdg)
+    public function show(Welcome $welcome)
     {
-        return view('sdg', compact('sdg'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Sdg  $sdg
+     * @param  \App\Models\Welcome  $welcome
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sdg $sdg)
+    public function edit(Welcome $welcome)
     {
         //
     }
@@ -64,10 +66,10 @@ class SdgController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sdg  $sdg
+     * @param  \App\Models\Welcome  $welcome
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sdg $sdg)
+    public function update(Request $request, Welcome $welcome)
     {
         //
     }
@@ -75,10 +77,10 @@ class SdgController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Sdg  $sdg
+     * @param  \App\Models\Welcome  $welcome
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sdg $sdg)
+    public function destroy(Welcome $welcome)
     {
         //
     }
