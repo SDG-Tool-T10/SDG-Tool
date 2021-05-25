@@ -32,7 +32,7 @@
             </div>
             <div class="navbar-end">
                 @auth()
-                    <div class="mt-3git space-y-1">
+                    <div class="mt-3 space-y-1">
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
