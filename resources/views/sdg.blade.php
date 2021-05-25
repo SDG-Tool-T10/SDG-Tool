@@ -27,7 +27,7 @@
     <div class="columns columns-container is-multiline">
 
         @foreach($sdg->blogs as $blog)
-            @continue($blog->visibility == 1)
+            @continue($blog->visibility == 0)
             <div class="column is-half">
                 <div class="card">
                     <div class="card-image">
