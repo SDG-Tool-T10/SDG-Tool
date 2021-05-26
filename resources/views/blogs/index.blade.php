@@ -51,10 +51,10 @@
         </div>
     </div>
 
-    <div id="blogPost" class="columns columns-container is-multiline">
+    <div class="columns columns-container is-multiline">
         @foreach($blogs as $blog)
             @continue($blog->visibility == 0)
-            <div class="column is-half">
+            <div class="column is-half blogPost">
                 <div class="card">
                     <div class="card-stacked">
                         <div class="card-content blog-card">
@@ -68,7 +68,7 @@
                                 <p>Business Operation: {{ $blog->businessOperation->name }}</p>
                                 <p>Subgoal: {{ $blog->subSdgs }}</p>
                                 @foreach($blog->sdgs as $sdg)
-                                    <p id="blogSDG">SDG: {{$sdg->name}}</p>
+                                    <p class="blogSDG">SDG: {{$sdg->name}}</p>
                                 @endforeach
                                 <p>Publisher: {{ $blog->contact_name }} </p>
                                 <p>Updated at: {{ $blog->updated_at }} </p>
@@ -83,25 +83,19 @@
     <script>
         function myFunction() {
             let input = document.getElementById("sdgId").value;
-            let input2 = document.getElementById("blogSDG").innerText.substring(5);
-            let blogcontainer = document.getElementById("blogPost");
-            let innerdiv = blogcontainer.getElementsByClassName("sdg-content");
+            // let input2 = document.getElementById("blogSDG").innerText.substring(5);
+            let blogpost = document.getElementsByClassName("blogPost");
+            let sdgtest = document.getElementsByClassName("blogSDG");
+            let arr = Array.prototype.slice.call(blogpost)
 
-            for (let i = 0; i < innerdiv.length; i++) {
-                console.log(blogcontainer);
+            for (let i = 0; i < arr.length; i++) {
+
+                if (input === sdgtest[i].innerText.substring(5)) {
+                    console.log('success')
+                } else {
+                    console.log('no success')
+                }
             }
-
-            console.log(input);
-            console.log(input2);
-            // console.log(blog);
-            //
-            // for (let i = 0; i < blog.length; i++){
-            //     console.log(input2);
-            // }
-
-            // if (input === input2){
-            //     console.log('success');
-            // }
         }
     </script>
 @endsection
