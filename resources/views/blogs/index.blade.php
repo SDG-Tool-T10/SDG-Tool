@@ -29,7 +29,14 @@
                                 Research Group: <br>
                                 Program: {{ $blog->program->name }}<br>
                                 Business Operation: {{ $blog->businessOperation->name }}<br>
-                                Subgoal: {{ $blog->subSdgs }}<br>
+                                SDGs:
+                                @foreach($blog->sdgs as $sdg)
+                                    {{ $sdg->name }}
+                                @endforeach<br>
+                                Subgoal:
+                                @foreach($blog->subSdgs as $subSdg)
+                                    {{ $subSdg }}
+                                @endforeach<br>
                                 Publisher: {{ $blog->contact_name }} <br>
                                 Updated at: {{ $blog->updated_at }} <br>
                             </div>
