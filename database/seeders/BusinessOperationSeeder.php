@@ -36,6 +36,7 @@ class BusinessOperationSeeder extends Seeder
         ]);
         DB::table('business_operations')->insert([
             'name' => 'Built Environment Associate degree',
-        ]); 
+        ]);
+
     }
 }
