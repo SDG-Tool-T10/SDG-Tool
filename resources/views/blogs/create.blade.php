@@ -23,7 +23,7 @@
                                 @foreach ($programs as $program)
                                     <option
                                         value="{{$program->id}}" {{(old('program')==$program->id ? "selected":"")}}>{{$program->name}}
-                                    </option>
+                                        </option>
                                 @endforeach
                             </select>
                         </div>
