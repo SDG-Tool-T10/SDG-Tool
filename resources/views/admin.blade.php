@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="padding-card">
+
         <div class="columns">
             <div class="column is-6 is-narrow">
                 <div class="card">
@@ -202,5 +203,94 @@
                 </div>
             </div>
         </div>
+
+        <div>
+            <div class="columns">
+                <div class="column is-6 is-narrow">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content">
+                                <header class="card-header-title columns">Type of Activities
+                                    <h1 class="padding-left-50">
+                                        <button>
+                                            <a href="{{ route('activities.create') }}">Add a Type of Activity</a>
+                                        </button>
+                                    </h1>
+                                </header>
+                                <div class="container fixed-height">
+                                    <table>
+                                        <tbody>
+                                        @forelse($activities as $activity)
+                                            <tr>
+                                                <td>{{$activity->name}}</td>
+                                                <td>
+                                                    <button class="has-text-right">
+                                                        <a href="{{ route('activities.edit', $activity) }}">Edit</a>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <form method="POST"
+                                                          action="{{ route('activities.destroy', $activity) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="has-text-right">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <p>This block is currently empty</p>
+                                        @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-6 is-narrow">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content">
+                                <header class="card-header-title columns">Business Op.
+                                    <h1 class="padding-left-50">
+                                        <button>
+                                            <a href="{{ route('business_operations.create') }}">Add a Business Op.</a>
+                                        </button>
+                                    </h1>
+                                </header>
+                                <div class="container fixed-height">
+                                    <table>
+                                        <tbody>
+                                        @forelse($businessOperations as $businessOperation)
+                                            <tr>
+                                                <td>{{$businessOperation->name}}</td>
+                                                <td>
+                                                    <button class="has-text-right">
+                                                        <a href="{{ route('business_operations.edit', $businessOperation) }}">Edit</a>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <form method="POST"
+                                                          action="{{route('business_operations.destroy', $businessOperation)}}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="has-text-right">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <p>This block is currently empty</p>
+                                        @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 @endsection
