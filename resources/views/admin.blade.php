@@ -18,6 +18,7 @@
                                 <table>
                                     <tbody>
                                     <th>Description</th>
+                                    <th>Type of activity</th>
                                     <th>Publisher</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -25,6 +26,7 @@
                                         @if($blog->visibility === 1)
                                         <tr>
                                             <td>{{ $blog->description }}</td>
+                                            <td>{{ $blog->activity->name }}</td>
                                             <td>{{ $blog->contact_name }}</td>
                                             <td>
                                                 <button class="has-text-right">
