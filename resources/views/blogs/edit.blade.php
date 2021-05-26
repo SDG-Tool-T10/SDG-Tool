@@ -17,9 +17,8 @@
             <div class="field-body">
                 <div class="field ">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-education @error('program_id') is-danger @enderror" type="text"
-                                    id="program_id" name="program_id">
+                        <div class="select is-fullwidth @error('program_id') is-danger @enderror">
+                            <select class="select-education" type="text" id="program_id" name="program_id">
                                 <option value="">None</option>
                                 @foreach ($programs as $program)
                                     @continue(!$blog->program)
@@ -66,9 +65,8 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-research @error('research_group_id') is-danger @enderror" type="text"
-                                    id="research_group_id" name="research_group_id">
+                        <div class="select is-fullwidth @error('research_group_id') is-danger @enderror">
+                            <select class="select-research" type="text" id="research_group_id" name="research_group_id">
                                 <option value="">None</option>
                                 @foreach($research_groups as $research_group)
                                     @continue(!$blog->research_group)
@@ -90,13 +88,12 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-sdg @error('sdg_id[]') is-danger @enderror" type="text" id="sdg_id[]"
-                                    name="sdg_id[]">
+                        <div class="select is-fullwidth @error('sdg_id[]') is-danger @enderror">
+                            <select class="select-sdg" type="text" id="sdg_id[]" name="sdg_id[]">
                                 <option value="">None</option>
                                 {{-- TODO: show the linked sdg --}}
                                 @foreach ($sdgs as $sdg)
-                                    <option value="{{$sdg->id}}" >
+                                    <option value="{{$sdg->id}}">
                                         {{ $sdg->id }}. {{ $sdg->name }}
                                     </option>
                                 @endforeach
@@ -114,9 +111,9 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-policy @error('business_operation_id') is-danger @enderror"
-                                    type="text" id="business_operation_id" name="business_operation_id">
+                        <div class="select is-fullwidth @error('business_operation_id') is-danger @enderror">
+                            <select class="select-policy" type="text" id="business_operation_id"
+                                    name="business_operation_id">
                                 <option value="">None</option>
                                 @foreach ($business_operations as $business_operation)
                                     @continue(!$blog->business_operation)
@@ -138,9 +135,10 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-subgoal @error('subgoal') is-danger @enderror" type="text"
-                                    id="subgoal" name="subgoal" value="{{ old('subgoal') }}">
+                        <div class="select is-fullwidth @error('subgoal') is-danger @enderror">
+                            <select class="select-subgoal" type="text" id="subgoal" name="subgoal"
+                                    value="{{ old('subgoal') }}">
+                                {{-- TODO: make it dynamic --}}
                                 <option value="">None</option>
                                 <option value="{{ old('subgoal1') }}">Subgoal 1</option>
                             </select>

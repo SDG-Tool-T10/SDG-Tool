@@ -16,13 +16,13 @@
             <div class="field-body">
                 <div class="field ">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-education @error('program_id') is-danger @enderror" type="text"
+                        <div class="select is-fullwidth @error('program_id') is-danger @enderror">
+                            <select class="select-education" type="text"
                                     id="program_id" name="program_id">
                                 <option selected value=""> None</option>
                                 @foreach ($programs as $program)
-                                    <option
-                                            value="{{$program->id}}" {{(old('program')==$program->id ? "selected":"")}}>{{$program->name}}
+                                    <option value="{{ $program->id }}" {{(old('program')==$program->id ? "selected":"")}}>
+                                        {{ $program->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -44,8 +44,8 @@
                                     id="activity_id" name="activity_id">
                                 <option selected value=""> None</option>
                                 @foreach ($activities as $activity)
-                                    <option
-                                            value="{{$activity->id}}" {{(old('activity')==$activity->id ? "selected":"")}}>{{$activity->name}}
+                                    <option value="{{ $activity->id }}" {{(old('activity')==$activity->id ? "selected":"")}}>
+                                        {{ $activity->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -65,8 +65,8 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-research @error('research_group_id') is-danger @enderror" type="text"
+                        <div class="select is-fullwidth @error('research_group_id') is-danger @enderror">
+                            <select class="select-research" type="text"
                                     id="research_group_id" name="research_group_id">
                                 <option selected value=""> None</option>
                                 @foreach($research_groups as $research_group)
@@ -88,8 +88,8 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-sdg @error('sdg_id[]') is-danger @enderror" type="text" id="sdg_id[]"
+                        <div class="select is-fullwidth @error('sdg_id[]') is-danger @enderror">
+                            <select class="select-sdg" type="text" id="sdg_id[]"
                                     name="sdg_id[]" required>
                                 <option selected value=""> None</option>
                                 @foreach ($sdgs as $sdg)
@@ -111,15 +111,13 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-policy @error('business_operation_id') is-danger @enderror"
-                                    type="text"
-                                    id="business_operation_id"
+                        <div class="select is-fullwidth @error('business_operation_id') is-danger @enderror">
+                            <select class="select-policy" type="text" id="business_operation_id"
                                     name="business_operation_id">
                                 <option selected value=""> None</option>
                                 @foreach ($business_operations as $business_operation)
-                                    <option
-                                            value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>{{ $business_operation   ->name }}
+                                    <option value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>
+                                        {{ $business_operation   ->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -136,10 +134,10 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-subgoal @error('sub_sdg_id') is-danger @enderror" type="text"
+                        <div class="select is-fullwidth @error('sub_sdg_id') is-danger @enderror">
+                            <select class="select-subgoal" type="text"
                                     id="sub_sdg_id" name="sub_sdg_id" value="{{ old('sub_sdg_id') }}">
-                                //TODO Shouldn't this be assigned dynamically from DB?
+                                {{-- TODO Shouldn't this be assigned dynamically from DB?--}}
                                 <option disabled selected value=""> -- select an option --</option>
                                 <option value="{{ old('sub_sdg_id') }}">Subgoal 1</option>
                             </select>
