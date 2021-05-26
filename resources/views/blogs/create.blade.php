@@ -110,8 +110,7 @@
                     <div class="control">
                         <div class="select is-fullwidth">
                             <select class="select-policy @error('business_operation_id') is-danger @enderror" type="text"
-                                    id="business_operation_id"
-                                    name="business_operation_id">
+                                    id="business_operation_id" name="business_operation_id">
                                 <option selected> None</option>
                                 @foreach ($business_operations as $business_operation)
                                     <option
