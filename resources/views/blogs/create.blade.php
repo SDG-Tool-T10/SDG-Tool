@@ -23,7 +23,7 @@
                                 @foreach ($programs as $program)
                                     <option
                                         value="{{$program->id}}" {{(old('program')==$program->id ? "selected":"")}}>{{$program->name}}
-                                        </option>
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -109,7 +109,8 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-policy @error('business_operation_id') is-danger @enderror" type="text"
+                            <select class="select-policy @error('business_operation_id') is-danger @enderror"
+                                    type="text"
                                     id="business_operation_id"
                                     name="business_operation_id">
                                 <option selected> None</option>
