@@ -105,3 +105,10 @@
 .sdg-content {
     margin-top: 15px;
 }
+
+/*Blog*/
+.blog-card {
+    max-height: 25em !important;
+    min-height: 25em !important;
+    overflow-x: auto;
+}

@@ -58,7 +58,9 @@
                         <div class="content">
                             <header class="card-header-title columns">Pending Blogs
                                 <h1 class="padding-left-50">
-                                    <button>Add a Blog</button>
+                                    <button>
+                                        <a href="{{ route('blogs.create') }}">Add a Blog</a>
+                                    </button>
                                 </h1>
                             </header>
                             <div class="container fixed-height">

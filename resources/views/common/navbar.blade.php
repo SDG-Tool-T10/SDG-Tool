@@ -18,7 +18,7 @@
                 @auth()
                     @if (Auth::user()->email_verified_at)
                         <a href="/blogs" class="navbar-item {{ Request::path() === 'blogs' ? 'is-active' : '' }}">
-                            Blog
+                            Blogs
                         </a>
                     @endif
                 @endauth
