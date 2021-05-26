@@ -68,6 +68,7 @@
                                     <tbody>
                                     <th>Description</th>
                                     <th>E-mail</th>
+                                    <th>Created at</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                     <th>Approve</th>
@@ -76,6 +77,7 @@
                                         <tr>
                                             <td>{{ $blog->description }}</td>
                                             <td>{{ $blog->contact_email }}</td>
+                                            <td>{{ $blog->created_at->format('d-m-Y') }}</td>
                                             <td>
                                                 <button class="has-text-right">
                                                     <a href="{{ route('blogs.edit', $blog) }}">Edit</a>
