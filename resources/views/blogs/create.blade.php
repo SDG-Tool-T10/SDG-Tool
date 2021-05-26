@@ -1,5 +1,15 @@
 @extends('common.master')
 
+@section('script')
+    <script type="text/javascript">
+        function checkForm(form)
+        {
+            form.myButton.disabled = true;
+            return true;
+        }
+    </script>
+@endsection
+
 @section('content')
     <section class="hero  is-medium  is-bold">
         <div class="header-img">
@@ -7,7 +17,7 @@
         </div>
     </section>
 
-    <form method="POST" class='blog-form' action="{{ route('blogs.store') }}">
+    <form method="POST" class='blog-form' action="{{ route('blogs.store') }}" onsubmit="return checkForm(this)">
         @csrf
         <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -238,7 +248,7 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <button class="button is-info" type="submit" value="Submit">
+                        <button class="button is-info" type="submit" value="Submit" name="myButton">
                             Send message
                         </button>
                     </div>
