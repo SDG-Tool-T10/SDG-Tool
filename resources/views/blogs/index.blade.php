@@ -10,12 +10,13 @@
                 Use the filters to search for what you want
             </p>
         </div>
+        <button class="button is-light is-link">
+            <a href="{{ route('blogs.create') }}">Add a Blog</a>
+        </button>
     </section>
 
     <div class="columns columns-container is-multiline">
-
-        @foreach($blogs as $blog)
-            @continue($blog->visibility == 0)
+        @forelse($blogs as $blog)
             <div class="column is-half">
                 <div class="card">
                     <div class="card-stacked">
@@ -36,6 +37,8 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <p>No blogs to show at the moment.</p>
+        @endforelse
     </div>
 @endsection
