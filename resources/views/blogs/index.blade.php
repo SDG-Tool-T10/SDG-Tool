@@ -27,15 +27,15 @@
                             <div class="subtitle is-6 sdg-content">
                                 Impact: {{ $blog->impact }}<br>
                                 Research Group: <br>
-                                Program: {{ $blog->program->name }}<br>
-                                Business Operation: {{ $blog->businessOperation->name }}<br>
+                                Program: {{ $blog->program->name ?? 'empty' }}<br>
+                                Business Operation: {{ $blog->business_operation->name ?? 'empty' }}<br>
                                 SDGs:
                                 @foreach($blog->sdgs as $sdg)
                                     {{ $sdg->name }}
                                 @endforeach<br>
                                 Subgoal:
-                                @foreach($blog->subSdgs as $subSdg)
-                                    {{ $subSdg }}
+                                @foreach($blog->sub_sdgs as $sub_sdg)
+                                    {{ $sub_sdg }}
                                 @endforeach<br>
                                 Publisher: {{ $blog->contact_name }} <br>
                                 Updated at: {{ $blog->updated_at }} <br>

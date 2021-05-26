@@ -18,11 +18,14 @@
                 <div class="field ">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-education @error('program') is-danger @enderror" type="text"
-                                    id="program" name="program">
-                                <option value="{{ old('none') }}">None</option>
+                            <select class="select-education @error('program_id') is-danger @enderror" type="text"
+                                    id="program_id" name="program_id">
+                                <option value="">None</option>
                                 @foreach ($programs as $program)
-                                    <option value={{ $program->name }}>{{ $program->name }}</option>
+                                    @continue(!$blog->program)
+                                    <option value="{{ $program->id }}" {{ $program->id == $blog->program->id ? 'selected' : '' }}>
+                                        {{ $program->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -38,15 +41,19 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select class="select-activity @error('activity') is-danger @enderror" type="text"
-                                    id="activity" name="activity">
-                                <option value="{{ old('none') }}">None</option>
+                        <div class="select is-fullwidth @error('activity_id') is-danger @enderror">
+                            <select class="select-activity" type="text" id="activity_id" name="activity_id">
+                                <option value="">None</option>
                                 @foreach ($activities as $activity)
-                                    <option value={{ $activity->name }}>{{ $activity->name }}</option>
+                                    <option value="{{ $activity->id }}" {{ $activity->id == $blog->activity->id ? 'selected' : '' }}>
+                                        {{ $activity->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
+                        @error('activity_id')
+                        <p class="help is-danger">{{ $errors->first('activity_id') }}</p>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -60,12 +67,15 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-research @error('research') is-danger @enderror" type="text"
-                                    id="research" name="research">
-                                <option value="{{ old('none') }}">None</option>
-                                <option value="{{ old('business_development') }}">Business development</option>
-                                <option value="{{ old('marketing') }}">Marketing</option>
-                                <option value="{{ old('sales') }}">Sales</option>
+                            <select class="select-research @error('research_group_id') is-danger @enderror" type="text"
+                                    id="research_group_id" name="research_group_id">
+                                <option value="">None</option>
+                                @foreach($research_groups as $research_group)
+                                    @continue(!$blog->research_group)
+                                    <option value="{{ $research_group->id }}" {{ $research_group->id == $blog->research_group->id ? "selected":"" }}>
+                                        {{ $research_group->name }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -81,11 +91,14 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-sdg @error('sdg') is-danger @enderror" type="text" id="sdg"
-                                    name="sdg">
-                                <option value="{{ old('none') }}">None</option>
+                            <select class="select-sdg @error('sdg_id[]') is-danger @enderror" type="text" id="sdg_id[]"
+                                    name="sdg_id[]">
+                                <option value="">None</option>
+                                {{-- TODO: show the linked sdg --}}
                                 @foreach ($sdgs as $sdg)
-                                    <option value={{ $sdg->name }}>{{ $sdg->name }}</option>
+                                    <option value="{{$sdg->id}}" >
+                                        {{ $sdg->id }}. {{ $sdg->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -102,13 +115,14 @@
                 <div class="field">
                     <div class="control">
                         <div class="select is-fullwidth">
-                            <select class="select-policy @error('business_operation') is-danger @enderror" type="text"
-                                    id="business_operation"
-                                    name="business_operation" value="{{ old('business_operation') }}">
-                                <option value="{{ old('none') }}">None</option>
+                            <select class="select-policy @error('business_operation_id') is-danger @enderror"
+                                    type="text" id="business_operation_id" name="business_operation_id">
+                                <option value="">None</option>
                                 @foreach ($business_operations as $business_operation)
-                                    <option
-                                        value={{ $business_operation -> name }}>{{ $business_operation -> name }}</option>
+                                    @continue(!$blog->business_operation)
+                                    <option value="{{ $business_operation->id }}" {{ $business_operation->id == $blog->business_operation->id ? 'selected' : '' }}>
+                                        {{ $business_operation -> name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -127,7 +141,7 @@
                         <div class="select is-fullwidth">
                             <select class="select-subgoal @error('subgoal') is-danger @enderror" type="text"
                                     id="subgoal" name="subgoal" value="{{ old('subgoal') }}">
-                                <option value="{{ old('none') }}">None</option>
+                                <option value="">None</option>
                                 <option value="{{ old('subgoal1') }}">Subgoal 1</option>
                             </select>
                         </div>
@@ -194,7 +208,8 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control is-expanded has-icons-left">
-                        <input class="input @error('name') is-danger @enderror" type="text" placeholder="Name" id="name"
+                        <input class="input @error('contact_name') is-danger @enderror" type="text" placeholder="Name"
+                               id="name"
                                name="contact_name" value="{{ $blog->contact_name }}">
                         <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
@@ -206,7 +221,7 @@
                 </div>
                 <div class="field">
                     <p class="control is-expanded has-icons-left has-icons-right">
-                        <input class="input @error('email') is-danger @enderror" type="text" placeholder="Email"
+                        <input class="input @error('contact_email') is-danger @enderror" type="text" placeholder="Email"
                                id="email" name="contact_email" value="{{ $blog->contact_email }}">
                         <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>

@@ -44,8 +44,8 @@
                                 Impact: {{ $blog->impact }}<br>
                                 Research Group: <br>
                                 Program: {{ $blog->program->name }}<br>
-                                Business Operation: {{ $blog->businessOperation->name }}<br>
-                                Subgoal: {{ $blog->subSdgs }}<br>
+                                Business Operation: {{ $blog->business_operation->name }}<br>
+                                Subgoal: {{ $blog->sub_sdgs }}<br>
                                 Publisher: {{ $blog->contact_name }} <br>
                                 Updated at: {{ $blog->updated_at }} <br>
                             </div>
@@ -54,6 +54,5 @@
                 </div>
             </div>
         @endforeach
-
     </div>
 @endsection
