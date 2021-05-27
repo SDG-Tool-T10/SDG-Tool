@@ -10,12 +10,12 @@
             <img src="/image/sdg-header-en.png"/>
         </div>
     </section>
-    <form method="POST" action="{{ route('research_groups.store') }}" onsubmit="return checkForm(this)">
+    <form method="POST" action="{{ route('business_operations.store') }}" onsubmit="return checkForm(this)">
         @csrf
         <section class="section">
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">New Research Group</label>
+                    <label class="label">New Business Operation</label>
                 </div>
                 <div class="field-body">
                     <div class="field ">
