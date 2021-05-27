@@ -134,7 +134,7 @@
                                         <tbody>
                                         @forelse($programs as $program)
                                             <tr>
-                                                <td>{{$program->name}}</td>
+                                                <td>{{ $program->name }}</td>
                                                 <td>
                                                     <button class="has-text-right">
                                                         <a href="{{ route('programs.edit', $program) }}">Edit</a>
@@ -142,7 +142,7 @@
                                                 </td>
                                                 <td>
                                                     <form method="POST"
-                                                          action="{{route('programs.destroy', $program)}}">
+                                                          action="{{ route('programs.destroy', $program) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="has-text-right">Delete</button>
@@ -176,7 +176,7 @@
                                         <tbody>
                                         @forelse($researchGroups as $researchGroup)
                                             <tr>
-                                                <td>{{$researchGroup->name}}</td>
+                                                <td>{{ $researchGroup->name }}</td>
                                                 <td>
                                                     <button class="has-text-right">
                                                         <a href="{{ route('research_groups.edit', $researchGroup) }}">Edit</a>
@@ -184,7 +184,7 @@
                                                 </td>
                                                 <td>
                                                     <form method="POST"
-                                                          action="{{route('research_groups.destroy', $researchGroup)}}">
+                                                          action="{{ route('research_groups.destroy', $researchGroup) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="has-text-right">Delete</button>
@@ -222,7 +222,7 @@
                                         <tbody>
                                         @forelse($activities as $activity)
                                             <tr>
-                                                <td>{{$activity->name}}</td>
+                                                <td>{{ $activity->name }}</td>
                                                 <td>
                                                     <button class="has-text-right">
                                                         <a href="{{ route('activities.edit', $activity) }}">Edit</a>
@@ -264,7 +264,7 @@
                                         <tbody>
                                         @forelse($businessOperations as $businessOperation)
                                             <tr>
-                                                <td>{{$businessOperation->name}}</td>
+                                                <td>{{ $businessOperation->name }}</td>
                                                 <td>
                                                     <button class="has-text-right">
                                                         <a href="{{ route('business_operations.edit', $businessOperation) }}">Edit</a>
@@ -272,7 +272,7 @@
                                                 </td>
                                                 <td>
                                                     <form method="POST"
-                                                          action="{{route('business_operations.destroy', $businessOperation)}}">
+                                                          action="{{ route('business_operations.destroy', $businessOperation) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="has-text-right">Delete</button>
