@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ResearchGroup;
 use App\Models\Sdg;
 use App\Models\Blog;
 use App\Models\Activity;
@@ -24,6 +25,9 @@ class BlogController extends Controller
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
 
+        $blogs = Blog::where('visibility', true)->get();
+
+
         return view('blogs.index', compact('blogs', 'sdgs', 'activities', 'business_operations', 'programs'));
     }
 
@@ -38,8 +42,9 @@ class BlogController extends Controller
         $activities = Activity::latest()->get();
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
+        $research_groups = ResearchGroup::latest()->get();
 
-        return view('blogs.create', compact('sdgs', 'activities', 'business_operations', 'programs'));
+        return view('blogs.create', compact('sdgs', 'activities', 'business_operations', 'research_groups', 'programs'));
     }
 
     /**
@@ -78,8 +83,9 @@ class BlogController extends Controller
         $activities = Activity::latest()->get();
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
+        $research_groups = ResearchGroup::latest()->get();
 
-        return view('blogs.edit', compact('programs', 'sdgs', 'activities', 'business_operations', 'blog'));
+        return view('blogs.edit', compact('programs', 'sdgs', 'activities', 'business_operations', 'research_groups', 'blog'));
     }
 
     /**
@@ -114,7 +120,7 @@ class BlogController extends Controller
             'program_id' => 'nullable',
             'business_operation_id' => 'nullable',
             'research_group_id' => 'nullable',
-            'activity_id' => 'nullable',
+            'activity_id' => 'required',
             'description' => 'required',
             'impact' => 'required',
             'link' => 'required',

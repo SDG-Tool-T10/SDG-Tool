@@ -10,8 +10,10 @@
                 Use the filters to search for what you want
             </p>
         </div>
+        <button class="button is-light is-link">
+            <a href="{{ route('blogs.create') }}">Add a Blog</a>
+        </button>
     </section>
-
     <div class="filter-option">
         <div class="single-filter select is-info is-rounded">
             <select id="sdgId" onchange="mySDG()">
@@ -78,7 +80,9 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <p>No blogs to show at the moment.</p>
+        @endforelse
     </div>
 
     <script>
