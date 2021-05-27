@@ -60,6 +60,18 @@
     overflow-x: hidden;
 }
 
+.content-margin {
+    margin-bottom: 0em !important;
+}
+
+.content-width {
+    width: 75%;
+}
+
+.content-width2 {
+    width: 38%;
+}
+
 /* Contact */
 .contact-picture {
     margin: 10px 50px 50px 180px;
