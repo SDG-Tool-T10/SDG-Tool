@@ -24,7 +24,7 @@ class BusinessOperationController extends Controller
      */
     public function create()
     {
-        //
+        return view('businessOperations.create');
     }
 
     /**
@@ -35,7 +35,9 @@ class BusinessOperationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        BusinessOperation::create($this->getValidate($request));
+
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -57,7 +59,7 @@ class BusinessOperationController extends Controller
      */
     public function edit(BusinessOperation $businessOperation)
     {
-        //
+        return view('businessOperations.edit', compact('businessOperation'));
     }
 
     /**
@@ -69,7 +71,8 @@ class BusinessOperationController extends Controller
      */
     public function update(Request $request, BusinessOperation $businessOperation)
     {
-        //
+        $businessOperation->update($this->getValidate($request));
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -80,6 +83,14 @@ class BusinessOperationController extends Controller
      */
     public function destroy(BusinessOperation $businessOperation)
     {
-        //
+        $businessOperation->delete();
+        return redirect(route('admin.index'));
+    }
+
+    public function getValidate(Request $request)
+    {
+        return $request->validate([
+            'name' => 'required'
+        ]);
     }
 }
