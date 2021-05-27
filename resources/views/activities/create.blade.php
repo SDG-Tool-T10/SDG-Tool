@@ -1,13 +1,7 @@
 @extends('common.master')
 
 @section('script')
-    <script type="text/javascript">
-        function checkForm(form)
-        {
-            form.myButton.disabled = true;
-            return true;
-        }
-    </script>
+    <script type="text/javascript" src="/js/global.js"></script>
 @endsection
 
 @section('content')
