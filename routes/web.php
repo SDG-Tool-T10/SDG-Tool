@@ -44,12 +44,4 @@ Route::resource('/research_groups', ResearchGroupController::class);
 
 Route::resource('/contact', ContactController::class);
 
-//Route::get('/blogs', function () {
-//    return view('blogs.create');
-//})->middleware(['auth'])->name('blogs');
-//
-//Route::get('/admin', function () {
-//    return view('admin');
-//})->middleware(['auth'])->name('admin');
-
 require __DIR__.'/auth.php';
