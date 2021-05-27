@@ -38,7 +38,7 @@
                 <option value="three" class="filter-title" disabled selected>Filter on Business Operation</option>
                 <option> None</option>
                 @foreach($business_operations as $business_operations)
-                    <option value="{{ $business_operations->name }}">{{ $business_operations->name }}</option>
+                    <option value="{{ $business_operations->name }}">{{ $business_operations->name ?? 'empty'}}</option>
                 @endforeach
             </select>
         </div>
@@ -47,7 +47,7 @@
                 <option value="four" class="filter-title" disabled selected>Filter on Program</option>
                 <option> None</option>
                 @foreach($programs as $programs)
-                    <option value="{{ $programs->name }}">{{ $programs->name }}</option>
+                    <option value="{{ $programs->name }}">{{ $programs->name ?? 'empty'}}</option>
                 @endforeach
             </select>
         </div>
