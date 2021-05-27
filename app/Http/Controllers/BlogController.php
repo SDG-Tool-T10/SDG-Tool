@@ -24,9 +24,7 @@ class BlogController extends Controller
         $activities = Activity::latest()->get();
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
-
         $blogs = Blog::where('visibility', true)->get();
-
 
         return view('blogs.index', compact('blogs', 'sdgs', 'activities', 'business_operations', 'programs'));
     }
