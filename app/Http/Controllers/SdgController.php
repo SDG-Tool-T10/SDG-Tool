@@ -46,7 +46,7 @@ class SdgController extends Controller
      */
     public function show(Sdg $sdg)
     {
-        return view('sdgs.index', compact('sdg'));
+        return view('sdgs.show', compact('sdg'));
     }
 
     /**
