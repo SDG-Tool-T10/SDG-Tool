@@ -20,7 +20,7 @@
                 <option value="one" class="filter-title" disabled selected>Filter on SDG</option>
                 <option>None</option>
                 @foreach($sdgs as $sdg)
-                    <option value="{{$sdg->name}}">{{$sdg->name}}</option>
+                    <option value="{{ $sdg->name }}">{{ $sdg->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -29,7 +29,7 @@
                 <option value="two" class="filter-title" disabled selected>Filter on Activity</option>
                 <option> None</option>
                 @foreach($activities as $activity)
-                    <option value="{{$activity->name}}">{{$activity->name}}</option>
+                    <option value="{{ $activity->name }}">{{ $activity->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -38,7 +38,7 @@
                 <option value="three" class="filter-title" disabled selected>Filter on Business Operation</option>
                 <option> None</option>
                 @foreach($business_operations as $business_operations)
-                    <option value="{{$business_operations->name}}">{{$business_operations->name}}</option>
+                    <option value="{{ $business_operations->name }}">{{ $business_operations->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -47,7 +47,7 @@
                 <option value="four" class="filter-title" disabled selected>Filter on Program</option>
                 <option> None</option>
                 @foreach($programs as $programs)
-                    <option value="{{$programs->name}}">{{$programs->name}}</option>
+                    <option value="{{ $programs->name }}">{{ $programs->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -71,7 +71,7 @@
                                     Operation: {{ $blog->businessOperation->name }}</p>
                                 <p>Subgoal: {{ $blog->subSdgs }}</p>
                                 @foreach($blog->sdgs as $sdg)
-                                    <p class="blogSDG">SDG: {{$sdg->name}}</p>
+                                    <p class="blogSDG">SDG: {{ $sdg->name }}</p>
                                 @endforeach
                                 <p>Publisher: {{ $blog->contact_name }} </p>
                                 <p>Updated at: {{ $blog->updated_at }} </p>
