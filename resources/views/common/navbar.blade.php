@@ -18,7 +18,7 @@
                 @auth()
                     @if (Auth::user()->email_verified_at)
                         <a href="/blogs" class="navbar-item {{ Request::path() === 'blogs' ? 'is-active' : '' }}">
-                            Blog
+                            Blogs
                         </a>
                     @endif
                 @endauth
@@ -32,7 +32,7 @@
             </div>
             <div class="navbar-end">
                 @auth()
-                    <div class="mt-3 space-y-1">
+                    <div class="navbar-item space-y-1">
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
