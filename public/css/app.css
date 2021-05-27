@@ -113,3 +113,13 @@
     overflow-x: auto;
 }
 
+.filter-option{
+    display:flex;
+    padding-left: 8%;
+}
+
+.single-filter{
+    margin: 1%;
+}
+
+

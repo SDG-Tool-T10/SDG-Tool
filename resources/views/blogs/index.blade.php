@@ -13,37 +13,37 @@
     </section>
 
     <div class="filter-option">
-        <h1>SDG</h1>
-        <div class="select is-info is-rounded">
-            <select id="sdgId" onchange="myFunction()">
-                <option selected> None</option>
+        <div class="single-filter select is-info is-rounded">
+            <select id="sdgId" onchange="mySDG()">
+                <option value="one" class="filter-title" disabled selected>Filter on SDG</option>
+                <option>None</option>
                 @foreach($sdgs as $sdg)
                     <option value="{{$sdg->name}}">{{$sdg->name}}</option>
                 @endforeach
             </select>
         </div>
-        <h1>Activity</h1>
-        <div class="select is-info is-rounded">
-            <select>
-                <option selected> None</option>
+        <div class="single-filter select is-info is-rounded">
+            <select id="ActivityId" onchange="myActivity()">
+                <option value="two" class="filter-title" disabled selected>Filter on Activity</option>
+                <option> None</option>
                 @foreach($activities as $activity)
                     <option value="{{$activity->name}}">{{$activity->name}}</option>
                 @endforeach
             </select>
         </div>
-        <h1>Business Operations</h1>
-        <div class="select is-info is-rounded">
-            <select>
-                <option selected> None</option>
+        <div class="single-filter select is-info is-rounded">
+            <select id="BusinessId" onchange="myBusiness()">
+                <option value="three" class="filter-title" disabled selected>Filter on Business Operation</option>
+                <option> None</option>
                 @foreach($business_operations as $business_operations)
                     <option value="{{$business_operations->name}}">{{$business_operations->name}}</option>
                 @endforeach
             </select>
         </div>
-        <h1>Programs</h1>
-        <div class="select is-info is-rounded">
-            <select>
-                <option selected> None</option>
+        <div class="single-filter select is-info is-rounded">
+            <select id="ProgramId" onchange="myProgram()">
+                <option value="four" class="filter-title" disabled selected>Filter on Program</option>
+                <option> None</option>
                 @foreach($programs as $programs)
                     <option value="{{$programs->name}}">{{$programs->name}}</option>
                 @endforeach
@@ -59,13 +59,14 @@
                     <div class="card-stacked">
                         <div class="card-content blog-card">
                             <div class="media-content">
-                                <p class="title is-4">{{ $blog->activity->name }} <i>Blog title</i></p>
+                                <p class="activities title is-4">{{ $blog->activity->name }}</p>
                             </div>
                             <div class="subtitle is-6 sdg-content">
                                 <p>Impact: {{ $blog->impact }}</p>
                                 <p>Research Group:</p>
-                                <p>Program: {{ $blog->program->name }}</p>
-                                <p>Business Operation: {{ $blog->businessOperation->name }}</p>
+                                <p class="program">Program: {{ $blog->program->name }}</p>
+                                <p class="businessOperation">Business
+                                    Operation: {{ $blog->businessOperation->name }}</p>
                                 <p>Subgoal: {{ $blog->subSdgs }}</p>
                                 @foreach($blog->sdgs as $sdg)
                                     <p class="blogSDG">SDG: {{$sdg->name}}</p>
@@ -81,20 +82,88 @@
     </div>
 
     <script>
-        function myFunction() {
+        function mySDG() {
             let input = document.getElementById("sdgId").value;
-            // let input2 = document.getElementById("blogSDG").innerText.substring(5);
             let blogpost = document.getElementsByClassName("blogPost");
+            let arr = Array.prototype.slice.call(blogpost);
             let sdgtest = document.getElementsByClassName("blogSDG");
-            let arr = Array.prototype.slice.call(blogpost)
 
             for (let i = 0; i < arr.length; i++) {
-
-                if (input === sdgtest[i].innerText.substring(5)) {
-                    console.log('success')
+                if (input === sdgtest[i].innerText.substring(5) || input === "None") {
+                    console.log(sdgtest[i].innerText.substring(5) + ' do match');
+                    arr[i].style.display = "block";
                 } else {
-                    console.log('no success')
+                    console.log(sdgtest[i].innerText.substring(5) + ' do NOT match');
+                    arr[i].style.display = "none";
                 }
+            }
+
+            if (input === "None") {
+                document.getElementById("sdgId").value = "one";
+            }
+        }
+
+        function myActivity() {
+            let input = document.getElementById("ActivityId").value;
+            let blogpost = document.getElementsByClassName("blogPost");
+            let arr = Array.prototype.slice.call(blogpost);
+            let sdgtest = document.getElementsByClassName("activities");
+
+            for (let i = 0; i < arr.length; i++) {
+                if (input === sdgtest[i].innerText.substring(0) || input === "None") {
+                    console.log(sdgtest[i].innerText.substring(0) + ' do match');
+                    arr[i].style.display = "block";
+                } else {
+                    console.log(sdgtest[i].innerText.substring(0) + ' do NOT match');
+                    arr[i].style.display = "none";
+                }
+            }
+            if (input === "None") {
+                document.getElementById("ActivityId").value = "two";
+            }
+        }
+
+        function myBusiness() {
+            let input = document.getElementById("BusinessId").value;
+            let blogpost = document.getElementsByClassName("blogPost");
+            let arr = Array.prototype.slice.call(blogpost);
+            let sdgtest = document.getElementsByClassName("businessOperation");
+
+            console.log(sdgtest);
+
+            for (let i = 0; i < arr.length; i++) {
+                if (input === sdgtest[i].innerText.substring(20) || input === "None") {
+                    console.log(sdgtest[i].innerText.substring(20) + ' do match');
+                    arr[i].style.display = "block";
+                } else {
+                    console.log(sdgtest[i].innerText.substring(20) + ' do NOT match');
+                    arr[i].style.display = "none";
+                }
+            }
+            if (input === "None") {
+                document.getElementById("BusinessId").value = "three";
+            }
+        }
+
+        function myProgram() {
+            let input = document.getElementById("ProgramId").value;
+            let blogpost = document.getElementsByClassName("blogPost");
+            let arr = Array.prototype.slice.call(blogpost);
+            let sdgtest = document.getElementsByClassName("program");
+
+            console.log(sdgtest);
+
+            for (let i = 0; i < arr.length; i++) {
+                if (input === sdgtest[i].innerText.substring(9) || input === "None") {
+                    console.log(sdgtest[i].innerText.substring(9) + ' do match');
+                    arr[i].style.display = "block";
+                } else {
+                    console.log(sdgtest[i].innerText.substring(9) + ' do NOT match');
+                    arr[i].style.display = "none";
+                }
+            }
+            if (input === "None") {
+                document.getElementById("ProgramId").value = "four";
             }
         }
     </script>
