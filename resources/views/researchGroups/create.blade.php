@@ -4,7 +4,7 @@
     <script type="text/javascript">
         function checkForm(form)
         {
-            form.myButton.disabled = true;
+            form.submitButton.disabled = true;
             return true;
         }
     </script>
@@ -43,7 +43,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <button class="button is-info" type="submit" name="myButton">Create</button>
+                            <button class="button is-info" type="submit" name="submitButton">Create</button>
                         </div>
                     </div>
                 </div>

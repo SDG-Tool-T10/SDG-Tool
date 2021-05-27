@@ -19,7 +19,7 @@
                                 <table>
                                     <tbody>
                                     <th>Description</th>
-                                    <th>Type of activity</th>
+                                    <th>Type of Activity</th>
                                     <th>Publisher</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
