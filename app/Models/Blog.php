@@ -16,12 +16,12 @@ class Blog extends Model
         return $this->belongsTo(Program::class);
     }
 
-    public function researchGroup()
+    public function research_group()
     {
         return $this->belongsTo(ResearchGroup::class);
     }
 
-    public function businessOperation()
+    public function business_operation()
     {
         return $this->belongsTo(BusinessOperation::class);
     }
@@ -31,7 +31,7 @@ class Blog extends Model
         return $this->belongsToMany(Sdg::class);
     }
 
-    public function subSdgs()
+    public function sub_sdgs()
     {
         return $this->belongsToMany(SubSdg::class);
     }
