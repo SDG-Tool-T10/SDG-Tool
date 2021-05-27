@@ -39,7 +39,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <button class="button is-info" type="submit" name="submitButton">
+                            <button class="button is-info" type="submit" name="submit">
                                 <p>Create!</p>
                             </button>
                         </div>

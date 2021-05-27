@@ -1,4 +1,4 @@
 function checkForm(form) {
-    form.submitButton.disabled = true;
+    form.submit.disabled = true;
     return true;
 }

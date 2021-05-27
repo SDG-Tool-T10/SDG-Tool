@@ -245,7 +245,7 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <button class="button is-info" type="submit" value="Submit" name="submitButton">
+                        <button class="button is-info" type="submit" value="Submit" name="submit">
                             Send message
                         </button>
                     </div>
