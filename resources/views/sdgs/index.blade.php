@@ -15,8 +15,7 @@
                             <p class="title is-3">{{ $sdg->alt_title }}</p>
                         </div>
                         <div class="subtitle is-5 sdg-content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris.
+                            {{ $sdg->excerpt }}
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ class SdgController extends Controller
      */
     public function index()
     {
-        return view('sdg');
+        return view('sdgs.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class SdgController extends Controller
      */
     public function show(Sdg $sdg)
     {
-        return view('sdg', compact('sdg'));
+        return view('sdgs.index', compact('sdg'));
     }
 
     /**
@@ -57,7 +57,7 @@ class SdgController extends Controller
      */
     public function edit(Sdg $sdg)
     {
-        //
+        return view('sdgs.edit', compact('sdg'));
     }
 
     /**
@@ -69,7 +69,8 @@ class SdgController extends Controller
      */
     public function update(Request $request, Sdg $sdg)
     {
-        //
+        $sdg->update($this->getValidate($request));
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -81,5 +82,12 @@ class SdgController extends Controller
     public function destroy(Sdg $sdg)
     {
         //
+    }
+
+    public function getValidate(Request $request)
+    {
+        return $request->validate([
+            'excerpt' => 'required'
+        ]);
     }
 }
