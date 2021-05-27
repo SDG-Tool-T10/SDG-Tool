@@ -19,8 +19,6 @@
 
 @include('common.footer')
 
-{{--<script src="{{asset('./public/js/blog.js')}}"></script>--}}
-{{--<script src="././resources/js/blog.js"></script>--}}
 </body>
 </html>
 
