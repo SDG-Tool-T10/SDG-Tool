@@ -39,7 +39,7 @@
                         <div class="card-content">
                             <div class="media-content">
                                 <a class="title is-4" href="//{{ $blog->link }}">
-                                    {{ $blog->activity->name }}
+                                    {{ $blog->activity->name }} - {{ $blog->title }}
                                 </a>
                             </div>
                             <div class="subtitle is-6 sdg-content">

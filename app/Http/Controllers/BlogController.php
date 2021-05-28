@@ -114,6 +114,7 @@ class BlogController extends Controller
             'business_operation_id' => 'nullable',
             'research_group_id' => 'nullable',
             'activity_id' => 'required',
+            'title' => 'required',
             'description' => 'required',
             'impact' => 'required',
             'link' => 'required',
