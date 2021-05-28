@@ -84,7 +84,6 @@
             <p>No blogs to show at the moment.</p>
         @endforelse
     </div>
-
     <script>
         function mySDG() {
             let input = document.getElementById("sdgId").value;
