@@ -24,7 +24,7 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        //
+        return view('activities.create');
     }
 
     /**
@@ -35,7 +35,9 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Activity::create($this->getValidate($request));
+
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -57,7 +59,7 @@ class ActivityController extends Controller
      */
     public function edit(Activity $activity)
     {
-        //
+        return view('activities.edit', compact('activity'));
     }
 
     /**
@@ -69,7 +71,8 @@ class ActivityController extends Controller
      */
     public function update(Request $request, Activity $activity)
     {
-        //
+        $activity->update($this->getValidate($request));
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -80,6 +83,14 @@ class ActivityController extends Controller
      */
     public function destroy(Activity $activity)
     {
-        //
+        $activity->delete();
+        return redirect(route('admin.index'));
+    }
+
+    public function getValidate(Request $request)
+    {
+        return $request->validate([
+            'name' => 'required'
+        ]);
     }
 }

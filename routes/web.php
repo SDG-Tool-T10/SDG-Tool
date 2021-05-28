@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BusinessOperationController;
 use App\Http\Controllers\SdgController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProgramController;
@@ -42,14 +44,10 @@ Route::resource('/programs', ProgramController::class);
 
 Route::resource('/research_groups', ResearchGroupController::class);
 
-Route::resource('/contact', ContactController::class);
+Route::resource('/activities', ActivityController::class);
 
-//Route::get('/blogs', function () {
-//    return view('blogs.create');
-//})->middleware(['auth'])->name('blogs');
-//
-//Route::get('/admin', function () {
-//    return view('admin');
-//})->middleware(['auth'])->name('admin');
+Route::resource('/business_operations', BusinessOperationController::class);
+
+Route::resource('/contact', ContactController::class);
 
 require __DIR__.'/auth.php';

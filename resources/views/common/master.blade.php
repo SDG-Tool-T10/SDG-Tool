@@ -9,7 +9,6 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bulma.min.css') }}" rel="stylesheet">
-
 </head>
 
 <body>
@@ -18,7 +17,10 @@
 @yield('content')
 
 @include('common.footer')
+<<<<<<< HEAD
 
+=======
+>>>>>>> 437af9f973127f84535b01c0539136a1c052f725
 </body>
 </html>
 

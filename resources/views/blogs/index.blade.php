@@ -10,49 +10,51 @@
                 Use the filters to search for what you want
             </p>
         </div>
+        <button class="button is-light is-link">
+            <a href="{{ route('blogs.create') }}">Add a Blog</a>
+        </button>
     </section>
-
     <div class="filter-option">
         <div class="single-filter select is-info is-rounded">
             <select id="sdgId" onchange="mySDG()">
                 <option value="one" class="filter-title" disabled selected>Filter on SDG</option>
                 <option>None</option>
                 @foreach($sdgs as $sdg)
-                    <option value="{{$sdg->name}}">{{$sdg->name}}</option>
+                    <option value="{{ $sdg->id }}">{{ $sdg->name }}</option>
                 @endforeach
             </select>
         </div>
         <div class="single-filter select is-info is-rounded">
             <select id="ActivityId" onchange="myActivity()">
                 <option value="two" class="filter-title" disabled selected>Filter on Activity</option>
-                <option> None</option>
+                <option>None</option>
                 @foreach($activities as $activity)
-                    <option value="{{$activity->name}}">{{$activity->name}}</option>
+                    <option value="{{ $activity->id }}">{{ $activity->name }}</option>
                 @endforeach
             </select>
         </div>
         <div class="single-filter select is-info is-rounded">
             <select id="BusinessId" onchange="myBusiness()">
                 <option value="three" class="filter-title" disabled selected>Filter on Business Operation</option>
-                <option> None</option>
+                <option>None</option>
                 @foreach($business_operations as $business_operations)
-                    <option value="{{$business_operations->name}}">{{$business_operations->name}}</option>
+                    <option value="{{ $business_operations->id }}">{{ $business_operations->name }}</option>
                 @endforeach
             </select>
         </div>
         <div class="single-filter select is-info is-rounded">
             <select id="ProgramId" onchange="myProgram()">
                 <option value="four" class="filter-title" disabled selected>Filter on Program</option>
-                <option> None</option>
+                <option>None</option>
                 @foreach($programs as $programs)
-                    <option value="{{$programs->name}}">{{$programs->name}}</option>
+                    <option value="{{ $programs->id }}">{{ $programs->name }}</option>
                 @endforeach
             </select>
         </div>
     </div>
 
     <div class="columns columns-container is-multiline">
-        @foreach($blogs as $blog)
+        @forelse($blogs as $blog)
             @continue($blog->visibility == 0)
             <div class="column is-half blogPost">
                 <div class="card">
@@ -64,12 +66,12 @@
                             <div class="subtitle is-6 sdg-content">
                                 <p>Impact: {{ $blog->impact }}</p>
                                 <p>Research Group:</p>
-                                <p class="program">Program: {{ $blog->program->name }}</p>
+                                <p class="program">Program: {{ $blog->program->name ?? 'empty' }}</p>
                                 <p class="businessOperation">Business
-                                    Operation: {{ $blog->businessOperation->name }}</p>
+                                    Operation: {{ $blog->businessOperation->name ?? 'empty'}}</p>
                                 <p>Subgoal: {{ $blog->subSdgs }}</p>
                                 @foreach($blog->sdgs as $sdg)
-                                    <p class="blogSDG">SDG: {{$sdg->name}}</p>
+                                    <p class="blogSDG">SDG: {{ $sdg->name }}</p>
                                 @endforeach
                                 <p>Publisher: {{ $blog->contact_name }} </p>
                                 <p>Updated at: {{ $blog->updated_at }} </p>
@@ -78,9 +80,10 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <p>No blogs to show at the moment.</p>
+        @endforelse
     </div>
-
     <script>
         function mySDG() {
             let input = document.getElementById("sdgId").value;
