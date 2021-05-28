@@ -17,7 +17,7 @@ class CreateSdgsTable extends Migration
             $table->id();
             $table->string("name");
             $table->string("alt_title");
-            $table->string("excerpt");
+            $table->text("excerpt");
             $table->string("img_link");
             $table->string("alt_img");
             $table->timestamps();

@@ -150,6 +150,23 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
+                <label class="label">Title</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input @error('title') is-danger @enderror" name="title" type="text"
+                               placeholder="the title of your project" value="{{$blog->title}}">
+                    </div>
+                    @error('title')
+                    <p class="help is-danger">{{ $errors->first('title') }}</p>
+                    @enderror
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
                 <label class="label">Describe activity</label>
             </div>
             <div class="field-body">
