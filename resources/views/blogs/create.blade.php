@@ -159,7 +159,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('title') is-danger @enderror" name="title" type="text"
-                               placeholder="Title of your project" value="{{old('title')}}">
+                               placeholder="Title of your project" value="{{ old('title') }}">
                     </div>
                     @error('title')
                     <p class="help is-danger">{{ $errors->first('title') }}</p>
@@ -176,7 +176,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('description') is-danger @enderror" name="description" type="text"
-                               placeholder="Describe briefly" value="{{old('description')}}">
+                               placeholder="Describe briefly" value="{{ old('description') }}">
                     </div>
                     @error('description')
                     <p class="help is-danger">{{ $errors->first('description') }}</p>
@@ -193,7 +193,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('link') is-danger @enderror" name="link" type="text"
-                               placeholder="Type the link here" value="{{old('link')}}">
+                               placeholder="Type the link here" value="{{ old('link') }}">
                     </div>
                     @error('link')
                     <p class="help is-danger">{{ $errors->first('link') }}</p>
@@ -210,7 +210,7 @@
                 <div class="field">
                     <div class="control">
                         <textarea class="textarea @error('impact') is-danger @enderror" name="impact" id="impact"
-                                  placeholder="Explain your impact">{{old('impact')}}</textarea>
+                                  placeholder="Explain your impact">{{ old('impact') }}</textarea>
                     </div>
                     @error('impact')
                     <p class="help is-danger">{{ $errors->first('impact') }}</p>
@@ -228,7 +228,7 @@
                     <p class="control is-expanded has-icons-left">
                         <input class="input @error('contact_name') is-danger @enderror" type="text" placeholder="Name"
                                id="contact_name"
-                               name="contact_name" value="{{old('contact_name')}}">
+                               name="contact_name" value="{{ old('contact_name' )}}">
                         <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                         </span>
@@ -240,7 +240,7 @@
                 <div class="field">
                     <p class="control is-expanded has-icons-left has-icons-right">
                         <input class="input @error('contact_email') is-danger @enderror" type="text" placeholder="Email"
-                               id="contact_email" name="contact_email" value="{{old('contact_email')}}">
+                               id="contact_email" name="contact_email" value="{{ old('contact_email') }}">
                         <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
