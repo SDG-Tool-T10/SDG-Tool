@@ -9,16 +9,13 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bulma.min.css') }}" rel="stylesheet">
-
 </head>
-
 <body>
 @include('common.navbar')
 
 @yield('content')
 
 @include('common.footer')
-
 </body>
 </html>
 
