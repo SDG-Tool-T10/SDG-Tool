@@ -97,7 +97,6 @@
                     arr[i].style.display = "none";
                 }
             }
-
             if (input === "None") {
                 document.getElementById("sdgId").value = "one";
             }

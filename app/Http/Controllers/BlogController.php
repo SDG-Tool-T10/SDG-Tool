@@ -24,7 +24,11 @@ class BlogController extends Controller
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
 
-        return view('blogs.index', compact('blogs', 'sdgs', 'activities', 'business_operations', 'programs'));
+        return view('blogs.index', compact('blogs',
+            'sdgs',
+                        'activities',
+                        'business_operations',
+                        'programs'));
     }
 
     /**
