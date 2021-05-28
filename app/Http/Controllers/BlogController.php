@@ -120,7 +120,7 @@ class BlogController extends Controller
             'activity_id' => 'required | integer',
             'description' => 'required | max:255',
             'impact' => 'required | max:255',
-            'link' => 'required | max:255',
+            'link' => 'required | URL | max:255',
             'contact_name' => 'required | max:255',
             'contact_email' => 'required | email:rfc,dns | max:255'
         ]);
