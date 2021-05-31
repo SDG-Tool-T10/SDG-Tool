@@ -129,9 +129,10 @@
     overflow-x: auto;
 }
 
-.filter-option{
-    display:flex;
-    padding-left: 6.5%;
+.filter-option {
+    display: flex;
+    /*padding-left: 6.5%;*/
+    justify-content: center;
 }
 
 .single-filter{
