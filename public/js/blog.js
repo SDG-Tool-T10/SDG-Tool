@@ -3,7 +3,6 @@
  * and displays only the blogs with the matching SDG
  */
 function myFilter() {
-
     // inputArray give you an array of all the selected filter input.
     let input1 = document.getElementById("filter1").value;
     let input2 = document.getElementById("filter2").value;
@@ -31,6 +30,8 @@ function myFilter() {
             program[i].innerText.substring(9)]);
     }
 
+    console.log(inputArray);
+
     // loops over all the blogs, checks if the input matches with a blog and sets corresponding style.display
     for (let i = 0; i < arrayOfBlogs.length; i++) {
         let allMatch = true
@@ -39,7 +40,7 @@ function myFilter() {
                 if (arrayOfBlogs[i][j] !== inputArray[j]) {
                     allMatch = false;
                 }
-            }
+            } 
         }
         if (allMatch) {
             blogpost[i].style.display = "block";
