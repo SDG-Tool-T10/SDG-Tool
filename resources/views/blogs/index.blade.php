@@ -64,18 +64,19 @@
                     <div class="card-stacked">
                         <div class="card-content blog-card">
                             <div class="media-content">
-                                <p class="title is-4 activities">{{ $blog->activity->name }}</p>
+                                <p class="title is-4">{{ $blog->activity->name }} - {{ $blog->title }}</p>
                             </div>
                             <div class="subtitle is-6 sdg-content">
                                 <p>Impact: {{ $blog->impact }}</p>
                                 <p>Research Group:</p>
                                 <p class="program">Program: {{ $blog->program->name ?? 'empty' }}</p>
-                                <p class="businessOperation">Business Operation: {{$blog->business_operation->name ?? 'empty'}}</p>
+                                <p class="businessOperation">Business
+                                    Operation: {{$blog->business_operation->name ?? 'empty'}}</p>
                                 @foreach($blog->sdgs as $sdg)
                                     <p class="blogSDG">SDG: {{ $sdg->name }}</p>
                                 @endforeach
                                 @foreach($blog->sub_sdgs as $sub_sdg)
-                                <p>Subgoal: {{ $sub_sdg->name }}</p>
+                                    <p>Subgoal: {{ $sub_sdg->name }}</p>
                                 @endforeach
                                 <p>Publisher: {{ $blog->contact_name }} </p>
                                 <p>Updated at: {{ $blog->updated_at }} </p>

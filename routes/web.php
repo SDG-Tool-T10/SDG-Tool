@@ -36,7 +36,7 @@ Route::put('/blogs/changevisibility/{blog}', [BlogController::class, 'changeVisi
 
 Route::resource('/blogs', BlogController::class)->middleware(['auth']);
 
-Route::resource('/sdg', SdgController::class);
+Route::resource('/sdgs', SdgController::class);
 
 Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy'])->middleware(['auth']);
 

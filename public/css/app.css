@@ -118,6 +118,10 @@
     margin-top: 15px;
 }
 
+.disabled:hover {
+    cursor: pointer;
+}
+
 /*Blog*/
 .blog-card {
     max-height: 25em !important;

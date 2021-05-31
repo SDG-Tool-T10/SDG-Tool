@@ -93,7 +93,7 @@
                                 <option value="">None</option>
                                 {{-- TODO: show the linked sdg --}}
                                 @foreach ($sdgs as $sdg)
-                                    <option value="{{$sdg->id}}">
+                                    <option value="{{ $sdg->id }}">
                                         {{ $sdg->id }}. {{ $sdg->name }}
                                     </option>
                                 @endforeach
@@ -150,13 +150,30 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
+                <label class="label">Title</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input @error('title') is-danger @enderror" name="title" type="text"
+                               placeholder="the title of your project" value="{{ $blog->title }}">
+                    </div>
+                    @error('title')
+                    <p class="help is-danger">{{ $errors->first('title') }}</p>
+                    @enderror
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
                 <label class="label">Describe activity</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <div class="control">
                         <input class="input @error('description') is-danger @enderror" name="description" type="text"
-                               placeholder="describe briefly" value="{{$blog->description}}">
+                               placeholder="describe briefly" value="{{ $blog->description }}">
                     </div>
                     @error('description')
                     <p class="help is-danger">{{ $errors->first('description') }}</p>
@@ -173,7 +190,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('link') is-danger @enderror" name="link" type="text"
-                               placeholder="type the link here" value="{{$blog->link}}">
+                               placeholder="type the link here" value="{{ $blog->link }}">
                     </div>
                     @error('link')
                     <p class="help is-danger">{{ $errors->first('link') }}</p>
