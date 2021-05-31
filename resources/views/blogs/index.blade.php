@@ -75,8 +75,7 @@
                                 <p>Impact: {{ $blog->impact }}</p>
                                 <p>Research Group:</p>
                                 <p class="program">Program: {{ $blog->program->name ?? 'empty' }}</p>
-                                <p class="businessOperation">Business
-                                    Operation: {{$blog->business_operation->name ?? 'empty'}}</p>
+                                <p class="businessOperation">Business Operation: {{$blog->business_operation->name ?? 'empty'}}</p>
                                 @foreach($blog->sdgs as $sdg)
                                     <p class="blogSDG">SDG: {{ $sdg->name }}</p>
                                 @endforeach
