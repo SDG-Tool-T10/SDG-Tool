@@ -3,47 +3,50 @@
  * and displays only the blogs with the matching SDG
  */
 function myFilter() {
-    // inputArray give you an array of all the selected filter input.
-    let input1 = document.getElementById("filter1").value;
-    let input2 = document.getElementById("filter2").value;
-    let input3 = document.getElementById("filter3").value;
-    let input4 = document.getElementById("filter4").value;
-    let inputArray = [input1, input2, input3, input4];
+    // All the values of the 4 different input/filter fields
+    const input1 = document.getElementById("filter1").value;
+    const input2 = document.getElementById("filter2").value;
+    const input3 = document.getElementById("filter3").value;
+    const input4 = document.getElementById("filter4").value;
 
-    // blogArray gives you an array of data from one blog
-    let activity = document.getElementsByClassName("activities");
-    let program = document.getElementsByClassName("program");
-    let business_operation = document.getElementsByClassName("businessOperation");
-    let sdg = document.getElementsByClassName("blogSDG");
+    // All the values stored in an array
+    const inputArray = [input1, input2, input3, input4];
 
-    // arr gives back the amount of blogs
-    let blogpost = document.getElementsByClassName("blogPost");
+    // This gets the data from the blogs and stores it in a variable
+    const activity = document.getElementsByClassName("activity");
+    const program = document.getElementsByClassName("program");
+    const business_operation = document.getElementsByClassName("businessOperation");
+    const sdg = document.getElementsByClassName("blogSDG");
 
-    // contains of arrays with blogs
-    let arrayOfBlogs = [];
+    // For every blog, store it into a variable called blogpost (this is an HTML collection)
+    const blogposts = document.getElementsByClassName("blogPost");
 
-    // pushes the array from blogpost(HTML collection) into a new array called arrayOfBlogs
-    for (let i = 0; i < blogpost.length; i++) {
-        arrayOfBlogs.push([sdg[i].innerText.substring(5),
+    // Empty array that will contain all the viewable blogs (so not pending)
+    let allApprovedBlogs = [];
+
+    // For every blog in blogposts(HTML collection), push data into a new array called allApprovedBlogs (array containing arrays)
+    for (let i = 0; i < blogposts.length; i++) {
+        allApprovedBlogs.push([
+            sdg[i].innerText.substring(5),
             activity[i].innerText.substring(10),
             business_operation[i].innerText.substring(20),
             program[i].innerText.substring(9)]);
     }
 
-    // loops over all the blogs, checks if the input matches with a blog and sets corresponding style.display
-    for (let i = 0; i < arrayOfBlogs.length; i++) {
+    // Loops over all the blogs amd checks if the input/filter field matches with a blog and sets corresponding style.display
+    for (let i = 0; i < allApprovedBlogs.length; i++) {
         let allMatch = true
         for (let j = 0; j < inputArray.length; j++) {
             if (inputArray[j] !== "None") {
-                if (arrayOfBlogs[i][j] !== inputArray[j]) {
+                if (allApprovedBlogs[i][j] !== inputArray[j]) {
                     allMatch = false;
                 }
             }
         }
         if (allMatch) {
-            blogpost[i].style.display = "block";
+            blogposts[i].style.display = "block";
         } else {
-            blogpost[i].style.display = "none";
+            blogposts[i].style.display = "none";
         }
     }
 }

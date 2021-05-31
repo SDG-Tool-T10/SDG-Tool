@@ -41,8 +41,8 @@
             <select id="filter3" onchange="myFilter()">
                 <option value="None" class="filter-title" disabled selected>Filter on Business Operation</option>
                 <option>None</option>
-                @foreach($business_operations as $business_operations)
-                    <option value="{{ $business_operations->name }}">{{ $business_operations->name }}</option>
+                @foreach($business_operations as $business_operation)
+                    <option value="{{ $business_operation->name }}">{{ $business_operation->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -50,8 +50,8 @@
             <select id="filter4" onchange="myFilter()">
                 <option value="None" class="filter-title" disabled selected>Filter on Program</option>
                 <option>None</option>
-                @foreach($programs as $programs)
-                    <option value="{{ $programs->name }}">{{ $programs->name }}</option>
+                @foreach($programs as $program)
+                    <option value="{{ $program->name }}">{{ $program->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -71,11 +71,11 @@
                                 <p class="title is-4">Title: {{ $blog->title }}</p>
                             </div>
                             <div class="subtitle is-6 sdg-content">
-                                <p class="activities">Activity: {{ $blog->activity->name }}</p>
+                                <p class="activity">Activity: {{ $blog->activity->name }}</p>
                                 <p>Impact: {{ $blog->impact }}</p>
                                 <p>Research Group:</p>
                                 <p class="program">Program: {{ $blog->program->name ?? 'empty' }}</p>
-                                <p class="businessOperation">Business Operation: {{$blog->business_operation->name ?? 'empty'}}</p>
+                                <p class="businessOperation">Business Operation: {{ $blog->business_operation->name ?? 'empty' }}</p>
                                 @foreach($blog->sdgs as $sdg)
                                     <p class="blogSDG">SDG: {{ $sdg->name }}</p>
                                 @endforeach
