@@ -28,9 +28,9 @@ class BlogController extends Controller
 
         return view('blogs.index', compact('blogs',
             'sdgs',
-                        'activities',
-                        'business_operations',
-                        'programs'));
+            'activities',
+            'business_operations',
+            'programs'));
     }
 
     /**

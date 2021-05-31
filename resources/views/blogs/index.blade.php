@@ -20,8 +20,8 @@
     </section>
     <div class="filter-option">
         <div class="single-filter select is-info is-rounded">
-            <select id="sdgId" onchange="mySDG()">
-                <option value="one" class="filter-title" disabled selected>Filter on SDG</option>
+            <select id="filter1" onchange="myFilter()">
+                <option value="None" class="filter-title" disabled selected>Filter on SDG</option>
                 <option>None</option>
                 @foreach($sdgs as $sdg)
                     <option value="{{ $sdg->name }}">{{ $sdg->name }}</option>
@@ -29,8 +29,8 @@
             </select>
         </div>
         <div class="single-filter select is-info is-rounded">
-            <select id="ActivityId" onchange="myActivity()">
-                <option value="two" class="filter-title" disabled selected>Filter on Activity</option>
+            <select id="filter2" onchange="myFilter()">
+                <option value="None" class="filter-title" disabled selected>Filter on Activity</option>
                 <option>None</option>
                 @foreach($activities as $activity)
                     <option value="{{ $activity->name }}">{{ $activity->name }}</option>
@@ -38,8 +38,8 @@
             </select>
         </div>
         <div class="single-filter select is-info is-rounded">
-            <select id="BusinessId" onchange="myBusiness()">
-                <option value="three" class="filter-title" disabled selected>Filter on Business Operation</option>
+            <select id="filter3" onchange="myFilter()">
+                <option value="None" class="filter-title" disabled selected>Filter on Business Operation</option>
                 <option>None</option>
                 @foreach($business_operations as $business_operations)
                     <option value="{{ $business_operations->name }}">{{ $business_operations->name }}</option>
@@ -47,8 +47,8 @@
             </select>
         </div>
         <div class="single-filter select is-info is-rounded">
-            <select id="ProgramId" onchange="myProgram()">
-                <option value="four" class="filter-title" disabled selected>Filter on Program</option>
+            <select id="filter4" onchange="myFilter()">
+                <option value="None" class="filter-title" disabled selected>Filter on Program</option>
                 <option>None</option>
                 @foreach($programs as $programs)
                     <option value="{{ $programs->name }}">{{ $programs->name }}</option>
@@ -64,13 +64,13 @@
                     <div class="card-stacked">
                         <div class="card-content blog-card">
                             <div class="media-content">
-                                <p class="activities title is-4">{{ $blog->activity->name }}</p>
+                                <p class="title is-4 activities">{{ $blog->activity->name }}</p>
                             </div>
                             <div class="subtitle is-6 sdg-content">
                                 <p>Impact: {{ $blog->impact }}</p>
                                 <p>Research Group:</p>
                                 <p class="program">Program: {{ $blog->program->name ?? 'empty' }}</p>
-                                <p class="businessOperation">Business Operation: {{ $blog->business_operation->name ?? 'empty'}}</p>
+                                <p class="businessOperation">Business Operation: {{$blog->business_operation->name ?? 'empty'}}</p>
                                 @foreach($blog->sdgs as $sdg)
                                     <p class="blogSDG">SDG: {{ $sdg->name }}</p>
                                 @endforeach
