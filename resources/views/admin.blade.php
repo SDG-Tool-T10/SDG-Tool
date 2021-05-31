@@ -9,8 +9,8 @@
                         <div class="content">
                             <header class="card-header-title columns">Blogs
                                 <h1 class="column has-text-right content-margin">
-                                    <button class="button is-light">
-                                        <a href="{{ route('blogs.create') }}">Add a Blog</a>
+                                    <button class="button is-white disabled" disabled>
+                                        <a href="#"></a>
                                     </button>
                                 </h1>
                             </header>
@@ -115,87 +115,85 @@
             </div>
         </div>
 
-        <div>
-            <div class="columns">
-                <div class="column is-6 is-narrow">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="content">
-                                <header class="card-header-title columns">Programs
-                                    <h1 class="column has-text-right content-margin">
-                                        <button class="button is-light">
-                                            <a href="{{ route('programs.create') }}">Add a Program</a>
-                                        </button>
-                                    </h1>
-                                </header>
-                                <div class="container fixed-height">
-                                    <table>
-                                        <tbody>
-                                        @forelse($programs as $program)
-                                            <tr>
-                                                <td class="content-width">{{$program->name}}</td>
-                                                <td>
-                                                    <button class="button is-small is-light">
-                                                        <a href="{{ route('programs.edit', $program) }}">Edit</a>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <form method="POST"
-                                                          action="{{ route('programs.destroy', $program) }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="button is-small is-light">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @empty
-                                            <p>This block is currently empty</p>
-                                        @endforelse
-                                        </tbody>
-                                    </table>
-                                </div>
+        <div class="columns">
+            <div class="column is-6 is-narrow">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <header class="card-header-title columns">Programs
+                                <h1 class="column has-text-right content-margin">
+                                    <button class="button is-light">
+                                        <a href="{{ route('programs.create') }}">Add a Program</a>
+                                    </button>
+                                </h1>
+                            </header>
+                            <div class="container fixed-height">
+                                <table>
+                                    <tbody>
+                                    @forelse($programs as $program)
+                                        <tr>
+                                            <td class="content-width">{{$program->name}}</td>
+                                            <td>
+                                                <button class="button is-small is-light">
+                                                    <a href="{{ route('programs.edit', $program) }}">Edit</a>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <form method="POST"
+                                                      action="{{ route('programs.destroy', $program) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="button is-small is-light">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <p>This block is currently empty</p>
+                                    @endforelse
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="column is-6 is-narrow">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="content">
-                                <header class="card-header-title columns">Research Groups
-                                    <h1 class="column has-text-right content-margin">
-                                        <button class="button is-light">
-                                            <a href="{{ route('research_groups.create') }}">Add a Research Group</a>
-                                        </button>
-                                    </h1>
-                                </header>
-                                <div class="container fixed-height">
-                                    <table>
-                                        <tbody>
-                                        @forelse($researchGroups as $researchGroup)
-                                            <tr>
-                                                <td class="content-width">{{$researchGroup->name}}</td>
-                                                <td>
-                                                    <button class="button is-small is-light">
-                                                        <a href="{{ route('research_groups.edit', $researchGroup) }}">Edit</a>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <form method="POST"
-                                                          action="{{ route('research_groups.destroy', $researchGroup) }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="button is-small is-light">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @empty
-                                            <p>This block is currently empty</p>
-                                        @endforelse
-                                        </tbody>
-                                    </table>
-                                </div>
+            <div class="column is-6 is-narrow">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <header class="card-header-title columns">Research Groups
+                                <h1 class="column has-text-right content-margin">
+                                    <button class="button is-light">
+                                        <a href="{{ route('research_groups.create') }}">Add a Research Group</a>
+                                    </button>
+                                </h1>
+                            </header>
+                            <div class="container fixed-height">
+                                <table>
+                                    <tbody>
+                                    @forelse($researchGroups as $researchGroup)
+                                        <tr>
+                                            <td class="content-width">{{$researchGroup->name}}</td>
+                                            <td>
+                                                <button class="button is-small is-light">
+                                                    <a href="{{ route('research_groups.edit', $researchGroup) }}">Edit</a>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <form method="POST"
+                                                      action="{{ route('research_groups.destroy', $researchGroup) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="button is-small is-light">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <p>This block is currently empty</p>
+                                    @endforelse
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -203,87 +201,120 @@
             </div>
         </div>
 
-        <div>
-            <div class="columns">
-                <div class="column is-6 is-narrow">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="content">
-                                <header class="card-header-title columns">Type of Activities
-                                    <h1 class="column has-text-right content-margin">
-                                        <button class="button is-light">
-                                            <a href="{{ route('activities.create') }}">Add a Type of Activity</a>
-                                        </button>
-                                    </h1>
-                                </header>
-                                <div class="container fixed-height">
-                                    <table>
-                                        <tbody>
-                                        @forelse($activities as $activity)
-                                            <tr>
-                                                <td class="content-width">{{ $activity->name }}</td>
-                                                <td>
-                                                    <button class="button is-small is-light">
-                                                        <a href="{{ route('activities.edit', $activity) }}">Edit</a>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <form method="POST"
-                                                          action="{{ route('activities.destroy', $activity) }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="button is-small is-light">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @empty
-                                            <p>This block is currently empty</p>
-                                        @endforelse
-                                        </tbody>
-                                    </table>
-                                </div>
+        <div class="columns">
+            <div class="column is-6 is-narrow">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <header class="card-header-title columns">Type of Activities
+                                <h1 class="column has-text-right content-margin">
+                                    <button class="button is-light">
+                                        <a href="{{ route('activities.create') }}">Add a Type of Activity</a>
+                                    </button>
+                                </h1>
+                            </header>
+                            <div class="container fixed-height">
+                                <table>
+                                    <tbody>
+                                    @forelse($activities as $activity)
+                                        <tr>
+                                            <td class="content-width">{{ $activity->name }}</td>
+                                            <td>
+                                                <button class="button is-small is-light">
+                                                    <a href="{{ route('activities.edit', $activity) }}">Edit</a>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <form method="POST"
+                                                      action="{{ route('activities.destroy', $activity) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="button is-small is-light">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <p>This block is currently empty</p>
+                                    @endforelse
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="column is-6 is-narrow">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="content">
-                                <header class="card-header-title columns">Business Operations
-                                    <h1 class="column has-text-right content-margin">
-                                        <button class="button is-light">
-                                            <a href="{{ route('business_operations.create') }}">Add a Business Operation</a>
-                                        </button>
-                                    </h1>
-                                </header>
-                                <div class="container fixed-height">
-                                    <table>
-                                        <tbody>
-                                        @forelse($businessOperations as $businessOperation)
-                                            <tr>
-                                                <td class="content-width">{{ $businessOperation->name }}</td>
-                                                <td>
-                                                    <button class="button is-small is-light">
-                                                        <a href="{{ route('business_operations.edit', $businessOperation) }}">Edit</a>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <form method="POST"
-                                                          action="{{ route('business_operations.destroy', $businessOperation) }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="button is-small is-light">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @empty
-                                            <p>This block is currently empty</p>
-                                        @endforelse
-                                        </tbody>
-                                    </table>
-                                </div>
+            <div class="column is-6 is-narrow">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <header class="card-header-title columns">Business Operations
+                                <h1 class="column has-text-right content-margin">
+                                    <button class="button is-light">
+                                        <a href="{{ route('business_operations.create') }}">Add a Business Operation</a>
+                                    </button>
+                                </h1>
+                            </header>
+                            <div class="container fixed-height">
+                                <table>
+                                    <tbody>
+                                    @forelse($businessOperations as $businessOperation)
+                                        <tr>
+                                            <td class="content-width">{{ $businessOperation->name }}</td>
+                                            <td>
+                                                <button class="button is-small is-light">
+                                                    <a href="{{ route('business_operations.edit', $businessOperation) }}">Edit</a>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <form method="POST"
+                                                      action="{{ route('business_operations.destroy', $businessOperation) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="button is-small is-light">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <p>This block is currently empty</p>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column is-6 is-narrow">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <header class="card-header-title columns">SDG Excerpts</header>
+                            <h1 class="column has-text-right content-margin">
+                                <button class="button is-white disabled" disabled>
+                                    <a href="#"></a>
+                                </button>
+                            </h1>
+                            <div class="container fixed-height">
+                                <table>
+                                    <tbody>
+                                    @forelse($sdgs as $sdg)
+                                        <tr>
+                                            <td class="content-width">{{ $sdg->id }}. {{ $sdg->name }}</td>
+                                            <td>
+                                                <button class="button is-small is-light">
+                                                    <a href="{{ route('sdgs.edit', $sdg) }}">Edit</a>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <p>This block is currently empty</p>
+                                    @endforelse
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

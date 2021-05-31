@@ -22,7 +22,7 @@
                     <div class="card-stacked">
                         <div class="card-content blog-card">
                             <div class="media-content">
-                                <p class="title is-4">{{ $blog->activity->name }} <i>Blog title</i></p>
+                                <p class="title is-4">{{ $blog->activity->name }} - {{ $blog->title }}</p>
                             </div>
                             <div class="subtitle is-6 sdg-content">
                                 Impact: {{ $blog->impact }}<br>
