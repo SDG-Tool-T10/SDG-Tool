@@ -14,6 +14,7 @@ class ProgramController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin-access');
         return view('programs.create');
     }
 
@@ -24,6 +25,7 @@ class ProgramController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin-access');
         return view('programs.create');
     }
 
@@ -35,6 +37,7 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin-access');
         Program::create($this->getValidate($request));
 
         return redirect(route('admin.index'));
@@ -59,6 +62,7 @@ class ProgramController extends Controller
      */
     public function edit(Program $program)
     {
+        $this->authorize('admin-access');
         return view('programs.edit', compact('program'));
     }
 
@@ -71,6 +75,7 @@ class ProgramController extends Controller
      */
     public function update(Request $request, Program $program)
     {
+        $this->authorize('admin-access');
         $program->update($this->getValidate($request));
         return redirect(route('admin.index'));
     }
@@ -83,6 +88,7 @@ class ProgramController extends Controller
      */
     public function destroy(Program $program)
     {
+        $this->authorize('admin-access');
         $program->delete();
         return redirect(route('admin.index'));
     }

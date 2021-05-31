@@ -128,3 +128,13 @@
     min-height: 25em !important;
     overflow-x: auto;
 }
+
+.filter-option {
+    display: flex;
+    /*padding-left: 6.5%;*/
+    justify-content: center;
+}
+
+.single-filter{
+    margin: 1%;
+}
