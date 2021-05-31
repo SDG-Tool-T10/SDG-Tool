@@ -25,7 +25,7 @@ function myFilter() {
     // pushes the array from blogpost(HTML collection) into a new array called arrayOfBlogs
     for (let i = 0; i < blogpost.length; i++) {
         arrayOfBlogs.push([sdg[i].innerText.substring(5),
-            activity[i].innerText,
+            activity[i].innerText.substring(10),
             business_operation[i].innerText.substring(20),
             program[i].innerText.substring(9)]);
     }

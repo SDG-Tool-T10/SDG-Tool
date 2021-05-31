@@ -55,7 +55,11 @@
                 @endforeach
             </select>
         </div>
+        <div class="single-filter is-info is-rounded">
+            <button onClick="window.location.reload()" class="is-rounded button is-info is-outlined">Reset</button>
+        </div>
     </div>
+
 
     <div class="columns columns-container is-multiline">
         @forelse($blogs as $blog)
@@ -64,9 +68,10 @@
                     <div class="card-stacked">
                         <div class="card-content blog-card">
                             <div class="media-content">
-                                <p class="title is-4 activities">{{ $blog->activity->name }}</p>
+                                <p class="title is-4">Title: {{ $blog->title }}</p>
                             </div>
                             <div class="subtitle is-6 sdg-content">
+                                <p class="activities">Activity: {{ $blog->activity->name }}</p>
                                 <p>Impact: {{ $blog->impact }}</p>
                                 <p>Research Group:</p>
                                 <p class="program">Program: {{ $blog->program->name ?? 'empty' }}</p>
