@@ -21,6 +21,7 @@ class BlogController extends Controller
     {
         $blogs = Blog::latest()->get();
         $sdgs = Sdg::latest()->get();
+        $research_groups = ResearchGroup::latest()->get();
         $activities = Activity::latest()->get();
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
