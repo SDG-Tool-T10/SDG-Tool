@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             SdgSeeder::class,
             ProgramSeeder::class,
             UserSeeder::class,
-            ResearchGroupSeeder::class
+            ResearchGroupSeeder::class,
+            BlogSeeder::class
         ]);
     }
 }
