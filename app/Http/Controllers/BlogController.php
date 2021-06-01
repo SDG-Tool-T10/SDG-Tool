@@ -19,7 +19,6 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::latest()->get();
         $sdgs = Sdg::latest()->get();
         $research_groups = ResearchGroup::latest()->get();
         $activities = Activity::latest()->get();
@@ -27,11 +26,13 @@ class BlogController extends Controller
         $programs = Program::latest()->get();
         $blogs = Blog::where('visibility', true)->get();
 
-        return view('blogs.index', compact('blogs',
-            'sdgs',
+        return view('blogs.index', compact(
             'activities',
+            'blogs',
             'business_operations',
-            'programs'));
+            'programs',
+            'sdgs'
+        ));
     }
 
     /**
