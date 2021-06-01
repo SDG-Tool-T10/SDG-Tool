@@ -19,6 +19,7 @@ class CreateBlogsTable extends Migration
             $table->foreignId("business_operation_id")->nullable();
             $table->foreignId("research_group_id")->nullable();
             $table->foreignId("activity_id");
+            $table->string("title");
             $table->string("description");
             $table->text("impact");
             $table->string("link");

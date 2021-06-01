@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\BusinessOperation;
 use App\Models\Program;
 use App\Models\ResearchGroup;
+use App\Models\Sdg;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -18,12 +19,14 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin-access');
         $programs = Program::latest()->get();
         $researchGroups = ResearchGroup::latest()->get();
         $blogs = Blog::latest()->get();
         $activities = Activity::latest()->get();
         $businessOperations = BusinessOperation::latest()->get();
-        return view('admin', compact('programs', 'researchGroups', 'blogs', 'activities', 'businessOperations'));
+        $sdgs = Sdg::latest()->get();
+        return view('admin', compact('programs', 'researchGroups', 'blogs', 'activities', 'businessOperations', 'sdgs'));
     }
 
     /**

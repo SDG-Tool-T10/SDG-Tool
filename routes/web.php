@@ -34,11 +34,11 @@ Route::resource('/', WelcomeController::class);
 
 Route::put('/blogs/changevisibility/{blog}', [BlogController::class, 'changeVisibility']);
 
-Route::resource('/blogs', BlogController::class);
+Route::resource('/blogs', BlogController::class)->middleware(['auth']);
 
-Route::resource('/sdg', SdgController::class);
+Route::resource('/sdgs', SdgController::class);
 
-Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy']);
+Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy'])->middleware(['auth']);
 
 Route::resource('/programs', ProgramController::class);
 
@@ -49,9 +49,5 @@ Route::resource('/activities', ActivityController::class);
 Route::resource('/business_operations', BusinessOperationController::class);
 
 Route::resource('/contact', ContactController::class);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

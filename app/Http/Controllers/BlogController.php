@@ -19,9 +19,19 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $sdgs = Sdg::latest()->get();
+        $activities = Activity::latest()->get();
+        $business_operations = BusinessOperation::latest()->get();
+        $programs = Program::latest()->get();
         $blogs = Blog::where('visibility', true)->get();
 
-        return view('blogs.index', compact('blogs'));
+        return view('blogs.index', compact(
+            'activities',
+            'blogs',
+            'business_operations',
+            'programs',
+            'sdgs'
+        ));
     }
 
     /**
@@ -118,6 +128,7 @@ class BlogController extends Controller
             'business_operation_id' => 'nullable | integer',
             'research_group_id' => 'nullable | integer',
             'activity_id' => 'required | integer',
+            'title' => 'required | max:255',
             'description' => 'required | max:255',
             'impact' => 'required | max:255',
             'link' => 'required | URL | max:255',

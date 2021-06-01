@@ -32,7 +32,7 @@
             <div class="section-sdg-goals is-align-content-space-evenly" style="padding-left: 90px">
                 <div class="is-flex-wrap-wrap sdg-icon">
                         @foreach($sdgs as $sdg)
-                            <a href="/sdg/{{ $sdg->id }}"><img src="{{ $sdg->img_link }}" /></a>
+                            <a href="/sdgs/{{ $sdg->id }}"><img src="{{ $sdg->img_link }}" /></a>
                         @endforeach
                     <a href="#"><img src="./image/SDG-Icons-EN/sdg-en-18.png" /></a>
                 </div>
