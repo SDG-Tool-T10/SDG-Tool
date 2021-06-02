@@ -47,7 +47,7 @@
                         <div class="select is-fullwidth @error('activity_id') is-danger @enderror">
                             <select class="select-activity" type="text"
                                     id="activity_id" name="activity_id">
-                                <option disabled selected value=""> -- Select a Activity --</option>
+                                <option disabled selected value=""> -- Select an Activity --</option>
                                 <option selected value=""> None</option>
                                 @foreach ($activities as $activity)
                                     <option value="{{ $activity->id }}" {{(old('activity')==$activity->id ? "selected":"")}}>
