@@ -131,7 +131,7 @@ class BlogController extends Controller
             'title' => 'required | max:255',
             'description' => 'required | max:255',
             'impact' => 'required | max:255',
-            'link' => 'required | max:255',
+            'link' => 'required | url |  max:255',
             'contact_name' => 'required | max:255',
             'contact_email' => 'required | email:rfc,dns'
         ]);
