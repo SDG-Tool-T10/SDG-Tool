@@ -20,6 +20,7 @@ class BlogController extends Controller
     public function index()
     {
         $sdgs = Sdg::latest()->get();
+        $research_groups = ResearchGroup::latest()->get();
         $activities = Activity::latest()->get();
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
