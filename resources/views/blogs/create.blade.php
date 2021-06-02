@@ -102,7 +102,7 @@
                                 <option selected value=""> None</option>
                                 @foreach ($business_operations as $business_operation)
                                     <option value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>
-                                        {{ $business_operation   ->name }}
+                                        {{ $business_operation->name }}
                                     </option>
                                 @endforeach
                             </select>
