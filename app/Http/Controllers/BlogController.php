@@ -6,6 +6,7 @@ use App\Models\Activity;
 use App\Models\Blog;
 use App\Models\BusinessOperation;
 use App\Models\Program;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -13,7 +14,6 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\ResearchGroup;
 use App\Models\Sdg;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 
 class BlogController extends Controller
@@ -54,12 +54,12 @@ class BlogController extends Controller
         $sdgs = Sdg::latest()->get();
 
         return view('blogs.create', compact(
-
             'activities',
             'business_operations',
             'programs',
             'research_groups',
-            'sdgs'));
+            'sdgs'
+        ));
     }
 
     /**
@@ -68,7 +68,7 @@ class BlogController extends Controller
      * @param Request $request
      * @return Application|RedirectResponse|Redirector
      */
-    public function store(Blog $blog, Request $request)
+    public function store(Request $request)
     {
         $blog = Blog::create($this->getValidate($request));
         $blog->sdgs()->attach(request('sdg_id'));
@@ -78,8 +78,8 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Blog $blog
-     * @return Response
+     * @param Blog $blog
+     * @return void
      */
     public function show(Blog $blog)
     {
@@ -89,8 +89,8 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Blog $blog
-     * @return Response
+     * @param Blog $blog
+     * @return Application|Factory|View
      */
     public function edit(Blog $blog)
     {
@@ -100,15 +100,22 @@ class BlogController extends Controller
         $programs = Program::latest()->get();
         $research_groups = ResearchGroup::latest()->get();
 
-        return view('blogs.edit', compact('programs', 'sdgs', 'activities', 'business_operations', 'research_groups', 'blog'));
+        return view('blogs.edit', compact(
+            'activities',
+            'blog',
+            'business_operations',
+            'programs',
+            'research_groups',
+            'sdgs',
+        ));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param \App\Models\Blog $blog
-     * @return Response
+     * @param Blog $blog
+     * @return Application|Redirector|RedirectResponse
      */
     public function update(Request $request, Blog $blog)
     {
@@ -119,8 +126,9 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Blog $blog
-     * @return Response
+     * @param Blog $blog
+     * @return Application|Redirector|RedirectResponse
+     * @throws Exception
      */
     public function destroy(Blog $blog)
     {
@@ -131,9 +139,10 @@ class BlogController extends Controller
 
     /**
      * Validate the request
+     * @param Request $request
      * @return array
      */
-    protected function getValidate($request)
+    public function getValidate(Request $request): array
     {
         return $request->validate([
             'program_id' => 'nullable | integer',
@@ -143,7 +152,7 @@ class BlogController extends Controller
             'title' => 'required | max:255',
             'description' => 'required | max:255',
             'impact' => 'required | max:255',
-            'link' => 'required | max:255',
+            'link' => 'required | URL | max:255',
             'contact_name' => 'required | max:255',
             'contact_email' => 'required | email:rfc,dns'
         ]);
@@ -152,13 +161,12 @@ class BlogController extends Controller
     /**
      * Change the boolean to true in the database, then the non admin user will be able to see it
      * @param Blog $blog
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return Application|RedirectResponse|Redirector
      */
-    protected function changeVisibility(Blog $blog)
+    public function changeVisibility(Blog $blog)
     {
         $blog->update(['visibility' => true]);
         $blog->save();
-
         return redirect(route('admin.index'));
     }
 }

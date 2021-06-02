@@ -10,7 +10,7 @@ class SubSdgController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
@@ -20,7 +20,7 @@ class SubSdgController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function create()
     {
@@ -30,8 +30,8 @@ class SubSdgController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return void
      */
     public function store(Request $request)
     {
@@ -41,8 +41,8 @@ class SubSdgController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SubSdg  $subSdg
-     * @return \Illuminate\Http\Response
+     * @param SubSdg $subSdg
+     * @return void
      */
     public function show(SubSdg $subSdg)
     {
@@ -52,8 +52,8 @@ class SubSdgController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SubSdg  $subSdg
-     * @return \Illuminate\Http\Response
+     * @param SubSdg $subSdg
+     * @return void
      */
     public function edit(SubSdg $subSdg)
     {
@@ -63,9 +63,9 @@ class SubSdgController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SubSdg  $subSdg
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param SubSdg $subSdg
+     * @return void
      */
     public function update(Request $request, SubSdg $subSdg)
     {
@@ -75,8 +75,8 @@ class SubSdgController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SubSdg  $subSdg
-     * @return \Illuminate\Http\Response
+     * @param SubSdg $subSdg
+     * @return void
      */
     public function destroy(SubSdg $subSdg)
     {

@@ -193,7 +193,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('link') is-danger @enderror" name="link" type="text"
-                               placeholder="Type the link here" value="{{ old('link') }}">
+                               placeholder="Use the full link (example: https://google.com)" value="{{ old('link') }}">
                     </div>
                     @error('link')
                     <p class="help is-danger">{{ $errors->first('link') }}</p>
