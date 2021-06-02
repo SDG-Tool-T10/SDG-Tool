@@ -8,22 +8,28 @@ use App\Models\Blog;
 use App\Models\Activity;
 use App\Models\BusinessOperation;
 use App\Models\Program;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
-        $sdgs = Sdg::latest()->get();
         $activities = Activity::latest()->get();
+        $blogs = Blog::where('visibility', true)->get();
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
-        $blogs = Blog::where('visibility', true)->get();
+        $sdgs = Sdg::latest()->get();
 
         return view('blogs.index', compact(
             'activities',
@@ -37,24 +43,30 @@ class BlogController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
-        $sdgs = Sdg::latest()->get();
         $activities = Activity::latest()->get();
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
         $research_groups = ResearchGroup::latest()->get();
+        $sdgs = Sdg::latest()->get();
 
-        return view('blogs.create', compact('sdgs', 'activities', 'business_operations', 'research_groups', 'programs'));
+        return view('blogs.create', compact(
+
+            'activities',
+            'business_operations',
+            'programs',
+            'research_groups',
+            'sdgs'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(Blog $blog, Request $request)
     {
@@ -67,7 +79,7 @@ class BlogController extends Controller
      * Display the specified resource.
      *
      * @param \App\Models\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Blog $blog)
     {
@@ -78,7 +90,7 @@ class BlogController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Blog $blog)
     {
@@ -94,9 +106,9 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param \App\Models\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, Blog $blog)
     {
@@ -108,7 +120,7 @@ class BlogController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Blog $blog)
     {
@@ -117,9 +129,9 @@ class BlogController extends Controller
         return redirect(route('admin.index'));
     }
 
-    protected function getValidate()
+    protected function getValidate(Request $request)
     {
-        return request()->validate([
+        return $request->validate([
             'program_id' => 'nullable',
             'business_operation_id' => 'nullable',
             'research_group_id' => 'nullable',
