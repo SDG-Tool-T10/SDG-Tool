@@ -29,6 +29,7 @@ class BlogController extends Controller
         $blogs = Blog::where('visibility', true)->get();
         $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
+        $research_groups = ResearchGroup::latest()->get();
         $sdgs = Sdg::latest()->get();
 
         return view('blogs.index', compact(
@@ -78,12 +79,11 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Blog $blog
-     * @return void
+     * @return Application|Redirector|RedirectResponse
      */
-    public function show(Blog $blog)
+    public function show()
     {
-        //
+        return redirect(route('blogs.index'));
     }
 
     /**
@@ -94,6 +94,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
+        $this->authorize('admin-access');
         $sdgs = Sdg::latest()->get();
         $activities = Activity::latest()->get();
         $business_operations = BusinessOperation::latest()->get();
@@ -119,6 +120,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
+        $this->authorize('admin-access');
         $blog->update($this->getValidate($request));
         return redirect(route('admin.index'));
     }
@@ -132,6 +134,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        $this->authorize('admin-access');
         $blog->sdgs()->detach();
         $blog->delete();
         return redirect(route('admin.index'));
