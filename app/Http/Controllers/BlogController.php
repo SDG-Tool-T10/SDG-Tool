@@ -121,9 +121,9 @@ class BlogController extends Controller
      * Validate the request
      * @return array
      */
-    protected function getValidate()
+    protected function getValidate($request)
     {
-        return request()->validate([
+        return $request->validate([
             'program_id' => 'nullable | integer',
             'business_operation_id' => 'nullable | integer',
             'research_group_id' => 'nullable | integer',
@@ -131,9 +131,9 @@ class BlogController extends Controller
             'title' => 'required | max:255',
             'description' => 'required | max:255',
             'impact' => 'required | max:255',
-            'link' => 'required | URL | max:255',
+            'link' => 'required | max:255',
             'contact_name' => 'required | max:255',
-            'contact_email' => 'required | email:rfc,dns | max:255'
+            'contact_email' => 'required | email:rfc,dns'
         ]);
     }
 
