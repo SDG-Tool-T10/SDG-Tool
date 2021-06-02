@@ -71,7 +71,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return redirect(route('blogs.index'));
     }
 
     /**
@@ -82,6 +82,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
+        $this->authorize('admin-access');
         $sdgs = Sdg::latest()->get();
         $activities = Activity::latest()->get();
         $business_operations = BusinessOperation::latest()->get();
@@ -100,6 +101,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
+        $this->authorize('admin-access');
         $blog->update($this->getValidate($request));
         return redirect(route('admin.index'));
     }
@@ -112,6 +114,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        $this->authorize('admin-access');
         $blog->sdgs()->detach();
         $blog->delete();
         return redirect(route('admin.index'));

@@ -14,7 +14,7 @@
                 Use the filters to search for what you want
             </p>
         </div>
-        <button class="button is-light is-link">
+        <button class="button is-light is-link" onclick="window.location.href='/blogs/create'">
             <a href="{{ route('blogs.create') }}">Add a Blog</a>
         </button>
     </section>
@@ -75,7 +75,8 @@
                                 <p>Impact: {{ $blog->impact }}</p>
                                 <p>Research Group:</p>
                                 <p class="program">Program: {{ $blog->program->name ?? 'empty' }}</p>
-                                <p class="businessOperation">Business Operation: {{ $blog->business_operation->name ?? 'empty' }}</p>
+                                <p class="businessOperation">Business
+                                    Operation: {{ $blog->business_operation->name ?? 'empty' }}</p>
                                 @foreach($blog->sdgs as $sdg)
                                     <p class="blogSDG">SDG: {{ $sdg->name }}</p>
                                 @endforeach
