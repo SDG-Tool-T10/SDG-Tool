@@ -14,9 +14,7 @@
                 Use the filters to search for what you want
             </p>
         </div>
-        <button class="button is-light is-link" onclick="window.location.href='/blogs/create'">
-            Add a Blog
-        </button>
+        <a href="{{ route('blogs.create') }}" class="button is-light is-link">Add a Blog</a>
     </section>
     <div class="filter-option">
         <div class="single-filter select is-info is-rounded">
