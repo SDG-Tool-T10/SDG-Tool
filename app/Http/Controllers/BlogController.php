@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\BusinessOperation;
 use App\Models\Program;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -37,6 +38,7 @@ class BlogController extends Controller
             'blogs',
             'business_operations',
             'programs',
+            'research_groups',
             'sdgs'
         ));
     }
@@ -91,6 +93,7 @@ class BlogController extends Controller
      *
      * @param Blog $blog
      * @return Application|Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Blog $blog)
     {
@@ -117,6 +120,7 @@ class BlogController extends Controller
      * @param Request $request
      * @param Blog $blog
      * @return Application|Redirector|RedirectResponse
+     * @throws AuthorizationException
      */
     public function update(Request $request, Blog $blog)
     {
