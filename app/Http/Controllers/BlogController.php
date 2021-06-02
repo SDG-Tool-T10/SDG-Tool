@@ -121,9 +121,9 @@ class BlogController extends Controller
      * Validate the request
      * @return array
      */
-    protected function getValidate()
+    protected function getValidate($request)
     {
-        return request()->validate([
+        return $request->validate([
             'program_id' => 'nullable | integer',
             'business_operation_id' => 'nullable | integer',
             'research_group_id' => 'nullable | integer',
