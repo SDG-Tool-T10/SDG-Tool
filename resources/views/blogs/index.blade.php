@@ -15,7 +15,7 @@
             </p>
         </div>
         <button class="button is-light is-link" onclick="window.location.href='/blogs/create'">
-            <a href="{{ route('blogs.create') }}">Add a Blog</a>
+            Add a Blog
         </button>
     </section>
     <div class="filter-option">
