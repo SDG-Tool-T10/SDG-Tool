@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ResearchGroup;
-use App\Models\Sdg;
-use App\Models\Blog;
 use App\Models\Activity;
+use App\Models\Blog;
 use App\Models\BusinessOperation;
 use App\Models\Program;
+use App\Models\ResearchGroup;
+use App\Models\Sdg;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -118,22 +118,31 @@ class BlogController extends Controller
         return redirect(route('admin.index'));
     }
 
-    protected function getValidate()
+    /**
+     * Validate the request
+     * @return array
+     */
+    protected function getValidate($request)
     {
-        return request()->validate([
-            'program_id' => 'nullable',
-            'business_operation_id' => 'nullable',
-            'research_group_id' => 'nullable',
-            'activity_id' => 'required',
-            'title' => 'required',
-            'description' => 'required',
-            'impact' => 'required',
-            'link' => 'required',
-            'contact_name' => 'required',
-            'contact_email' => 'required|email:rfc,dns'
+        return $request->validate([
+            'program_id' => 'nullable | integer',
+            'business_operation_id' => 'nullable | integer',
+            'research_group_id' => 'nullable | integer',
+            'activity_id' => 'required | integer',
+            'title' => 'required | max:255',
+            'description' => 'required | max:255',
+            'impact' => 'required | max:255',
+            'link' => 'required | max:255',
+            'contact_name' => 'required | max:255',
+            'contact_email' => 'required | email:rfc,dns'
         ]);
     }
 
+    /**
+     * Change the boolean to true in the database, then the non admin user will be able to see it
+     * @param Blog $blog
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     protected function changeVisibility(Blog $blog)
     {
         $blog->update(['visibility' => true]);
