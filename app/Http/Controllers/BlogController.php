@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sdg;
-use App\Models\Blog;
 use App\Models\Activity;
+use App\Models\Blog;
 use App\Models\BusinessOperation;
 use App\Models\Program;
+use App\Models\ResearchGroup;
+use App\Models\Sdg;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -18,12 +19,20 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $sdg = Sdg::latest()->get();
-        $activity = Activity::latest()->get();
-        $business_operation = BusinessOperation::latest()->get();
+        $sdgs = Sdg::latest()->get();
+        $research_groups = ResearchGroup::latest()->get();
+        $activities = Activity::latest()->get();
+        $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
+        $blogs = Blog::where('visibility', true)->get();
 
-        return view('blogs.create', compact(['sdg', 'activity', 'business_operation', 'programs']));
+        return view('blogs.index', compact(
+            'activities',
+            'blogs',
+            'business_operations',
+            'programs',
+            'sdgs'
+        ));
     }
 
     /**
@@ -33,12 +42,13 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $sdg = Sdg::latest()->get();
-        $activity = Activity::latest()->get();
-        $business_operation = BusinessOperation::latest()->get();
+        $sdgs = Sdg::latest()->get();
+        $activities = Activity::latest()->get();
+        $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
+        $research_groups = ResearchGroup::latest()->get();
 
-        return view('blogs.create', compact(['sdg', 'activity', 'business_operation', 'programs']));
+        return view('blogs.create', compact('sdgs', 'activities', 'business_operations', 'research_groups', 'programs'));
     }
 
     /**
@@ -49,7 +59,8 @@ class BlogController extends Controller
      */
     public function store(Blog $blog, Request $request)
     {
-        Blog::create($this->getValidate($request));
+        $blog = Blog::create($this->getValidate($request));
+        $blog->sdgs()->attach(request('sdg_id'));
         return redirect(route('admin.index'));
     }
 
@@ -72,12 +83,13 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        $sdg = Sdg::latest()->get();
-        $activity = Activity::latest()->get();
-        $business_operation = BusinessOperation::latest()->get();
+        $sdgs = Sdg::latest()->get();
+        $activities = Activity::latest()->get();
+        $business_operations = BusinessOperation::latest()->get();
         $programs = Program::latest()->get();
+        $research_groups = ResearchGroup::latest()->get();
 
-        return view('blogs.edit', compact('blog', 'programs', 'sdg', 'activity', 'business_operation'));
+        return view('blogs.edit', compact('programs', 'sdgs', 'activities', 'business_operations', 'research_groups', 'blog'));
     }
 
     /**
@@ -101,18 +113,41 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        $blog->sdgs()->detach();
         $blog->delete();
         return redirect(route('admin.index'));
     }
 
-    protected function getValidate()
+    /**
+     * Validate the request
+     * @return array
+     */
+    protected function getValidate($request)
     {
-        return request()->validate([
-            'description' => 'required',
-            'impact' => 'required',
-            'link' => 'required',
-            'contact_name' => 'required',
-            'contact_email' => 'required'
+        return $request->validate([
+            'program_id' => 'nullable | integer',
+            'business_operation_id' => 'nullable | integer',
+            'research_group_id' => 'nullable | integer',
+            'activity_id' => 'required | integer',
+            'title' => 'required | max:255',
+            'description' => 'required | max:255',
+            'impact' => 'required | max:255',
+            'link' => 'required | max:255',
+            'contact_name' => 'required | max:255',
+            'contact_email' => 'required | email:rfc,dns'
         ]);
+    }
+
+    /**
+     * Change the boolean to true in the database, then the non admin user will be able to see it
+     * @param Blog $blog
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    protected function changeVisibility(Blog $blog)
+    {
+        $blog->update(['visibility' => true]);
+        $blog->save();
+
+        return redirect(route('admin.index'));
     }
 }

@@ -17,25 +17,25 @@ class BusinessOperationSeeder extends Seeder
     public function run()
     {
         DB::table('business_operations')->insert([
-            'name' => 'Accountancy Associate degree',
+            'name' => 'Campus Facilities',
         ]);
         DB::table('business_operations')->insert([
-            'name' => 'Aquacultuur',
+            'name' => 'Finance',
         ]);
         DB::table('business_operations')->insert([
-            'name' => 'Bedrijfskunde',
+            'name' => 'ICT',
         ]);
         DB::table('business_operations')->insert([
-            'name' => 'Bedrijfskunde Associate degree',
+            'name' => 'Marketing, Communication and Internationalisation',
         ]);
         DB::table('business_operations')->insert([
-            'name' => 'Bedeleiden bij Rouw en Verlies',
+            'name' => 'Education, Research & Quality',
         ]);
         DB::table('business_operations')->insert([
-            'name' => 'Bouwkunde',
+            'name' => 'PO&O',
         ]);
         DB::table('business_operations')->insert([
-            'name' => 'Built Environment Associate degree',
-        ]); 
+            'name' => 'Student Facilities',
+        ]);
     }
 }

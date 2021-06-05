@@ -14,6 +14,7 @@ class CreateBlogSdgTable extends Migration
     public function up()
     {
         Schema::create('blog_sdg', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('blog_id');
             $table->foreignId('sdg_id');
             $table->timestamps();

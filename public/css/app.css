@@ -16,6 +16,7 @@
 .header-img {
     margin: auto;
     margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .header-img img {
@@ -61,6 +62,18 @@
     overflow-x: hidden;
 }
 
+.content-margin {
+    margin-bottom: 0em !important;
+}
+
+.content-width {
+    width: 75%;
+}
+
+.content-width2 {
+    width: 25%;
+}
+
 /* Contact */
 .contact-picture {
     margin: 10px 50px 50px 180px;
@@ -94,15 +107,39 @@
 }
 
 .sdg-card-image {
-    width: 30%;
+    width: 30% !important;
+
     height: 30% !important;
 }
 
 .project-card-image {
     width: 30%;
-    height: 30% !important;
+    height: 30%; !important;
+
 }
 
 .sdg-content {
     margin-top: 15px;
 }
+
+.disabled:hover {
+    cursor: pointer;
+}
+
+/*Blog*/
+.blog-card {
+    max-height: 25em !important;
+    min-height: 25em !important;
+    overflow-x: auto;
+}
+
+.filter-option {
+    display: flex;
+    /*padding-left: 6.5%;*/
+    justify-content: center;
+}
+
+.single-filter{
+    margin: 1%;
+}
+

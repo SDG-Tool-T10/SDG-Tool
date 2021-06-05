@@ -9,9 +9,11 @@ class Sdg extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['excerpt'];
+
     public function subSdgs()
     {
-        return $this->hasMany(SubSdg::class);
+        return $this->belongsToMany(SubSdg::class);
     }
 
     public function blogs()

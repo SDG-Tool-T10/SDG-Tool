@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BusinessOperationController;
+use App\Http\Controllers\SdgController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchGroupController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/verified-email', function () {
     return view('verified-email');
 });
@@ -30,18 +30,24 @@ Route::get('/email', function () {
     return view('email');
 });
 
-Route::resource('/blogs', BlogController::class);
+Route::resource('/', WelcomeController::class);
 
-Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy']);
+Route::put('/blogs/changevisibility/{blog}', [BlogController::class, 'changeVisibility']);
+
+Route::resource('/blogs', BlogController::class)->middleware(['auth']);
+
+Route::resource('/sdgs', SdgController::class);
+
+Route::resource('/admin', AdminController::class)->except(['create', 'store', 'update', 'destroy'])->middleware(['auth']);
 
 Route::resource('/programs', ProgramController::class);
 
 Route::resource('/research_groups', ResearchGroupController::class);
 
-Route::resource('/contact', ContactController::class);
+Route::resource('/activities', ActivityController::class);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::resource('/business_operations', BusinessOperationController::class);
+
+Route::resource('/contact', ContactController::class);
 
 require __DIR__.'/auth.php';
