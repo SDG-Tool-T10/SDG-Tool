@@ -47,7 +47,7 @@
                         <div class="select is-fullwidth @error('activity_id') is-danger @enderror">
                             <select class="select-activity" type="text"
                                     id="activity_id" name="activity_id">
-                                <option disabled selected value=""> -- Select a Activity --</option>
+                                <option disabled selected value=""> -- Select an Activity --</option>
                                 <option selected value=""> None</option>
                                 @foreach ($activities as $activity)
                                     <option value="{{ $activity->id }}" {{(old('activity')==$activity->id ? "selected":"")}}>
@@ -102,7 +102,7 @@
                                 <option selected value=""> None</option>
                                 @foreach ($business_operations as $business_operation)
                                     <option value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>
-                                        {{ $business_operation   ->name }}
+                                        {{ $business_operation->name }}
                                     </option>
                                 @endforeach
                             </select>
