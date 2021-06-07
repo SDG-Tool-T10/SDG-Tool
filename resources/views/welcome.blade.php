@@ -27,93 +27,53 @@
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner header-text" id="top">
         <div class="Modern-Slider">
-          <!-- Item -->
-          <div class="item">
-            <div class="img-fill">
-                <img src="image/slide-01.jpg" alt="">
-                <div class="text-content">
-                  <h3>Welcome To SDG-Tool</h3>
-                  <h5>Sustainable Development Goals</h5>
-                  <a href="#" class="main-stroked-button">Learn More</a>
-                  <a href="#" class="main-filled-button">Get It Now</a>
-                </div>
-            </div>
-          </div>
-          <!-- // Item -->
-          <!-- Item -->
-          <div class="item">
-            <div class="img-fill">
-                <img src="image/slide-02.jpg" alt="">
-                <div class="text-content">
-                  <h3>HZ-University Of Applied Sciences Contibution</h3>
-                  <h5>Sustainable Development Goals</h5>
-                  <a href="#" class="main-stroked-button">Read More</a>
-                  <a href="#" class="main-filled-button">Take Action</a>
-                </div>
-            </div>
-          </div>
-          <!-- // Item -->
-          <!-- Item -->
-          <div class="item">
-            <div class="img-fill">
-                <img src="image/slide-03.jpg" alt="">
-                <div class="text-content">
-                  <h3>For A Cleaner Future</h3>
-                  <h5>Projects, Research and More</h5>
-                  <a href="#" class="main-stroked-button">Learn More</a>
-                  <a href="#" class="main-filled-button">Get It Now</a>
-                </div>
-            </div>
-          </div>
-          <!-- // Item -->
-        </div>
-    </div>
-    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
-    <!-- ***** Main Banner Area End ***** -->
-
-    <!-- ***** About Area Starts ***** -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="section-sdg-goals is-align-content-space-evenly" style="padding-left: 60px">
-                    <div class="is-flex-wrap-wrap sdg-icon">
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-01.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-02.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-03.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-04.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-05.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-06.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-07.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-08.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-09.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-10.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-11.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-12.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-13.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-14.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-15.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-16.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-17.png" /></a>
-                        <a href="/sdg"><img src="./image/SDG-Icons-EN/sdg-en-18.png" /></a>
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="image/slide-01.jpg" alt="">
+                    <div class="text-content">
+                        <h3>Welcome To SDG-Tool</h3>
+                        <h5>Sustainable Development Goals</h5>
+                        <a href="#" class="main-stroked-button">Learn More</a>
+                        <a href="#" class="main-filled-button">Get It Now</a>
                     </div>
                 </div>
             </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="image/slide-02.jpg" alt="">
+                    <div class="text-content">
+                        <h3>HZ-University Of Applied Sciences Contibution</h3>
+                        <h5>Sustainable Development Goals</h5>
+                        <a href="#" class="main-stroked-button">Read More</a>
+                        <a href="#" class="main-filled-button">Take Action</a>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="image/slide-03.jpg" alt="">
+                    <div class="text-content">
+                        <h3>For A Cleaner Future</h3>
+                        <h5>Projects, Research and More</h5>
+                        <a href="#" class="main-stroked-button">Learn More</a>
+                        <a href="#" class="main-filled-button">Get It Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
         </div>
-    </section>
-    <!-- ***** About Area Ends ***** -->
+    </div>
+    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+
     <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="card">
-                    @auth()
-                        @if (Auth::user()->admin)
-                            Hey admin
-                        @else
-                            Hey User
-                        @endif
-                    @else
-                        Hello Guest
-                    @endauth
                     <div class="card-content">
                         <div class="content is-italic">
                             Here are some nice icons and maybe there should be a filter box somewhere..
@@ -125,18 +85,16 @@
             </div>
             <div class="section-sdg-goals is-align-content-space-evenly" style="padding-left: 90px">
                 <div class="is-flex-wrap-wrap sdg-icon">
-                        @foreach($sdgs as $sdg)
-                            <a href="/sdgs/{{ $sdg->id }}"><img src="{{ $sdg->img_link }}" /></a>
-                        @endforeach
-                    <a href="#"><img src="./image/SDG-Icons-EN/sdg-en-18.png" /></a>
+                    @foreach($sdgs as $sdg)
+                        <a href="/sdgs/{{ $sdg->id }}"><img src="{{ $sdg->img_link }}"/></a>
+                    @endforeach
+                    <a href="#"><img src="./image/SDG-Icons-EN/sdg-en-18.png"/></a>
                 </div>
             </div>
         </div>
-      </div>
+        </div>
     </section>
-    <!-- ***** Projects Area Ends ***** -->
 
-    <!-- ***** Testimonials Starts ***** -->
     <section class="section" id="testimonials">
         <div class="container">
             <div class="row">
@@ -146,7 +104,8 @@
                         <h2>young and talented members</h2>
                     </div>
                 </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 mobile-bottom-fix-big" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                <div class="col-lg-12 col-md-12 col-sm-12 mobile-bottom-fix-big"
+                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                     <div class="owl-carousel owl-theme">
                         <div class="item author-item">
                             <div class="member-thumb">
@@ -269,12 +228,9 @@
                             <h4>.07 Oliva Sofie</h4>
                             <span>Website Analyst</span>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ***** Testimonials Ends ***** -->
-
 @endsection
