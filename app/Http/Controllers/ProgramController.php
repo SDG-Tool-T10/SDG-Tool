@@ -3,14 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Program;
+use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class ProgramController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
+     * @throws AuthorizationException
      */
     public function index()
     {
@@ -21,7 +29,8 @@ class ProgramController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -32,22 +41,22 @@ class ProgramController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     * @throws AuthorizationException
      */
     public function store(Request $request)
     {
         $this->authorize('admin-access');
         Program::create($this->getValidate($request));
-
         return redirect(route('admin.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Program $program
-     * @return \Illuminate\Http\Response
+     * @param Program $program
+     * @return void
      */
     public function show(Program $program)
     {
@@ -57,8 +66,9 @@ class ProgramController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Program $program
-     * @return \Illuminate\Http\Response
+     * @param Program $program
+     * @return Application|Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Program $program)
     {
@@ -69,9 +79,10 @@ class ProgramController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Program $program
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Program $program
+     * @return Application|Redirector|RedirectResponse
+     * @throws AuthorizationException
      */
     public function update(Request $request, Program $program)
     {
@@ -83,8 +94,10 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Program $program
-     * @return \Illuminate\Http\Response
+     * @param Program $program
+     * @return Application|Redirector|RedirectResponse
+     * @throws AuthorizationException
+     * @throws Exception
      */
     public function destroy(Program $program)
     {
@@ -93,7 +106,12 @@ class ProgramController extends Controller
         return redirect(route('admin.index'));
     }
 
-    public function getValidate($request)
+    /**
+     * Validate the request
+     * @param Request $request
+     * @return array
+     */
+    public function getValidate(Request $request): array
     {
         return $request->validate([
             'name' => 'required'

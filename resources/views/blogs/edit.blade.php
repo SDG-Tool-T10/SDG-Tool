@@ -156,7 +156,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('title') is-danger @enderror" name="title" type="text"
-                               placeholder="the title of your project" value="{{ $blog->title }}">
+                               placeholder="Title of your project" value="{{ $blog->title }}">
                     </div>
                     @error('title')
                     <p class="help is-danger">{{ $errors->first('title') }}</p>
@@ -173,7 +173,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('description') is-danger @enderror" name="description" type="text"
-                               placeholder="describe briefly" value="{{ $blog->description }}">
+                               placeholder="Describe briefly" value="{{ $blog->description }}">
                     </div>
                     @error('description')
                     <p class="help is-danger">{{ $errors->first('description') }}</p>
@@ -190,7 +190,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('link') is-danger @enderror" name="link" type="text"
-                               placeholder="type the link here" value="{{ $blog->link }}">
+                               placeholder="Use the full link (example: https://google.com)" value="{{ $blog->link }}">
                     </div>
                     @error('link')
                     <p class="help is-danger">{{ $errors->first('link') }}</p>
