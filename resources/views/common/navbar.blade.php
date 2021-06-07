@@ -65,7 +65,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         SDG-Tool
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -101,11 +101,11 @@
                                 </form>
                             @else
                             <li class="scroll-to-section"><a href="/login"
-                                    class="navbar-item {{ Request::path() === 'login' ? 'is-active' : '' }}">
+                                    class="{{ Request::path() === 'login' ? 'is-active' : '' }}">
                                     Login
                                 </a></li>
                             <li class="scroll-to-section"><a href="/register"
-                                    class="navbar-item {{ Request::path() === 'register' ? 'is-active' : '' }}">
+                                    class="{{ Request::path() === 'register' ? 'is-active' : '' }}">
                                     Register
                                 </a></li>
                         @endauth
