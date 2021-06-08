@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -10,7 +13,7 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -20,7 +23,7 @@ class ContactController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function create()
     {
@@ -30,8 +33,8 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return void
      */
     public function store(Request $request)
     {
@@ -41,8 +44,8 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sdg  $sdg
-     * @return \Illuminate\Http\Response
+     * @param Contact $contact
+     * @return void
      */
     public function show(Contact $contact)
     {
@@ -52,8 +55,8 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Sdg  $sdg
-     * @return \Illuminate\Http\Response
+     * @param Contact $contact
+     * @return void
      */
     public function edit(Contact $contact)
     {
@@ -63,9 +66,9 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sdg  $sdg
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Contact $contact
+     * @return void
      */
     public function update(Request $request, Contact $contact)
     {
@@ -75,8 +78,8 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contact $contact
-     * @return \Illuminate\Http\Response
+     * @param Contact $contact
+     * @return void
      */
     public function destroy(Contact $contact)
     {

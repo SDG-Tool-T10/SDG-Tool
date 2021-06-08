@@ -14,9 +14,7 @@
                 Use the filters to search for what you want
             </p>
         </div>
-        <button class="button is-light is-link">
-            <a href="{{ route('blogs.create') }}">Add a Blog</a>
-        </button>
+        <a href="{{ route('blogs.create') }}" class="button is-light is-link">Add a Blog</a>
     </section>
     <div class="filter_container">
         <div class="single-filter select is-info is-rounded">
