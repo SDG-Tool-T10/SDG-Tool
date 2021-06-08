@@ -131,11 +131,50 @@
 }
 
 .filter-option {
-    display: flex;
-    /*padding-left: 6.5%;*/
-    justify-content: center;
+   text-align: center;
 }
 
 .single-filter{
     margin: 1%;
+    display: inline-block;
 }
+
+.card {
+    border-radius: 30px !important;
+    background-color: rgb(50,152,220, 0.3) !important;
+}
+
+.title{
+    text-align: center!important;
+    font-size: xx-large!important;
+}
+
+.impactTitle{
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+
+.blogImpact{
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2%;
+    margin-bottom: 0.2em;
+}
+.subtitle{
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+.blogDesign{
+    background-color: white;
+    border-radius: 10px;
+    padding: 2%;
+    margin-bottom: 0.2em;
+}
+
+.container{
+    display: inline-block;
+}
+

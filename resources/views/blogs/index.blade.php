@@ -55,6 +55,15 @@
                 @endforeach
             </select>
         </div>
+        <div class="single-filter select is-info is-rounded">
+            <select id="filter5" onchange="myFilter()">
+                <option value="None" class="filter-title" disabled selected>Filter on Research Group</option>
+                <option>None</option>
+                @foreach($research_groups as $research_group)
+                    <option value="{{ $research_group->name }}">{{ $research_group->name }}</option>
+                @endforeach
+            </select>
+        </div>
         <div class="single-filter is-info is-rounded">
             <button onClick="window.location.reload()" class="is-rounded button is-info is-outlined">Reset</button>
         </div>
@@ -63,25 +72,44 @@
 
     <div class="columns columns-container is-multiline">
         @forelse($blogs as $blog)
-            <div class="column is-half blogPost">
+            <div class="column is-full blogPost">
                 <div class="card">
                     <div class="card-stacked">
                         <div class="card-content blog-card">
                             <div class="media-content">
-                                <p class="title is-4">Title: {{ $blog->title }}</p>
+                                <p class="title is-4">{{ $blog->title }}</p>
                             </div>
                             <div class="subtitle is-6 sdg-content">
-                                <p class="activity">Activity: {{ $blog->activity->name }}</p>
-                                <p>Impact: {{ $blog->impact }}</p>
-                                <p>Research Group:</p>
-                                <p class="program">Program: {{ $blog->program->name ?? 'empty' }}</p>
-                                <p class="businessOperation">Business Operation: {{ $blog->business_operation->name ?? 'empty' }}</p>
-                                @foreach($blog->sdgs as $sdg)
-                                    <p class="blogSDG">SDG: {{ $sdg->name }}</p>
-                                @endforeach
-                                @foreach($blog->sub_sdgs as $sub_sdg)
-                                    <p>Subgoal: {{ $sub_sdg->name }}</p>
-                                @endforeach
+                                <p class="impactTitle">Impact:</p>
+                                <p class="blogImpact">{{ $blog->impact }}</p>
+                                <div class="container">
+                                    <p class="subtitle">Activity:</p>
+                                    <p class="blogDesign activity">{{ $blog->activity->name }}</p>
+                                </div>
+                                <div class="container">
+                                    <p class="subtitle">Research Group:</p>
+                                    <p class="blogDesign researchGroup">{{ $blog->research_group->name ?? 'empty' }}</p>
+                                </div>
+                                <div class="container">
+                                    <p class="subtitle">Program:</p>
+                                    <p class="blogDesign program">{{ $blog->program->name ?? 'empty' }}</p>
+                                </div>
+                                <div class="container">
+                                    <p class="subtitle">Business Operation:</p>
+                                    <p class="blogDesign businessOperation">{{ $blog->business_operation->name ?? 'empty' }}</p>
+                                </div>
+                                <div class="container">
+                                    @foreach($blog->sdgs as $sdg)
+                                        <p class="subtitle">SDG:</p>
+                                        <p class="blogDesign blogSDG">{{ $sdg->name }}</p>
+                                    @endforeach
+                                </div>
+                                <div class="container">
+                                    @foreach($blog->sub_sdgs as $sub_sdg)
+                                        <p class="subtitle">SDG:</p>
+                                        <p>{{ $sub_sdg->name }}</p>
+                                    @endforeach
+                                </div>
                                 <p>Publisher: {{ $blog->contact_name }} </p>
                                 <p>Updated at: {{ $blog->updated_at }} </p>
                             </div>
