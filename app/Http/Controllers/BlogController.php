@@ -37,7 +37,6 @@ class BlogController extends Controller
             'activities',
             'blogs',
             'business_operations',
-            'research_groups',
             'programs',
             'research_groups',
             'sdgs'
