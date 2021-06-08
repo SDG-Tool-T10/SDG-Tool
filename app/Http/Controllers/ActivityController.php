@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
@@ -20,7 +26,7 @@ class ActivityController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -30,21 +36,20 @@ class ActivityController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(Request $request)
     {
         Activity::create($this->getValidate($request));
-
         return redirect(route('admin.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Activity  $activity
-     * @return \Illuminate\Http\Response
+     * @param Activity $activity
+     * @return void
      */
     public function show(Activity $activity)
     {
@@ -54,8 +59,8 @@ class ActivityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Activity  $activity
-     * @return \Illuminate\Http\Response
+     * @param Activity $activity
+     * @return Application|Factory|View
      */
     public function edit(Activity $activity)
     {
@@ -65,9 +70,9 @@ class ActivityController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Activity  $activity
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Activity $activity
+     * @return Application|Redirector|RedirectResponse
      */
     public function update(Request $request, Activity $activity)
     {
@@ -78,8 +83,9 @@ class ActivityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Activity  $activity
-     * @return \Illuminate\Http\Response
+     * @param Activity $activity
+     * @return Application|Redirector|RedirectResponse
+     * @throws Exception
      */
     public function destroy(Activity $activity)
     {
@@ -87,7 +93,7 @@ class ActivityController extends Controller
         return redirect(route('admin.index'));
     }
 
-    public function getValidate(Request $request)
+    public function getValidate(Request $request): array
     {
         return $request->validate([
             'name' => 'required'

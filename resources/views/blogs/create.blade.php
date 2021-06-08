@@ -15,7 +15,7 @@
         @csrf
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Program</label>
+                <label class="label">Programs</label>
             </div>
             <div class="field-body">
                 <div class="field ">
@@ -23,6 +23,7 @@
                         <div class="select is-fullwidth @error('program_id') is-danger @enderror">
                             <select class="select-education" type="text"
                                     id="program_id" name="program_id">
+                                <option disabled selected value=""> -- Select a Program --</option>
                                 <option selected value=""> None</option>
                                 @foreach ($programs as $program)
                                     <option value="{{ $program->id }}" {{(old('program')==$program->id ? "selected":"")}}>
@@ -38,7 +39,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Type of Activity</label>
+                <label class="label">Type of Activities</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -46,6 +47,7 @@
                         <div class="select is-fullwidth @error('activity_id') is-danger @enderror">
                             <select class="select-activity" type="text"
                                     id="activity_id" name="activity_id">
+                                <option disabled selected value=""> -- Select an Activity --</option>
                                 <option selected value=""> None</option>
                                 @foreach ($activities as $activity)
                                     <option value="{{ $activity->id }}" {{(old('activity')==$activity->id ? "selected":"")}}>
@@ -64,7 +66,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Research</label>
+                <label class="label">Research Groups</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -72,33 +74,11 @@
                         <div class="select is-fullwidth @error('research_group_id') is-danger @enderror">
                             <select class="select-research" type="text"
                                     id="research_group_id" name="research_group_id">
+                                <option disabled selected value=""> -- select a Research Group --</option>
                                 <option selected value=""> None</option>
                                 @foreach($research_groups as $research_group)
                                     <option value="{{ $research_group->id }}" {{ (old('research_id') == $research_group->id ? "selected":"") }}>
                                         {{ $research_group->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Sustainable Development Goal</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-fullwidth @error('sdg_id[]') is-danger @enderror">
-                            <select class="select-sdg" type="text" id="sdg_id[]"
-                                    name="sdg_id[]" required>
-                                <option selected value=""> None</option>
-                                @foreach ($sdgs as $sdg)
-                                    <option value="{{$sdg->id}}" {{ (old('sdg') == $sdg->id ? "selected":"") }}>
-                                        {{ $sdg->id }}. {{ $sdg->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -118,10 +98,11 @@
                         <div class="select is-fullwidth @error('business_operation_id') is-danger @enderror">
                             <select class="select-policy" type="text" id="business_operation_id"
                                     name="business_operation_id">
+                                <option disabled selected value=""> -- select a Business Operation --</option>
                                 <option selected value=""> None</option>
                                 @foreach ($business_operations as $business_operation)
                                     <option value="{{ $business_operation->id }}" {{ (old('business_operation') == $business_operation->id ? "selected":"") }}>
-                                        {{ $business_operation   ->name }}
+                                        {{ $business_operation->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -133,7 +114,31 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Subgoal</label>
+                <label class="label">Sustainable Development Goals</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select is-fullwidth @error('sdg_id[]') is-danger @enderror">
+                            <select class="select-sdg" type="text" id="sdg_id[]"
+                                    name="sdg_id[]" required>
+                                <option disabled selected value=""> -- select a SDG --</option>
+                                <option selected value=""> None</option>
+                                @foreach ($sdgs as $sdg)
+                                    <option value="{{$sdg->id}}" {{ (old('sdg') == $sdg->id ? "selected":"") }}>
+                                        {{ $sdg->id }}. {{ $sdg->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Subgoals</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -142,7 +147,8 @@
                             <select class="select-subgoal" type="text"
                                     id="sub_sdg_id" name="sub_sdg_id" value="{{ old('sub_sdg_id') }}">
                                 {{-- TODO Shouldn't this be assigned dynamically from DB?--}}
-                                <option disabled selected value=""> -- select an option --</option>
+                                <option disabled selected value=""> -- select a Subgoal --</option>
+                                <option selected value=""> None</option>
                                 <option value="{{ old('sub_sdg_id') }}">Subgoal 1</option>
                             </select>
                         </div>
@@ -193,7 +199,7 @@
                 <div class="field">
                     <div class="control">
                         <input class="input @error('link') is-danger @enderror" name="link" type="text"
-                               placeholder="Type the link here" value="{{ old('link') }}">
+                               placeholder="Use the full link (example: https://google.com)" value="{{ old('link') }}">
                     </div>
                     @error('link')
                     <p class="help is-danger">{{ $errors->first('link') }}</p>
