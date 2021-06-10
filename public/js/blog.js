@@ -17,12 +17,15 @@ function myFilter() {
     const program = document.getElementsByClassName("program");
     const business_operation = document.getElementsByClassName("businessOperation");
     const sdg = document.getElementsByClassName("blogSDG");
+    // console.log(activity);
 
     // For every blog, store it into a variable called blogpost (this is an HTML collection)
     const blogposts = document.getElementsByClassName("blogPost");
+    // console.log(blogposts);
 
     // Empty array that will contain all the viewable blogs (so not pending)
     let allApprovedBlogs = [];
+    // console.log(allApprovedBlogs);
 
     // For every blog in blogposts(HTML collection), push data into a new array called allApprovedBlogs (array containing arrays)
     for (let i = 0; i < blogposts.length; i++) {
@@ -33,7 +36,7 @@ function myFilter() {
             program[i].innerText.substring(9)]);
     }
 
-    // Loops over all the blogs amd checks if the input/filter field matches with a blog and sets corresponding style.display
+    // Loops over all the blogs and checks if the input/filter field matches with a blog and sets corresponding style.display
     for (let i = 0; i < allApprovedBlogs.length; i++) {
         let allMatch = true
         for (let j = 0; j < inputArray.length; j++) {
