@@ -17,15 +17,12 @@ function myFilter() {
     const program = document.getElementsByClassName("program");
     const business_operation = document.getElementsByClassName("businessOperation");
     const sdg = document.getElementsByClassName("blogSDG");
-    // console.log(activity);
 
     // For every blog, store it into a variable called blogpost (this is an HTML collection)
     const blogposts = document.getElementsByClassName("blogPost");
-    // console.log(blogposts);
 
     // Empty array that will contain all the viewable blogs (so not pending)
     let allApprovedBlogs = [];
-    // console.log(allApprovedBlogs);
 
     // For every blog in blogposts(HTML collection), push data into a new array called allApprovedBlogs (array containing arrays)
     for (let i = 0; i < blogposts.length; i++) {
