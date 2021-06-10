@@ -8,7 +8,6 @@
     <section class="hero  is-medium  is-bold">
         <div class="header-img">
             <img src="/image/sdg-header-en.png"/>
-
         </div>
     </section>
 
