@@ -20,6 +20,7 @@ function myFilter() {
     const research_groups = document.getElementsByClassName("researchGroup");
     // For every blog, store it into a variable called blogpost (this is an HTML collection)
     const blogposts = document.getElementsByClassName("blogPost");
+
     let allApprovedBlogs = []
     // blogposts array into an array with objects because you can't use .innerText and .substring on a HTML collection
     Array.from(blogposts).forEach(function (blogpost, index) {
