@@ -8,45 +8,43 @@ function myFilter() {
     const input2 = document.getElementById("filter2").value;
     const input3 = document.getElementById("filter3").value;
     const input4 = document.getElementById("filter4").value;
-
+    const input5 = document.getElementById("filter5").value;
     // All the values stored in an array
-    const inputArray = [input1, input2, input3, input4];
-
+    const inputArray = [input1, input2, input3, input4, input5];
+    const filteredInputArray = inputArray.filter(input => input !== "None");
     // This gets the data from the blogs and stores it in a variable
-    const activity = document.getElementsByClassName("activity");
-    const program = document.getElementsByClassName("program");
-    const business_operation = document.getElementsByClassName("businessOperation");
-    const sdg = document.getElementsByClassName("blogSDG");
-
+    const activities = document.getElementsByClassName("activity");
+    const programs = document.getElementsByClassName("program");
+    const business_operations = document.getElementsByClassName("businessOperation");
+    const sdgs = document.getElementsByClassName("blogSDG");
+    const research_groups = document.getElementsByClassName("researchGroup");
     // For every blog, store it into a variable called blogpost (this is an HTML collection)
     const blogposts = document.getElementsByClassName("blogPost");
 
-    // Empty array that will contain all the viewable blogs (so not pending)
-    let allApprovedBlogs = [];
-
-    // For every blog in blogposts(HTML collection), push data into a new array called allApprovedBlogs (array containing arrays)
-    for (let i = 0; i < blogposts.length; i++) {
-        allApprovedBlogs.push([
-            sdg[i].innerText.substring(5),
-            activity[i].innerText.substring(10),
-            business_operation[i].innerText.substring(20),
-            program[i].innerText.substring(9)]);
-    }
-
-    // Loops over all the blogs and checks if the input/filter field matches with a blog and sets corresponding style.display
-    for (let i = 0; i < allApprovedBlogs.length; i++) {
-        let allMatch = true
-        for (let j = 0; j < inputArray.length; j++) {
-            if (inputArray[j] !== "None") {
-                if (allApprovedBlogs[i][j] !== inputArray[j]) {
-                    allMatch = false;
-                }
+    let allApprovedBlogs = []
+    // blogposts array into an array with objects because you can't use .innerText and .substring on a HTML collection
+    Array.from(blogposts).forEach(function (blogpost, index) {
+        let blog = {
+            sdg: sdgs[index].innerText,
+            activity: activities[index].innerText,
+            business_operation: business_operations[index].innerText,
+            program: programs[index].innerText,
+            research_group: research_groups[index].innerText
+        }
+        allApprovedBlogs.push(blog);
+    });
+    // Loops over all the blogs and checks if the input/filter field matches with a blog and sets corresponding style
+    allApprovedBlogs.forEach(function (blog, index) {
+        let allMatch = true;
+        filteredInputArray.forEach(function (input) {
+            if (!Object.values(blog).includes(input)) {
+                allMatch = false;
             }
-        }
+        })
         if (allMatch) {
-            blogposts[i].style.display = "block";
+            blogposts[index].style.display = "block"
         } else {
-            blogposts[i].style.display = "none";
+            blogposts[index].style.display = "none"
         }
-    }
+    });
 }
