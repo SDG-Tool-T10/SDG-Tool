@@ -76,7 +76,7 @@ function textFilter() {
     // console.log(allApprovedBlogs);
     for (let i = 0; i < allApprovedBlogs.length; i++) {
         // console.log(allApprovedBlogs[i]['title']);
-        if (!allApprovedBlogs[i]['title'].toLowerCase().includes(input)){
+        if (!allApprovedBlogs[i]['title'].toLowerCase().includes(input)) {
             blogposts[i].style.display = "none";
         } else {
             blogposts[i].style.display = "block";

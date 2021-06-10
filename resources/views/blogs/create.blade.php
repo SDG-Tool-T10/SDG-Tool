@@ -125,7 +125,7 @@
                                 <option disabled selected value=""> -- select a SDG --</option>
                                 <option selected value=""> None</option>
                                 @foreach ($sdgs as $sdg)
-                                    <option value="{{$sdg->id}}" {{ (old('sdg') == $sdg->id ? "selected":"") }}>
+                                    <option value="{{ $sdg->id }}" {{ (old('sdg') == $sdg->id ? "selected":"") }}>
                                         {{ $sdg->id }}. {{ $sdg->name }}
                                     </option>
                                 @endforeach

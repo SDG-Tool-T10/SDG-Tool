@@ -18,7 +18,8 @@
     </section>
     <div class="container">
         <label for="textFilter">
-            <input type="text" class="input is-fullwidth" name="textFilter" id="textFilter" placeholder="Search for title" onkeyup="textFilter()">
+            <input type="text" class="input is-fullwidth" name="textFilter" id="textFilter"
+                   placeholder="Search for title" onkeyup="textFilter()">
             <p class="has-text-info">Important: Input filter does not work together with the select filter.</p>
         </label>
     </div>
@@ -72,7 +73,6 @@
             <button onClick="window.location.reload()" class="is-rounded button is-info is-outlined">Reset</button>
         </div>
     </div>
-
 
     <div class="columns columns-container is-multiline blogs">
         @forelse($blogs as $blog)

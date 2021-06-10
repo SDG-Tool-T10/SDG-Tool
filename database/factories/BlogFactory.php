@@ -24,9 +24,9 @@ class BlogFactory extends Factory
         return [
             'program_id' => $this->faker->numberBetween(1, 3),
             'business_operation_id' => $this->faker->numberBetween(1, 7),
-            'research_group_id' => NULL,
+            'research_group_id' => $this->faker->numberBetween(1,22),
             'activity_id' => $this->faker->numberBetween(1, 8),
-            'title' => $this->faker->sentence,
+            'title' => $this->faker->domainWord,
             'description' => $this->faker->catchPhrase,
             'impact' => $this->faker->text,
             'link' => $this->faker->url,
