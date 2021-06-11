@@ -16,6 +16,13 @@
         </div>
         <a href="{{ route('blogs.create') }}" class="button is-light is-link">Add a Blog</a>
     </section>
+    <div class="container">
+        <label for="textFilter">
+            <input type="text" class="input is-fullwidth" name="textFilter" id="textFilter"
+                   placeholder="Search for title" onkeyup="textFilter()">
+            <p class="has-text-info">Important: Input filter does not work together with the select filter.</p>
+        </label>
+    </div>
     <div class="filter_container">
         <div class="single-filter select is-info is-rounded">
             <select id="filter1" onchange="myFilter()">
@@ -67,15 +74,14 @@
         </div>
     </div>
 
-
-    <div class="columns columns-container is-multiline">
+    <div class="columns columns-container is-multiline blogs">
         @forelse($blogs as $blog)
             <div class="column is-full blogPost">
                 <div class="card card_with_blog">
                     <div class="card-stacked">
                         <div class="card-content card_container">
                             <div class="media-content card_link">
-                                <a class="title is-3" href="//{{ $blog->link }}">
+                                <a class="title blogTitle is-3" href="//{{ $blog->link }}">
                                     {{ $blog->title }}
                                 </a>
                             </div>
@@ -113,7 +119,7 @@
                                 </div>
                                 <div class="blog_container-bottom">
                                     <p class="blog_footer"><b>Publisher:</b> {{ $blog->contact_name }} </p>
-                                <p class="blog_footer"><b>Updated at:</b> {{ $blog->updated_at }} </p>
+                                    <p class="blog_footer"><b>Updated at:</b> {{ $blog->updated_at }} </p>
                                 </div>
                             </div>
                         </div>
