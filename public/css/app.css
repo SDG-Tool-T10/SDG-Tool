@@ -73,6 +73,15 @@
     width: 25%;
 }
 
+/* Admin Pending blog and blogs header */
+th{
+    position: sticky;
+    top: 0;
+    background: #3298dc;
+    z-index: 100;
+    color: white !important;
+}
+
 /* Contact */
 .contact-picture {
     margin: 10px 50px 50px 180px;
