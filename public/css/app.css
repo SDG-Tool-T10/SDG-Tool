@@ -20,7 +20,8 @@
 }
 
 .header-img img {
-    transform: scale(1.5);
+    transform: scale(0.6);
+    margin-left: -1%;
 }
 
 /* Dashboard */

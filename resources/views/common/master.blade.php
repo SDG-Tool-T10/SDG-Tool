@@ -7,6 +7,8 @@
 
     @yield('script')
 
+    <link rel="icon" href={{ asset('image/HZ_logo.png') }}>
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bulma.min.css') }}" rel="stylesheet">
 </head>
