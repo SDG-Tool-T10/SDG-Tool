@@ -70,7 +70,6 @@
                     <div class="card-content">
                         <div class="content">
                             <header class="card-header-title columns">Blogs
-
                             </header>
                             <div class="container fixed-height">
                                 <table>
