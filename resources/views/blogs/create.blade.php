@@ -138,27 +138,6 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Subgoals</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-fullwidth @error('sub_sdg_id') is-danger @enderror">
-                            <select class="select-subgoal" type="text"
-                                    id="sub_sdg_id" name="sub_sdg_id" value="{{ old('sub_sdg_id') }}">
-                                {{-- TODO Shouldn't this be assigned dynamically from DB?--}}
-                                <option disabled selected value=""> -- select a Subgoal --</option>
-                                <option selected value=""> None</option>
-                                <option value="{{ old('sub_sdg_id') }}">Subgoal 1</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
                 <label class="label">Title</label>
             </div>
             <div class="field-body">
