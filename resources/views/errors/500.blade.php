@@ -8,7 +8,8 @@
                     <div class="card-content">
                         <div class="content is-italic">
                             <h1>500</h1>
-                            <p>Server Error</p>
+                            <p>Our apologies, something went wrong with our Server</p>
+                            <p>Click <a href="/">here</a> to go back to the home page</p>
                         </div>
                     </div>
                 </div>
