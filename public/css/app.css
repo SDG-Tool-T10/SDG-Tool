@@ -196,3 +196,15 @@ th{
     margin-bottom: 0.2em;
     width: 26.99em;
 }
+
+.error-page{
+    background-color: rgb(50,152,220,0.3) !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    padding: 40px;
+    border-radius: 50px!important;
+}
+
+
