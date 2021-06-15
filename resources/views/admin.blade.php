@@ -86,7 +86,7 @@
                                     <th></th>
                                     <th></th>
                                     @forelse($blogs as $blog)
-                                        @if($blog->visibility === 1)
+                                        @if($blog->visibility)
                                             <tr>
                                                 <td>{{ $blog->description }}</td>
                                                 <td>{{ $blog->activity->name }}</td>
