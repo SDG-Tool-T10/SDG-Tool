@@ -10,5 +10,6 @@
     <div class="message-body is-size-3">
         Welcome... you have verified your email.
         You are now able to use your account.
-  </article>
+    </div>
+</article>
 @endsection
