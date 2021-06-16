@@ -23,7 +23,7 @@
                     @endif
                 @endauth
                 @auth()
-                    @if (Auth::user()->admin == 1)
+                    @if (Auth::user()->admin == true)
                         <a href="/admin" class="navbar-item {{ Request::path() === 'admin' ? 'is-active' : '' }}">
                             Admin
                         </a>
