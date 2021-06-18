@@ -34,7 +34,7 @@ Route::resource('/', WelcomeController::class);
 
 Route::put('/blogs/changevisibility/{blog}', [BlogController::class, 'changeVisibility']);
 
-Route::resource('/blogs', BlogController::class)->middleware(['auth']);
+Route::resource('/blogs', BlogController::class)->middleware(['auth','verified']);
 
 Route::resource('/sdgs', SdgController::class);
 
