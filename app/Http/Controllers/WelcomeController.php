@@ -19,7 +19,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $sdgs = Sdg::latest()->get();
+        $sdgs = Sdg::get();
         return view('welcome', compact('sdgs'));
     }
 
