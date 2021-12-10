@@ -130,26 +130,6 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Subgoal</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-fullwidth @error('subgoal') is-danger @enderror">
-                            <select class="select-subgoal" type="text" id="subgoal" name="subgoal"
-                                    value="{{ old('subgoal') }}">
-                                {{-- TODO: make it dynamic --}}
-                                <option value="">None</option>
-                                <option value="{{ old('subgoal1') }}">Subgoal 1</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
                 <label class="label">Title</label>
             </div>
             <div class="field-body">

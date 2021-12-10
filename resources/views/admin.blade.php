@@ -14,7 +14,6 @@
                                     </button>
                                 </h1>
                             </header>
-
                             <div class="container fixed-height">
                                 <table>
                                     <tbody>
@@ -71,11 +70,6 @@
                     <div class="card-content">
                         <div class="content">
                             <header class="card-header-title columns">Blogs
-                                <h1 class="column has-text-right content-margin">
-                                    <button class="button is-white disabled" disabled>
-                                        <a href="#"></a>
-                                    </button>
-                                </h1>
                             </header>
                             <div class="container fixed-height">
                                 <table>
@@ -296,11 +290,6 @@
                     <div class="card-content">
                         <div class="content">
                             <header class="card-header-title columns">SDG Excerpts</header>
-                            <h1 class="column has-text-right content-margin">
-                                <button class="button is-white disabled" disabled>
-                                    <a href="#"></a>
-                                </button>
-                            </h1>
                             <div class="container fixed-height">
                                 <table>
                                     <tbody>
